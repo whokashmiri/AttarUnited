@@ -1,0 +1,17 @@
+{
+  "navbar": {
+    "home": "Home",
+    "contact": "Contact",
+    "story": "Story",
+    "close": "Tap outside the menu to close."
+  },
+  "hero": {
+    "title": "Hand-crafted jewelry",
+    "subtitle": "Scroll to explore more products",
+    "category": "Necklaces",
+    "productName": "Carmen",
+    "price": "$9,000.00",
+    "buyTemplate": "Buy Template",
+    "madeInFramer": "Made in Framer"
+  }
+}
