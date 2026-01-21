@@ -3,6 +3,7 @@ import Navbar from '../Layout/Navbar'
 import Hero from '../components/Hero/Hero'
 import AboutUs from '../components/OurStory/AboutUs'
 import OurBrands from '../components/OurBrands/OurBrands'
+import BoutiqueLocator from '../components/Boutiques/BoutiqueLocator'
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
     <Hero/>
     <AboutUs/>
     <OurBrands/>
+    <BoutiqueLocator/>
        
     </>
   )
