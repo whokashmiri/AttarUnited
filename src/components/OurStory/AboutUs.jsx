@@ -2,16 +2,6 @@
 import React, { useMemo, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from "framer-motion";
 
-/**
- * AboutUs (Premium / Royal)
- * - Keeps black background
- * - Stroke -> fill title
- * - Improves the text below title to look "royal":
- *   - No ALL CAPS for paragraphs (more luxurious)
- *   - Better spacing + max-width
- *   - Softer contrast + readable line-height
- *   - Elegant "lede" block with left accent line
- */
 
 function StrokeFillTitle({ text = "ATTAR UNITED", progress }) {
   const fillW = useSpring(useTransform(progress, [0, 1], ["0%", "100%"]), {
@@ -69,8 +59,8 @@ function StrokeFillTitle({ text = "ATTAR UNITED", progress }) {
         <text
           x="0"
           y="135"
-          className="select-none"
-          fill="rgba(255,255,255,0.92)"
+          className="select-none "
+          fill="rgb(152, 106, 76)"
           fontFamily='ui-serif, Georgia, Cambria, "Times New Roman", Times, serif'
           fontSize="120"
           letterSpacing="0.06em"
@@ -136,11 +126,11 @@ export default function AboutUs() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black to-transparent" /> */}
 
         <motion.div
-          className="relative z-10 mx-auto flex min-h-[92vh] max-w-[1200px] items-end px-6 pb-24"
+          className="relative z-10 mx-auto flex min-h-[92vh] max-w-300 items-end px-6 pb-24"
           style={{ y: contentY, opacity: contentOpacity }}
         >
           <motion.div
-            className="w-full max-w-[980px]"
+            className="w-full max-w-245"
             variants={variants.wrap}
             initial="hidden"
             whileInView="show"
@@ -155,12 +145,12 @@ export default function AboutUs() {
             </motion.p>
 
             {/* Title */}
-            <motion.div variants={variants.item} className="mt-5">
+            <motion.div variants={variants.item} className="mt-5 text-[#986a4c]">
               <StrokeFillTitle text="ATTAR UNITED" progress={scrollYProgress} />
             </motion.div>
 
             {/* Divider */}
-            <motion.div variants={variants.item} className="mt-8 relative h-px w-full max-w-[560px]">
+            <motion.div variants={variants.item} className="mt-8 relative h-px w-full max-w-140">
               <div className="absolute inset-0 bg-white/10" />
               <motion.div className="absolute left-0 top-0 h-px bg-white/55" style={{ width: lineW }} />
               <motion.div

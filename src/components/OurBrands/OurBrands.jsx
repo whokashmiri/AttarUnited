@@ -24,10 +24,10 @@ const DEFAULT_BRANDS = [
   {
     name: "Hublot",
     media: [
-      { type: "image", src: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/125779/pexels-photo-125779.jpeg" },
-      { type: "video", src: "https://www.pexels.com/download/video/9421503/" },
+      { type: "image", src: "https://www.hublot.com/sites/default/files/styles/watch_item_desktop_2x/public/2026-01/Classic-Fusion-Chronograph-Titanium-Sage-Green-45-mm-Soldier.png?itok=mKENK2p8" },
+      { type: "image", src: "https://www.hublot.com/sites/default/files/styles/global_medium_desktop_1x/public/2025-04/megamenu_big_bang_d.jpg?itok=R9D0krnO" },
+      { type: "image", src: "https://www.hublot.com/sites/default/files/styles/global_medium_desktop_1x/public/2025-04/megamenu_exceptional_d.jpg?itok=-NT5JkfT" },
+      { type: "video", src: "https://www.hublot.com/sites/default/files/2026-01/big-bang-original-unico-loop-2-optim.mp4" },
     ],
   },
   {
@@ -139,9 +139,9 @@ function BrandMediaCard({ brand, index }) {
 
       {/* Title */}
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-        <div className="text-[10px] tracking-[0.38em] uppercase text-white/60">Our Brand</div>
+        <div className="text-[10px] tracking-[0.38em] uppercase ">Our Brand</div>
         <div className="mt-2 leading-none">
-          <BurnTitle>{brand.name}</BurnTitle>
+          <BurnTitle className="text-[#986a4c]">{brand.name}</BurnTitle>
         </div>
         <div className="mt-3 flex items-center gap-2 text-white/55">
           <span className="h-px w-10 bg-white/20" />

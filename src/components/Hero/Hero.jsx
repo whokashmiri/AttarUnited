@@ -73,7 +73,7 @@ export default function Hero({
         <motion.div className="w-full" style={{ y: textLift }}>
           <motion.h1
             className=" uppercase
-              select-none text-white/95 font-serif
+              select-none text-[#986a4c] font-serif
               text-6xl sm:text-7xl md:text-8xl lg:text-9xl
               leading-[0.92] tracking-tight
             "
