@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -63,7 +64,7 @@ const [activeStore, setActiveStore] = useState(null);
         </AnimatePresence>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
 
         {/* CITY TABS */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-10">

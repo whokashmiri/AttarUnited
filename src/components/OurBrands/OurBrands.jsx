@@ -2,6 +2,32 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
+import c1 from './assets/C1.webp'
+import c2 from './assets/C2.webp'
+import c3 from './assets/C2.webp'
+
+import h1 from './assets/H1.jpg'
+import h2 from './assets/H2.jpg'
+import h3 from './assets/H3.jpg'
+
+
+import g1 from './assets/G1.webp'
+import g2 from './assets/G2.webp'
+import g3 from './assets/G3.webp'
+
+import a1 from './assets/A1.webp'
+import a2 from './assets/A2.webp'
+import a3 from './assets/A3.webp'
+
+import gc1 from './assets/GC1.webp'
+import gc2 from './assets/GC2.webp'
+import gc3 from './assets/GC3.webp'
+
+import st1 from './assets/ST (1).jpg'
+import st2 from './assets/ST (2).jpg'
+import st3 from './assets/ST (3).jpg'
+
+
 
 /**
  * OurBrands (Premium Media Cards) — 200vh Section
@@ -15,54 +41,54 @@ const DEFAULT_BRANDS = [
   {
     name: "Chopard",
     media: [
-      { type: "image", src: "https://images.pexels.com/photos/9978921/pexels-photo-9978921.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/9978930/pexels-photo-9978930.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/10189189/pexels-photo-10189189.jpeg" },
+      { type: "image", src: c1 },
+      { type: "image", src: c2 },
+      { type: "image", src: c3 },
       { type: "video", src: "https://www.pexels.com/download/video/20117683/" },
     ],
   },
   {
     name: "Hublot",
     media: [
-      { type: "image", src: "https://www.hublot.com/sites/default/files/styles/watch_item_desktop_2x/public/2026-01/Classic-Fusion-Chronograph-Titanium-Sage-Green-45-mm-Soldier.png?itok=mKENK2p8" },
-      { type: "image", src: "https://www.hublot.com/sites/default/files/styles/global_medium_desktop_1x/public/2025-04/megamenu_big_bang_d.jpg?itok=R9D0krnO" },
-      { type: "image", src: "https://www.hublot.com/sites/default/files/styles/global_medium_desktop_1x/public/2025-04/megamenu_exceptional_d.jpg?itok=-NT5JkfT" },
+      { type: "image", src: h1 },
+      { type: "image", src: h2 },
+      { type: "image", src: h3 },
       { type: "video", src: "https://www.hublot.com/sites/default/files/2026-01/big-bang-original-unico-loop-2-optim.mp4" },
     ],
   },
   {
     name: "Graff",
     media: [
-      { type: "image", src: "https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/265906/pexels-photo-265906.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg" },
+      { type: "image", src: g1 },
+      { type: "image", src: g2 },
+      { type: "image", src: g3 },
       { type: "video", src: "https://www.pexels.com/download/video/9421508/" },
     ],
   },
   {
     name: "Azza Fahmy",
     media: [
-      { type: "image", src: "https://images.pexels.com/photos/1191533/pexels-photo-1191533.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/1457801/pexels-photo-1457801.jpeg" },
+      { type: "image", src: a1 },
+      { type: "image", src: a2 },
+      { type: "image", src: a3 },
       { type: "video", src: "https://www.pexels.com/download/video/6469640/" },
     ],
   },
   {
     name: "Gerald Charles",
     media: [
-      { type: "image", src: "https://images.pexels.com/photos/380782/pexels-photo-380782.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/277319/pexels-photo-277319.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/125779/pexels-photo-125779.jpeg" },
+      { type: "image", src: gc1 },
+      { type: "image", src: gc2 },
+      { type: "image", src: gc3 },
       { type: "video", src: "https://videos.pexels.com/video-files/7989655/7989655-hd_1280_720_30fps.mp4" },
     ],
   },
   {
     name: "Saint Louis",
     media: [
-      { type: "image", src: "https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg" },
-      { type: "image", src: "https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg" },
+      { type: "image", src: st1 },
+      { type: "image", src: st2 },
+      { type: "image", src: st3 },
       { type: "video", src: "https://videos.pexels.com/video-files/3195390/3195390-hd_1280_720_30fps.mp4" },
     ],
   },
