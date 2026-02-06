@@ -103,7 +103,7 @@ function BurnTitle({ children }) {
     <div className="relative inline-block select-none">
       <div className="burn-stroke font-serif uppercase tracking-[0.14em]">{children}</div>
       <div className="burn-core absolute inset-0 font-serif uppercase tracking-[0.14em]">{children}</div>
-      <div className="burn-embers absolute inset-0 font-serif uppercase tracking-[0.14em]">{children}</div>
+      {/* <div className="burn-embers absolute inset-0 font-serif uppercase tracking-[1.30em]">{children}</div> */}
     </div>
   );
 }
