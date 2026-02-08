@@ -1,4 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
+/* eslint-disable no-unused-vars */
+import { AnimatePresence , motion } from "framer-motion";
 import { useState } from "react";
 
 const timeline = [
@@ -79,7 +80,7 @@ export default function StoryTimeline() {
       </h2>
 
       {/* ================= WATCH + BUTTONS (FIXED AREA) ================= */}
-      <div className="relative flex items-center justify-center h-[360px] md:h-[420px] w-full">
+      <div className="relative flex items-center justify-center h-90 md:h-105 w-full">
         
         {/* LEFT BUTTON */}
         <button
@@ -122,7 +123,7 @@ export default function StoryTimeline() {
         </button>
 
         {/* WATCH CIRCLE */}
-        <div className="relative w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full border border-yellow-400/40 flex items-center justify-center">
+        <div className="relative w-65 h-65 md:w-[320px] md:h-80 rounded-full border border-yellow-400/40 flex items-center justify-center">
           
           {/* Glow */}
           <div className="absolute inset-0 rounded-full shadow-[0_0_80px_rgba(255,215,120,0.25)]" />
@@ -166,7 +167,7 @@ export default function StoryTimeline() {
               {timeline[activeIndex].text}
             </p>
 
-            <div className="mx-auto mt-8 h-px w-32 bg-gradient-to-r from-yellow-400 to-transparent" />
+            <div className="mx-auto mt-8 h-px w-32 bg-linear-to-r from-yellow-400 to-transparent" />
           </motion.div>
         </AnimatePresence>
       </div>

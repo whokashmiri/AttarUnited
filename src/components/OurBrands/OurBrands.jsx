@@ -101,8 +101,8 @@ function rand(min, max) {
 function BurnTitle({ children }) {
   return (
     <div className="relative inline-block select-none">
-      <div className="burn-stroke font-serif uppercase tracking-[0.14em]">{children}</div>
-      <div className="burn-core absolute inset-0 font-serif uppercase tracking-[0.14em]">{children}</div>
+      <div className="burn-stroke font-baskerville uppercase tracking-[0.14em]">{children}</div>
+      <div className="burn-core absolute inset-0 font-baskerville uppercase tracking-[0.14em]">{children}</div>
       {/* <div className="burn-embers absolute inset-0 font-serif uppercase tracking-[1.30em]">{children}</div> */}
     </div>
   );
@@ -226,7 +226,7 @@ export default function OurBrands({
         <p className="text-[10px] sm:text-xs tracking-[0.38em] uppercase text-white/55">
           Attar United
         </p>
-        <h2 className="mt-3 sm:mt-4 font-serif text-white/92 leading-none text-3xl sm:text-4xl md:text-5xl tracking-tight">
+        <h2 className="mt-3 sm:mt-4 font-baskerville text-white/92 leading-none text-3xl sm:text-4xl md:text-5xl tracking-tight">
           {title}
         </h2>
         <p className="mt-3 sm:mt-4 max-w-2xl text-white/70 text-sm sm:text-base leading-relaxed">

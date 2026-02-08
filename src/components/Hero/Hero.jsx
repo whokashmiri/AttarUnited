@@ -1,6 +1,20 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring as framerUseSpring } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring as framerUseSpring,
+} from "framer-motion";
+
+/**
+ * SCROLL CINEMATIC HERO
+ * - Sticky hero
+ * - Sequential image cross-fade
+ * - Slow zoom on active image
+ * - Supports any number of images
+ */
 
 export default function Hero({
   images = [],
@@ -9,82 +23,107 @@ export default function Hero({
 }) {
   const ref = useRef(null);
 
+  /* --------------------------------------------
+   Scroll progress for entire hero section
+  --------------------------------------------- */
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const spring = (v, cfg = {}) =>
-    framerUseSpring(v, { stiffness: 70, damping: 28, mass: 1, ...cfg });
+  /* --------------------------------------------
+   Spring helper (smooth cinematic motion)
+  --------------------------------------------- */
+  const spring = (value) =>
+    framerUseSpring(value, {
+      stiffness: 70,
+      damping: 28,
+      mass: 1,
+    });
 
-  // Zoom factor for the active image
-  const zoomFactor = 1.12;
+  /* --------------------------------------------
+   Config
+  --------------------------------------------- */
+  const zoomFactor = 1.08;
+  const imageCount = images.length || 1;
+  const segment = 1 / imageCount;
 
-  // Define transforms for each image individually (sequential fade in/out)
-  const o1 = spring(useTransform(scrollYProgress, [0, 0.16, 1], [1, 1, 0]));
-  const s1 = spring(useTransform(scrollYProgress, [0, 0.16], [1, zoomFactor]));
+  /* --------------------------------------------
+   Build animation layers dynamically
+  --------------------------------------------- */
+  const layers = images.map((img, index) => {
+    const start = index * segment;
+    const fadeIn = start + segment * 0.25;
+    const fadeOut = start + segment * 0.85;
 
-  const o2 = spring(useTransform(scrollYProgress, [0, 0.16, 0.32, 1], [0, 0, 1, 0]));
-  const s2 = spring(useTransform(scrollYProgress, [0.16, 0.32], [1, zoomFactor]));
+    const opacity = spring(
+      useTransform(
+        scrollYProgress,
+        [start, fadeIn, fadeOut, start + segment],
+        [index === 0 ? 1 : 0, 1, 1, 0]
+      )
+    );
 
-  const o3 = spring(useTransform(scrollYProgress, [0, 0.32, 0.48, 1], [0, 0, 1, 0]));
-  const s3 = spring(useTransform(scrollYProgress, [0.32, 0.48], [1, zoomFactor]));
+    const scale = spring(
+      useTransform(scrollYProgress, [start, start + segment], [1, zoomFactor])
+    );
 
-  const o4 = spring(useTransform(scrollYProgress, [0, 0.48, 0.64, 1], [0, 0, 1, 0]));
-  const s4 = spring(useTransform(scrollYProgress, [0.48, 0.64], [1, zoomFactor]));
+    return {
+      img,
+      opacity,
+      scale,
+      zIndex: imageCount - index,
+    };
+  });
 
-  const o5 = spring(useTransform(scrollYProgress, [0, 0.64, 0.80, 1], [0, 0, 1, 0]));
-  const s5 = spring(useTransform(scrollYProgress, [0.64, 0.80], [1, zoomFactor]));
-
-  const o6 = spring(useTransform(scrollYProgress, [0, 0.80, 1], [0, 0, 1]));
-  const s6 = spring(useTransform(scrollYProgress, [0.80, 1], [1, zoomFactor]));
-
-  const layers = [
-    { img: images[0], opacity: o1, scale: s1 },
-    { img: images[1], opacity: o2, scale: s2 },
-    { img: images[2], opacity: o3, scale: s3 },
-    { img: images[3], opacity: o4, scale: s4 },
-    { img: images[4], opacity: o5, scale: s5 },
-    { img: images[5], opacity: o6, scale: s6 },
-  ];
-
+  /* --------------------------------------------
+   Render
+  --------------------------------------------- */
   return (
-    <section ref={ref} className="relative h-[600vh] w-full bg-black">
+    <section
+      ref={ref}
+      className="relative h-[800vh] w-full bg-black"
+    >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* IMAGE STACK */}
+        {/* ==========================================
+           IMAGE STACK
+        =========================================== */}
         <div className="absolute inset-0">
-          {layers.map(
-            (layer, i) =>
-              layer.img && (
-                <motion.div
-                  key={i}
-                  className="absolute inset-0"
-                  style={{
-                    opacity: layer.opacity,
-                    scale: layer.scale,
-                    zIndex: layer.zIndex,
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${layer.img})` }}
-                  />
-                </motion.div>
-              )
-          )}
+          {layers.map((layer, i) => (
+            <motion.div
+              key={i}
+              className="absolute inset-0 will-change-transform"
+              style={{
+                opacity: layer.opacity,
+                scale: layer.scale,
+                zIndex: layer.zIndex,
+              }}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${layer.img})`,
+                }}
+              />
+            </motion.div>
+          ))}
         </div>
 
-        {/* Overlays */}
-        <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_35%,rgba(255,255,255,0.06),transparent_60%)]" />
-        <div className="absolute inset-0 bg-linear-to-b from-black/35 via-black/10 to-black/55" />
+        {/* ==========================================
+           CINEMATIC OVERLAYS
+        =========================================== */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_35%,rgba(255,255,255,0.03),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/20 via-black/5 to-black/40" />
 
-        {/* Hero content */}
-        <div className="relative z-10 mx-auto flex h-full max-w-300 items-end px-6 pb-20">
+        {/* ==========================================
+           HERO TEXT CONTENT
+        =========================================== */}
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-6 pb-20">
           <div>
-            <h1 className="uppercase text-[#986a4c] font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.92]">
+            <h1 className="uppercase text-[#986a4c] font-baskerville text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.92]">
               {title}
             </h1>
-            <p className="mt-6 max-w-190 text-white/75 font-serif text-sm sm:text-base md:text-lg">
+            <p className="mt-6 max-w-xl text-white/75 font-baskerville text-sm sm:text-base md:text-lg">
               {subtitle}
             </p>
           </div>

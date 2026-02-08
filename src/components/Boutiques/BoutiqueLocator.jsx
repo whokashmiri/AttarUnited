@@ -91,7 +91,7 @@ const [activeStore, setActiveStore] = useState(null);
           <p className="text-xs tracking-[0.4em] text-white/50 uppercase">
             Boutiques
           </p>
-          <h2 className="mt-4 font-serif text-4xl">
+          <h2 className="mt-4 font-baskerville text-4xl">
             {city}
           </h2>
         </div>
@@ -113,7 +113,7 @@ const [activeStore, setActiveStore] = useState(null);
                 </div>
 
                 <div className="flex-1 border-b border-white/10 pb-6">
-                  <h3 className="font-serif text-2xl group-hover:text-white transition">
+                  <h3 className="font-baskerville text-2xl group-hover:text-white transition">
                     {store.name}
                   </h3>
                   <p className="mt-3 text-white/60 max-w-xl">

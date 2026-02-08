@@ -70,7 +70,7 @@ function MenuLink({ to, label, onClick }) {
       <Link
         to={to}
         onClick={onClick}
-        className="group relative block w-fit text-[28px] sm:text-[34px] md:text-[44px] font-semibold tracking-tight text-white/90 hover:text-white transition"
+        className="group relative block w-fit text-[28px] sm:text-[34px] md:text-[44px] font-baskerville tracking-tight text-white/90 hover:text-white transition"
       >
         <span className="relative">
           {label}
@@ -183,7 +183,7 @@ function AttarMenuOverlay({ open, onClose, lang, toggleLang }) {
                   ariaLabel="Toggle language"
                   className="w-auto"
                 >
-                  <span className="px-4 text-xs font-semibold tracking-wide">
+                  <span className="px-4 text-xs font-baskerville tracking-wide">
                     {lang === "en" ? "EN" : "AR"}
                   </span>
                 </GlassIconButton>
@@ -301,7 +301,7 @@ export default function Navbar({ initialLang = "en", onLangChange, sticky = true
           {/* Right language toggle */}
           <div className="flex justify-end">
             <GlassIconButton onClick={toggleLang} ariaLabel="Toggle language" className="w-auto">
-              <span className="px-4 text-xs font-semibold tracking-wide">
+              <span className="px-4 text-xs font-baskerville tracking-wide">
                 {lang === "en" ? "EN" : "AR"}
               </span>
             </GlassIconButton>

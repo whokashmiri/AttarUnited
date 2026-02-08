@@ -169,16 +169,16 @@ export default function AboutUs() {
                 {/* Accent line (royal feel) */}
                 <div className="absolute left-0 top-1 bottom-1 w-px bg-white/25" />
 
-                <p className="font-serif text-white/70 text-base sm:text-lg leading-relaxed tracking-[0.01em]">
+                <p className="font-baskerville text-white/70 text-base sm:text-lg leading-relaxed tracking-[0.01em]">
                   Official Retailer of Chopard, Hublot, Graff, Azza Fahmy, Gerald Charles and Saint Louis in Saudi Arabia.
                 </p>
 
-                <p className="mt-6 font-serif text-white/70 text-base sm:text-lg leading-[1.85]">
+                <p className="mt-6 font-baskerville text-white/70 text-base sm:text-lg leading-[1.85]">
                   Attar United offers an exquisite array of brilliantly crafted watches for those looking for the unique
                   and incomparable.
                 </p>
 
-                <p className="mt-4 font-serif text-white/65 text-base sm:text-lg leading-[1.85]">
+                <p className="mt-4 font-baskerville text-white/65 text-base sm:text-lg leading-[1.85]">
                   Over the past decade, Attar United has provided a unique and personalized customer experience that has
                   changed the way buyers in the Kingdom of Saudi Arabia shop for timeless pieces.
                 </p>
