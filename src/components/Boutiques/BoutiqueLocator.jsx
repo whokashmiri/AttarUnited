@@ -324,7 +324,7 @@ export default function BoutiqueLocatorLuxury() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_15%,rgba(255,255,255,0.10),transparent_55%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(255,215,140,0.10),transparent_58%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_45%_85%,rgba(180,140,255,0.06),transparent_60%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+        <div className="absolute inset-0 bg-linear-to-b from-black via-black/80 to-black" />
       </div>
 
       {/* ========= 3D background per selected city ========= */}
@@ -356,12 +356,12 @@ export default function BoutiqueLocatorLuxury() {
 
             {/* premium overlays (DON'T make too dark) */}
             <div className="absolute inset-0 bg-black/22" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/12 via-black/30 to-black/70" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/12 via-black/30 to-black/70" />
 
             {/* UI mask areas (top/bottom) to visually reduce Sketchfab chrome */}
             <div className="pointer-events-none absolute inset-0">
-              <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-black/55 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-black/70 to-transparent" />
             </div>
           </motion.div>
         )}
@@ -478,7 +478,7 @@ export default function BoutiqueLocatorLuxury() {
               <p className="text-center text-white/40 text-sm mt-6">{noStoreMessage}</p>
             )}
 
-            <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <div className="mt-10 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent" />
           </div>
 
           {/* Right: Map Panel */}
@@ -502,7 +502,7 @@ export default function BoutiqueLocatorLuxury() {
                 </div>
               </div>
 
-              <div className="relative aspect-[16/9] w-full">
+              <div className="relative aspect-video w-full">
                 <AnimatePresence mode="wait">
                   {mapEmbedEl ? (
                     <motion.div
@@ -525,7 +525,7 @@ export default function BoutiqueLocatorLuxury() {
                       transition={{ duration: 0.45 }}
                     >
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,215,140,0.10),transparent_55%)]" />
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/35 to-black/70" />
+                      <div className="absolute inset-0 bg-linear-to-b from-black/10 via-black/35 to-black/70" />
 
                       <div className="relative h-full w-full flex items-center justify-center text-center px-10">
                         <div>
