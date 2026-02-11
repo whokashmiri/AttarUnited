@@ -1,133 +1,254 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DATA = {
-  Jeddah: {
-    video: "https://videos.pexels.com/video-files/857195/857195-hd_1280_720_30fps.mp4",
-    stores: [
-      {
-        name: "Attar United — Tahlia",
-        meta: "Flagship Boutique",
-        address: "Tahlia Street, Jeddah",
-        map: "https://www.google.com/maps?q=Tahlia%20Street%20Jeddah&output=embed",
-      },
-      {
-        name: "Attar United — Red Sea Mall",
-        meta: "Luxury Retail",
-        address: "Red Sea Mall, Jeddah",
-        map: "https://www.google.com/maps?q=Red%20Sea%20Mall%20Jeddah&output=embed",
-      },
-    ],
+const STORES = [
+  // ================= RIYADH =================
+  {
+    city: "Riyadh",
+    brand: "Chopard",
+    name: "Panorama Mall",
+    address: "Panorama Mall, Tahlia Street, Riyadh",
+    tel: "(011) 2815300",
   },
-  Riyadh: {
-    video: "https://videos.pexels.com/video-files/856929/856929-hd_1280_720_30fps.mp4",
-    stores: [],
+  {
+    city: "Riyadh",
+    brand: "Chopard",
+    name: "Kingdom Centre Tower",
+    address: "Kingdom Centre, Olaya Street, Riyadh",
+    tel: "(011) 2110017",
   },
+  {
+    city: "Riyadh",
+    brand: "Chopard",
+    name: "Solitaire Mall",
+    address: "As Sahafah district, King Abdulaziz Road",
+    tel: "(011) 51 27 299",
+  },
+  {
+    city: "Riyadh",
+    brand: "Hublot",
+    name: "Panorama Mall",
+    address: "Panorama Mall, Tahlia Street, Riyadh",
+    tel: "(011) 4821360",
+  },
+  {
+    city: "Riyadh",
+    brand: "Hublot",
+    name: "Kingdom Centre Tower",
+    address: "Kingdom Centre, Olaya Street, Riyadh",
+    tel: "(011) 2111391",
+  },
+  {
+    city: "Riyadh",
+    brand: "Hublot",
+    name: "Solitaire Mall",
+    address: "As Sahafah district, King Abdulaziz Road",
+    tel: "(011) 51 27 266",
+  },
+  {
+    city: "Riyadh",
+    brand: "Saint Louis",
+    name: "Olaya Towers",
+    address: "Olaya Street, Riyadh",
+    tel: "(012) 603 9760",
+  },
+  {
+    city: "Riyadh",
+    brand: "Graff",
+    name: "Kingdom Centre Tower",
+    address: "Kingdom Centre, Olaya Street, Riyadh",
+    tel: "(011) 2111492",
+  },
+  {
+    city: "Riyadh",
+    brand: "Graff",
+    name: "Olaya Towers",
+    address: "Olaya Street, Riyadh",
+    tel: "(011) 2699593",
+  },
+  {
+    city: "Riyadh",
+    brand: "Azza Fahmy",
+    name: "Kingdom Centre Tower",
+    address: "King Fahd Rd, Al Olaya, Riyadh",
+    tel: "(011) 2111492",
+  },
+
+  // ================= JEDDAH =================
+  {
+    city: "Jeddah",
+    brand: "Chopard",
+    name: "Al Basateen Mall",
+    address:
+      "Al Basateen Mall, Prince Mohammad Bin Abdulaziz St., Jeddah",
+    tel: "(012) 6126299",
+  },
+  {
+    city: "Jeddah",
+    brand: "Hublot",
+    name: "El Khayyat Center",
+    address:
+      "21553 El Khayyat Center, Tahlia Street, Al Andalus, Jeddah",
+    tel: "(012) 6774125",
+  },
+
+  // ================= KHOBAR =================
+  {
+    city: "Khobar",
+    brand: "Chopard",
+    name: "Al-Shaikh Avenue",
+    address:
+      "Al-Shaikh Avenue, King Salman Road, Al-Khobar",
+    tel: "(013) 8022882",
+  },
+  {
+    city: "Khobar",
+    brand: "Hublot",
+    name: "Al-Shaikh Avenue",
+    address:
+      "Al-Shaikh Avenue, King Salman Road, Al Khobar",
+    tel: "(013) 8021377",
+  },
+];
+
+const VIDEOS = {
+  Riyadh:
+    "https://videos.pexels.com/video-files/856929/856929-hd_1280_720_30fps.mp4",
+  Jeddah:
+    "https://videos.pexels.com/video-files/857195/857195-hd_1280_720_30fps.mp4",
+  Khobar:
+    "https://videos.pexels.com/video-files/3195394/3195394-hd_1280_720_30fps.mp4",
 };
 
-export default function BoutiqueLocatorCinematic() {
- const [city, setCity] = useState("Jeddah");
-const [activeStore, setActiveStore] = useState(null);
+export default function BoutiqueLocatorLuxury() {
+  const [city, setCity] = useState(null);
+  const [brand, setBrand] = useState(null);
+  const [activeStore, setActiveStore] = useState(null);
 
+  const brands = useMemo(() => {
+    if (!city) return [];
+    return [...new Set(STORES.filter(s => s.city === city).map(s => s.brand))];
+  }, [city]);
 
-  const cityData = DATA[city];
+  const stores = useMemo(() => {
+    if (!city || !brand) return [];
+    return STORES.filter(s => s.city === city && s.brand === brand);
+  }, [city, brand]);
 
   return (
     <section className="relative min-h-screen bg-black text-white overflow-hidden">
 
-      {/* HERO MEDIA */}
+      {/* HERO */}
       <div className="relative h-[70vh] w-full">
         <AnimatePresence mode="wait">
-          {activeStore !== null ? (
+          {activeStore ? (
             <motion.iframe
               key="map"
-              src={cityData.stores[activeStore].map}
-              className="absolute inset-0 h-full w-full"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(
+                activeStore.address
+              )}&output=embed`}
+              className="absolute inset-0 w-full h-full"
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
             />
-          ) : (
+          ) : city ? (
             <motion.video
               key={city}
-              src={cityData.video}
+              src={VIDEOS[city]}
               autoPlay
               loop
               muted
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
             />
+          ) : (
+            <div className="absolute inset-0 bg-black" />
           )}
         </AnimatePresence>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
+      </div>
 
-        {/* CITY TABS */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-10">
-          {Object.keys(DATA).map((c) => (
+      {/* CONTENT */}
+      <div className="mx-auto max-w-6xl px-6 py-24">
+
+        {/* CITIES */}
+        <div className="flex justify-center gap-12 mb-16">
+          {["Riyadh", "Jeddah", "Khobar"].map((c) => (
             <button
               key={c}
               onClick={() => {
                 setCity(c);
+                setBrand(null);
                 setActiveStore(null);
               }}
-              className={`text-sm tracking-[0.4em] uppercase transition ${
-                c === city ? "text-white" : "text-white/40"
+              className={`tracking-[0.4em] uppercase text-sm transition ${
+                city === c ? "text-white" : "text-white/40 hover:text-white/70"
               }`}
             >
               {c}
             </button>
           ))}
         </div>
-      </div>
 
-      {/* BOUTIQUE TIMELINE */}
-      <div className="mx-auto max-w-5xl px-6 py-20">
-        <div className="mb-12">
-          <p className="text-xs tracking-[0.4em] text-white/50 uppercase">
-            Boutiques
-          </p>
-          <h2 className="mt-4 font-baskerville text-4xl">
-            {city}
-          </h2>
-        </div>
-
-        <div className="space-y-10">
-          {cityData.stores.map((store, idx) => (
+        {/* BRANDS */}
+        <AnimatePresence>
+          {city && (
             <motion.div
-              key={store.name}
-              onMouseEnter={() => setActiveStore(idx)}
-              onMouseLeave={() => setActiveStore(null)}
-              className="group relative cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="flex justify-center gap-10 mb-20"
             >
-              <div className="flex items-start gap-6">
-                <div className="w-24 text-xs tracking-[0.35em] text-white/40">
-                  {store.meta}
-                </div>
-
-                <div className="flex-1 border-b border-white/10 pb-6">
-                  <h3 className="font-baskerville text-2xl group-hover:text-white transition">
-                    {store.name}
-                  </h3>
-                  <p className="mt-3 text-white/60 max-w-xl">
-                    {store.address}
-                  </p>
-                </div>
-              </div>
-
-              {/* Focus Glow */}
-              <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition">
-                <div className="absolute left-32 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-white/10 blur-3xl" />
-              </div>
+              {brands.map((b) => (
+                <button
+                  key={b}
+                  onClick={() => {
+                    setBrand(b);
+                    setActiveStore(null);
+                  }}
+                  className={`text-lg font-light tracking-wide transition ${
+                    brand === b
+                      ? "text-white"
+                      : "text-white/40 hover:text-white"
+                  }`}
+                >
+                  {b}
+                </button>
+              ))}
             </motion.div>
-          ))}
+          )}
+        </AnimatePresence>
+
+        {/* STORES */}
+        <div className="space-y-10 max-w-3xl mx-auto">
+          <AnimatePresence>
+            {stores.map((store, idx) => (
+              <motion.div
+                key={store.name + idx}
+                onMouseEnter={() => setActiveStore(store)}
+                onMouseLeave={() => setActiveStore(null)}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="border-b border-white/10 pb-8 cursor-pointer group"
+              >
+                <h3 className="text-2xl font-baskerville group-hover:text-white transition">
+                  {store.name}
+                </h3>
+                <p className="text-white/60 mt-2">{store.address}</p>
+                <p className="text-white/40 mt-1 text-sm">{store.tel}</p>
+
+                <div className="h-px w-0 bg-white group-hover:w-full transition-all duration-700 mt-4" />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </section>
