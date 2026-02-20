@@ -48,8 +48,8 @@ export default function ParticleCanvas() {
 
       draw() {
         ctx.beginPath();
-        ctx.fillStyle = "#444";
-        ctx.strokeStyle = "#424242";
+        ctx.fillStyle = "white";
+        ctx.strokeStyle = "white";
         ctx.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
         ctx.fill();
         ctx.stroke();
@@ -81,6 +81,7 @@ export default function ParticleCanvas() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 z-0 pointer-events-none"
+      style={{ width: '100%', height: '100%' }}
     />
   );
 }

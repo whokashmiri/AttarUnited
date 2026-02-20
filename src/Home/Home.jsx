@@ -18,6 +18,7 @@ import GC3 from './assets/GC3.webp'
 import Graff from './assets/Graff.jpg'
 
 import AfterSell from '../components/After-sell/after-sell.jsx'
+import Footer from '../components/Footer/Footer.jsx'
 
 const Home = () => {
   return (
@@ -35,7 +36,7 @@ const Home = () => {
 />
 
     <AboutUs/>
-    <ParticleCanvas/>
+    
     <OurBrandsHero/> 
     <BoutiqueLocator/>
     <Crazy/>
@@ -43,6 +44,8 @@ const Home = () => {
       <StoryTimeline/>
       <D/>  
       <AfterSell/>
+      <Footer/>
+      <ParticleCanvas/>
    
     </>
   )

@@ -338,30 +338,44 @@ export default function BoutiqueLocatorLuxury() {
             exit={{ opacity: 0, scale: 1.03, filter: "blur(6px)" }}
             transition={{ duration: 1.05, ease: [0.16, 0.84, 0.2, 1] }}
           >
-            {/* subtle breathing so it feels alive */}
+            {/* subtle breathing so it feels alive - with hover animation */}
             <motion.div
               className="absolute inset-0"
-              animate={{ scale: [1, 1.01, 1] }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ scale: 1, rotate: 0 }}
+              animate={{ 
+                scale: [1, 1.02, 1],
+                rotate: [0, 1, 0, -1, 0]
+              }}
+              transition={{ 
+                duration: 20, 
+                repeat: Infinity, 
+                ease: "easeInOut"
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                rotate: 2,
+                transition: { duration: 0.5 }
+              }}
             >
               <iframe
                 title={activeBg.title}
                 src={activeBg.embedSrc}
-                className="absolute inset-0 w-full h-full pointer-events-none"
+                className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
+                style={{ zIndex: 1 }}
                 frameBorder="0"
                 allow="autoplay; fullscreen; xr-spatial-tracking"
                 allowFullScreen
               />
             </motion.div>
 
-            {/* premium overlays (DON'T make too dark) */}
-            <div className="absolute inset-0 bg-black/22" />
-            <div className="absolute inset-0 bg-linear-to-b from-black/12 via-black/30 to-black/70" />
+            {/* premium overlays (DON'T make too dark) - with pointer-events-none to allow 3D interaction */}
+            <div className="absolute inset-0 bg-black/22 pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/12 via-black/30 to-black/70 pointer-events-none" />
 
             {/* UI mask areas (top/bottom) to visually reduce Sketchfab chrome */}
             <div className="pointer-events-none absolute inset-0">
-              <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-black/55 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-black/70 to-transparent" />
+              <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-black/55 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-black/70 to-transparent pointer-events-none" />
             </div>
           </motion.div>
         )}
