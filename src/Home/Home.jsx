@@ -7,7 +7,7 @@ import BoutiqueLocator from '../components/Boutiques/BoutiqueLocator.jsx'
 import OurBrandsHero from '../components/OurBrands/OurBrandsHero'
 import ParticleCanvas from '../components/ParticleCanvas.jsx' 
 import Crazy from '../components/Crazy/Crazy.jsx' 
-import StoryTimeline from '../components/Story/Storytimeline.Jsx'
+import StoryTimeline from '../components/Story/StoryTimeline.jsx'
 import D from '../components/D/D.jsx'
 
 import Hoplot from './assets/Hublot.jpg'
