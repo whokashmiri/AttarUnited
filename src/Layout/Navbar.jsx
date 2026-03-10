@@ -247,8 +247,40 @@ function AttarMenuOverlay({ open, onClose, lang, toggleLang }) {
 export default function Navbar({ initialLang = "en", onLangChange, sticky = true }) {
   const [open, setOpen] = useState(false);
   const [lang, setLang] = useState(initialLang);
+  const [isVisible, setIsVisible] = useState(true);
+  const scrollTimeoutRef = React.useRef(null);
 
   const isRTL = useMemo(() => lang === "ar", [lang]);
+
+  // Scroll detection: hide on scroll, show on stop
+  useEffect(() => {
+    const handleScroll = () => {
+      // Always show navbar when scroll starts (in case it was hidden)
+      setIsVisible(true);
+      
+      // Clear existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      
+      // Hide navbar immediately when scrolling starts
+      setIsVisible(false);
+      
+      // Show navbar after scrolling stops (200ms debounce)
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsVisible(true);
+      }, 200);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     document.documentElement.dir = isRTL ? "rtl" : "ltr";
@@ -272,7 +304,12 @@ export default function Navbar({ initialLang = "en", onLangChange, sticky = true
 
   return (
     <>
-      <header className={[sticky ? "fixed" : "absolute", "inset-x-0 top-0 z-60"].join(" ")}>
+      <motion.header
+        className={[sticky ? "fixed" : "absolute", "inset-x-0 top-0 z-60"].join(" ")}
+        initial={{ y: 0, opacity: 1 }}
+        animate={{ y: isVisible ? 0 : -120, opacity: isVisible ? 1 : 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
         {/* Top navbar line (GRID => logo always centered) */}
         <div className="mx-auto grid max-w-300 grid-cols-3 items-center px-6 py-5">
           {/* Left burger */}
@@ -310,7 +347,7 @@ export default function Navbar({ initialLang = "en", onLangChange, sticky = true
 
         {/* Optional top fade */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-linear-to-b from-black/35 to-transparent" />
-      </header>
+      </motion.header>
 
       <AttarMenuOverlay open={open} onClose={closeMenu} lang={lang} toggleLang={toggleLang} />
     </>

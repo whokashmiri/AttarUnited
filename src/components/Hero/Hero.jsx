@@ -53,8 +53,8 @@ export default function Hero({
   --------------------------------------------- */
   const layers = images.map((img, index) => {
     const start = index * segment;
-    const fadeIn = start + segment * 0.25;
-    const fadeOut = start + segment * 0.85;
+     const fadeIn = start + segment * 0.08;
+  const fadeOut = start + segment * 0.20;
 
     const opacity = spring(
       useTransform(
@@ -120,10 +120,10 @@ export default function Hero({
         =========================================== */}
         <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-6 pb-20">
           <div>
-            <h1 className="uppercase text-[#986a4c] font-baskerville text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.92]">
+            <h1 className="uppercase text-[#986a4c] font-baskerville text-4xl sm:text-5xl md:text-6xl lg:text-8xl leading-[1">
               {title}
             </h1>
-            <p className="mt-6 max-w-xl text-white/75 font-baskerville text-sm sm:text-base md:text-lg">
+            <p className="mt-6 max-w-2xl text-white/75 font-baskerville text-sm sm:text-base md:text-xl leading-relaxed">
               {subtitle}
             </p>
           </div>

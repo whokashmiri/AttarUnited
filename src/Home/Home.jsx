@@ -41,11 +41,11 @@ const Home = () => {
     <BoutiqueLocator/>
     <Crazy/>
     <OurBrands/>
-      <StoryTimeline/>
-      <D/>  
-      <AfterSell/>
-      <Footer/>
-      <ParticleCanvas/>
+    <StoryTimeline/>
+    <D/>  
+    <AfterSell/>
+    <Footer/>
+    <ParticleCanvas/>
    
     </>
   )

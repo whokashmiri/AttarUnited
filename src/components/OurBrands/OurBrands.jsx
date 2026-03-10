@@ -180,7 +180,7 @@ function BrandMediaCard({ brand, index }) {
 
 export default function OurBrands({
   brands = DEFAULT_BRANDS,
-  title = "Our Brands",
+  title = "Recent Events",
   subtitle = "Official Retailer of the world's most distinguished luxury houses.",
 }) {
   const ref = useRef(null);
