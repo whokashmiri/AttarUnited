@@ -9,7 +9,7 @@ import ParticleCanvas from '../components/ParticleCanvas.jsx'
 import Crazy from '../components/Crazy/Crazy.jsx' 
 import StoryTimeline from '../components/Story/StoryTimeline.jsx'
 import D from '../components/D/D.jsx'
-
+import LocationsTest from '../components/D/Loctionstest.jsx'
 import Hoplot from './assets/Hublot.jpg'
 import chopard from './assets/Chopard.jpg'
 import Azza from './assets/Azza.webp'
@@ -38,14 +38,15 @@ const Home = () => {
     <AboutUs/>
     
     <OurBrandsHero/> 
-    <BoutiqueLocator/>
+    {/* <BoutiqueLocator/> */}
+    <LocationsTest/>
     <Crazy/>
     <OurBrands/>
     <StoryTimeline/>
     <D/>  
     <AfterSell/>
     <Footer/>
-    <ParticleCanvas/>
+    {/* <ParticleCanvas/> */}
    
     </>
   )

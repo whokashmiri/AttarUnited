@@ -46,27 +46,31 @@ export default function OurBrandsHero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   // HARD LOOP — NEVER ENDS
-  const wrapX = (value) => {
-    if (value <= -TOTAL_WIDTH) return value + TOTAL_WIDTH;
-    if (value >= 0) return value - TOTAL_WIDTH;
-    return value;
-  };
+ const wrapX = (value) => {
+  return ((value % TOTAL_WIDTH) + TOTAL_WIDTH) % TOTAL_WIDTH - TOTAL_WIDTH;
+};
 
-  const moveLeft = () => {
-    animate(x, wrapX(x.get() + STEP), {
-      type: "spring",
-      stiffness: 140,
-      damping: 22,
-    });
-  };
+const moveLeft = () => {
+  animate(x, x.get() + STEP, {
+    type: "spring",
+    stiffness: 140,
+    damping: 22,
+    onComplete: () => {
+      x.set(wrapX(x.get()));
+    },
+  });
+};
 
-  const moveRight = () => {
-    animate(x, wrapX(x.get() - STEP), {
-      type: "spring",
-      stiffness: 140,
-      damping: 22,
-    });
-  };
+const moveRight = () => {
+  animate(x, x.get() - STEP, {
+    type: "spring",
+    stiffness: 140,
+    damping: 22,
+    onComplete: () => {
+      x.set(wrapX(x.get()));
+    },
+  });
+};
 
   return (
     <section
@@ -147,12 +151,12 @@ function LuxuryArrow({ direction, onClick }) {
       className={`
         absolute top-1/2 -translate-y-1/2 z-20
         ${direction === "left" ? "left-6" : "right-6"}
-        text-yellow-300/60
+        text-#c6ac69
         text-6xl
         font-light
         tracking-widest
         transition-all duration-300
-        hover:text-yellow-300
+        hover:text-[#c6ac69]/80
         hover:scale-110
         active:scale-95
         select-none
