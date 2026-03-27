@@ -1,4 +1,5 @@
 import { FaInstagram, FaTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -42,12 +43,12 @@ export default function Footer() {
                 "Location",
               ].map((link, index) => (
                 <li key={index}>
-                  <a
-                    href="#"
+                  <Link
+                    to={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
                     className="text-gray-400 hover:text-yellow-500 transition-all duration-300 tracking-wide"
                   >
                     {link}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
