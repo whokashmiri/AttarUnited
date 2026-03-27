@@ -147,12 +147,12 @@ function LuxuryArrow({ direction, onClick }) {
       className={`
         absolute top-1/2 -translate-y-1/2 z-20
         ${direction === "left" ? "left-6" : "right-6"}
-        text-yellow-300/60
+        text-#c6ac69
         text-6xl
         font-light
         tracking-widest
         transition-all duration-300
-        hover:text-yellow-300
+        hover:text-[#c6ac69]/80
         hover:scale-110
         active:scale-95
         select-none
