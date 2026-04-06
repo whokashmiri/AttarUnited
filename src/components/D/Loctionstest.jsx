@@ -5,17 +5,17 @@ export default function BoutiquesExperience() {
     Jeddah: [
       {
         name: "Chopard Boutique",
-        address: "Tahlia Street, Saudi Arabia",
-        phone: "+966 12 000 0000",
+        address: "Al Basateen Mall, Prince Mohammad Bin Abdulaziz St., Jeddah",
+        phone: "(012) 6126299",
         map: "https://www.google.com/maps/search/?api=1&query=Chopard+Boutique+Jeddah",
         story:
           "Located in the heart of Tahlia, this boutique reflects timeless elegance and refined craftsmanship.",
       },
       {
         name: "Hublot Boutique",
-        address: "Tahlia Street, Saudi Arabia",
+        address: "El Khayyat Center, 21553 El Khayyat Center, Tahlia Street, Al Andalus, Jeddah 21553",
         phone: "+966 12 000 0000",
-        map: "https://www.google.com/maps/search/?api=1&query=Hublot+Boutique+Jeddah",
+        map: "https://maps.app.goo.gl/b8dqJvYXGRpoXELS9",
         story:
           "A bold contemporary space representing innovation in luxury watchmaking.",
       },
@@ -23,9 +23,9 @@ export default function BoutiquesExperience() {
     Riyadh: [
       { city: "Riyadh",
       name: "Graff Boutique",
-      address: "King Fahd Road, Saudi Arabia",
+      address: "Kingdom Centre Tower,Kingdom Centre, Olaya Street, Riyadh",
       phone: "+966 11 000 0000",
-      map: "https://www.google.com/maps/search/?api=1&query=Graff Boutique Riyadh" },
+      map: "https://www.google.com/maps/dir/Graff+Riyadh,+The+Kingdom+Centre%D8%8C+%D9%85%D8%B1%D9%83%D8%B2+%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%D8%8C+%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7%D8%8C+The%D8%8C+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%E2%80%AD/Graff+Riyadh,+The+Kingdom+Centre%D8%8C+%D9%85%D8%B1%D9%83%D8%B2+%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%D8%8C+%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7%D8%8C+The%D8%8C+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%E2%80%AD/@24.7058917,46.6965667,14z/data=!4m14!4m13!1m5!1m1!1s0x3e2f02d3ed0bdc37:0x60df455fecd63a34!2m2!1d46.6750445!2d24.7112724!1m5!1m1!1s0x3e2f02d3ed0bdc37:0x60df455fecd63a34!2m2!1d46.6750445!2d24.7112724!3e4?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" },
                 
     { city: "Riyadh",
       name: "Graff Boutique",

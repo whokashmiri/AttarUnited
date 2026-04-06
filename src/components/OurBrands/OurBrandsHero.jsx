@@ -1,4 +1,5 @@
 import {
+  // eslint-disable-next-line no-unused-vars
   motion,
   useScroll,
   useTransform,
@@ -46,27 +47,31 @@ export default function OurBrandsHero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   // HARD LOOP — NEVER ENDS
-  const wrapX = (value) => {
-    if (value <= -TOTAL_WIDTH) return value + TOTAL_WIDTH;
-    if (value >= 0) return value - TOTAL_WIDTH;
-    return value;
-  };
+ const wrapX = (value) => {
+  return ((value % TOTAL_WIDTH) + TOTAL_WIDTH) % TOTAL_WIDTH - TOTAL_WIDTH;
+};
 
-  const moveLeft = () => {
-    animate(x, wrapX(x.get() + STEP), {
-      type: "spring",
-      stiffness: 140,
-      damping: 22,
-    });
-  };
+const moveLeft = () => {
+  animate(x, x.get() + STEP, {
+    type: "spring",
+    stiffness: 140,
+    damping: 22,
+    onComplete: () => {
+      x.set(wrapX(x.get()));
+    },
+  });
+};
 
-  const moveRight = () => {
-    animate(x, wrapX(x.get() - STEP), {
-      type: "spring",
-      stiffness: 140,
-      damping: 22,
-    });
-  };
+const moveRight = () => {
+  animate(x, x.get() - STEP, {
+    type: "spring",
+    stiffness: 140,
+    damping: 22,
+    onComplete: () => {
+      x.set(wrapX(x.get()));
+    },
+  });
+};
 
   return (
     <section

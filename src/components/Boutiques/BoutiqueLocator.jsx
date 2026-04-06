@@ -37,7 +37,7 @@ const STORES = [
     mapEmbed: (
       <iframe
         title="Chopard Kingdom"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.4501969335024!2d46.672944110416445!3d24.7114199511145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03089562d471%3A0x59b3d24e51d48d3e!2sChopard%20Kingdom%20Mall%20Boutique!5e0!3m2!1sen!2ssa!4v1770804896908!5m2!1sen!2ssa"
+        src="https://maps.app.goo.gl/hM3hDf42Mwb9rHv465e0!3m2!1sen!2ssa!4v1770804896908!5m2!1sen!2ssa"
         className="absolute inset-0 w-full h-full"
         style={{ border: 0 }}
         allowFullScreen
@@ -163,7 +163,7 @@ const STORES = [
     mapEmbed: (
       <iframe
         title="Graff Olaya"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28995.624928231977!2d46.654391201436084!3d24.711319676190975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03006b73123f%3A0xf6ff00b7ae531680!2sGraff%20Riyadh%2C%20Olaya!5e0!3m2!1sen!2ssa!4v1770805777483!5m2!1sen!2ssa"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28996.88890284908!2d46.6965667!3d24.7058917!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f02d3ed0bdc37%3A0x60df455fecd63a34!2sGraff%20Riyadh%2C%20The%20Kingdom%20Centre!5e0!3m2!1sar!2ssa!4v1775417137402!5m2!1sar!2ssa"
         className="absolute inset-0 w-full h-full"
         style={{ border: 0 }}
         allowFullScreen

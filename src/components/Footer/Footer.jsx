@@ -1,17 +1,18 @@
 import { FaInstagram, FaTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
     <footer className="bg-black text-gray-300 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-16 py-16">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
           {/* Brand + Contact */}
           <div>
-            <h2 className="text-2xl font-light tracking-widest text-white mb-6">
+            <h3 className="text-lg text-white mb-6 tracking-wide">
               ATTAR UNITED
-            </h2>
+            </h3>
 
             <p className="text-sm leading-relaxed text-gray-400 mb-4">
               P.O. Box 54613 Jeddah 21524<br />
@@ -26,6 +27,31 @@ export default function Footer() {
             <p className="text-sm mt-2 text-gray-400">
               E: info@attarunited.com
             </p>
+          </div>
+
+          {/* Quick Links ✅ NEW */}
+          <div>
+            <h3 className="text-lg text-white mb-6 tracking-wide">
+              QUICK LINKS
+            </h3>
+
+            <ul className="space-y-3 text-sm">
+              {[
+                "Home",
+                "About Us",
+                "Brands",
+                "Location",
+              ].map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
+                    className="text-gray-400 hover:text-yellow-500 transition-all duration-300 tracking-wide"
+                  >
+                    {link}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Newsletter */}
@@ -61,21 +87,15 @@ export default function Footer() {
             </h3>
 
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 flex items-center justify-center border border-gray-700 hover:border-yellow-500 hover:text-yellow-500 transition-all duration-300">
-                <FaInstagram size={16} />
-              </a>
-
-              <a href="#" className="w-10 h-10 flex items-center justify-center border border-gray-700 hover:border-yellow-500 hover:text-yellow-500 transition-all duration-300">
-                <FaTwitter size={16} />
-              </a>
-
-              <a href="#" className="w-10 h-10 flex items-center justify-center border border-gray-700 hover:border-yellow-500 hover:text-yellow-500 transition-all duration-300">
-                <FaFacebookF size={16} />
-              </a>
-
-              <a href="#" className="w-10 h-10 flex items-center justify-center border border-gray-700 hover:border-yellow-500 hover:text-yellow-500 transition-all duration-300">
-                <FaLinkedinIn size={16} />
-              </a>
+              {[FaInstagram, FaTwitter, FaFacebookF, FaLinkedinIn].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-10 h-10 flex items-center justify-center border border-gray-700 hover:border-yellow-500 hover:text-yellow-500 transition-all duration-300"
+                >
+                  <Icon size={16} />
+                </a>
+              ))}
             </div>
           </div>
 
