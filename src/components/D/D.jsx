@@ -1,6 +1,6 @@
-import c1 from '../OurBrands/assets/C1.webp'
-import c2 from '../OurBrands/assets/C3.webp'
-import c3 from '../OurBrands/assets/C2.webp'
+import c1 from '../OurBrands/assets/hb01.jpg'
+import c2 from '../OurBrands/assets/chpr.jpg'
+import c3 from '../OurBrands/assets/chhp.jpg'
 
 export default function ThreeDVisuals() {
   return (
@@ -8,7 +8,7 @@ export default function ThreeDVisuals() {
 
       {/* TITLE */}
       <h2 className="font-baskerville text-4xl md:text-6xl tracking-[0.3em] text-white mb-16">
-        3D Visuals Boutiques Images
+        Our Boutiques 
       </h2>
 
       {/* IMAGES CONTAINER */}

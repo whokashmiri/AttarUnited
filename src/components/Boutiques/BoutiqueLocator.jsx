@@ -155,7 +155,7 @@ const STORES = [
     ),
   },
   {
-    city: "Riyadh",
+    city: "Riyadh",   
     brand: "Graff",
     name: "Olaya Towers",
     address: "Olaya Street, Riyadh",

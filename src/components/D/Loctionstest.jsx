@@ -5,96 +5,141 @@ export default function BoutiquesExperience() {
     Jeddah: [
       {
         name: "Chopard Boutique",
-        address: "Al Basateen Mall, Prince Mohammad Bin Abdulaziz St., Jeddah",
+        address: "Al Basateen Mall, Prince Mohammad Bin Abdulaziz St., Jeddah,Working timeSaturday to Thursday – 10:00 AM to 11:00 PM; Friday – 05:00 PM to 11:00 PM",
         phone: "(012) 6126299",
-        map: "https://www.google.com/maps/search/?api=1&query=Chopard+Boutique+Jeddah",
+        map: "https://maps.app.goo.gl/ctiU9a2dCDUqHUgK9",
         story:
           "Located in the heart of Tahlia, this boutique reflects timeless elegance and refined craftsmanship.",
       },
       {
         name: "Hublot Boutique",
-        address: "El Khayyat Center, 21553 El Khayyat Center, Tahlia Street, Al Andalus, Jeddah 21553",
-        phone: "+966 12 000 0000",
+        address: "El Khayyat Center, 21553 El Khayyat Center, Tahlia Street, Al Andalus, Jeddah 21553,Working timeSaturday to Thursday – 10:00 AM to 10:30 PM; Friday – 04:30 PM to 10:30 PM  ",
+
+        phone: "(012) 6774125",
+
         map: "https://maps.app.goo.gl/b8dqJvYXGRpoXELS9",
         story:
           "A bold contemporary space representing innovation in luxury watchmaking.",
+          story:
+          " This boutique reflects timeless elegance and refined craftsmanship.",
+      },
+      {
+        name: "Azza Fahmy",
+        address: "Alkhayat Center – Pop Up,King Abdul Aziz Rd, Al Zahra, Stars Avenue Sari Road, Jeddah, Saturday to Thursday – 10:00 AM to 11:00 PM; Friday – 05:00 PM to 11:00 PM ",
+        phone: "?",
+        map: "https://maps.app.goo.gl/objhYYKF1Djf7NLZ8",
+        story:
+          " A boutique celebrating Egyptian craftsmanship and contemporary design.",
       },
     ],
     Riyadh: [
       { city: "Riyadh",
       name: "Graff Boutique",
-      address: "Kingdom Centre Tower,Kingdom Centre, Olaya Street, Riyadh",
-      phone: "+966 11 000 0000",
-      map: "https://www.google.com/maps/dir/Graff+Riyadh,+The+Kingdom+Centre%D8%8C+%D9%85%D8%B1%D9%83%D8%B2+%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%D8%8C+%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7%D8%8C+The%D8%8C+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%E2%80%AD/Graff+Riyadh,+The+Kingdom+Centre%D8%8C+%D9%85%D8%B1%D9%83%D8%B2+%D8%A7%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9%D8%8C+%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7%D8%8C+The%D8%8C+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6%E2%80%AD/@24.7058917,46.6965667,14z/data=!4m14!4m13!1m5!1m1!1s0x3e2f02d3ed0bdc37:0x60df455fecd63a34!2m2!1d46.6750445!2d24.7112724!1m5!1m1!1s0x3e2f02d3ed0bdc37:0x60df455fecd63a34!2m2!1d46.6750445!2d24.7112724!3e4?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" },
+      address: "Kingdom Centre Tower,Kingdom Centre, Olaya Street, Riyadh, Working time  Saturday to Thursday – 10:00 AM to 11:00 PM; Friday – 04:30 PM to 10:30 PM ",
+
+      phone: "(011) 2111492",
+      map: "https://maps.app.goo.gl/c4Q9Wg4sjXzoh3wY9",
+     story:
+          " This boutique reflects timeless elegance and refined craftsmanship.", },
                 
     { city: "Riyadh",
       name: "Graff Boutique",
-      address: "King Fahd Road, Saudi Arabia",
-      phone: "+966 11 000 0000",
-      map: "https://www.google.com/maps/search/?api=1&query=Graff Boutique Riyadh" },
+      address: "Olaya Towers,Olaya Street, Riyadh,  Working time Saturday to Thursday – 10:00 AM to 11:00 PM; Friday – 04:30 PM to 10:30 PM ",
+      phone: "+(011) 2699593 ",
+      map: "https://maps.app.goo.gl/XEiZ7kztAv342Yu58",
+    story:
+          " This boutique reflects timeless elegance and refined craftsmanship.", },
                       
     { city: "Riyadh",
       name: "saint louis Boutique",
-      address: "King Fahd Road, Saudi Arabia",
-      phone: "+966 11 000 0000",
-      map: "https://www.google.com/maps/search/?api=1&query=saint louis Boutique Riyadh" },
+      address: "Olaya Towers,Olaya Street, Riyadh, Working time Saturday to Thursday – 10:00 AM to 10:30 PM; Friday – 04:30 PM to 10:30 PM  ",
+      phone: "(012) 603 9760",
+
+      map: "https://maps.app.goo.gl/qKSoEhspFA2jUJGb7",
+      story:
+          " This boutique reflects timeless elegance and refined craftsmanship.",
+     },
       
     { city: "Riyadh",
       name: "Chopard Boutique",
-      address: "King Fahd Road, Saudi Arabia",
-      phone: "+966 11 000 0000",
-      map: "https://www.google.com/maps/search/?api=1&query=Chopard Boutique Riyadh" },
+      address: "Kingdom Centre Tower,Kingdom Centre, Olaya Street, Riyadh,Working time Saturday to Thursday – 10:00 AM to 11:00 PM; Friday – 04:30 PM to 10:30 PM ",
+      phone: "(011) 2110017",
+      map: "https://maps.app.goo.gl/Kt9PUZYXdgFQpUji8"
+    ,story:
+          " This boutique reflects timeless elegance and refined craftsmanship.", },
 
     { city: "Riyadh",
       name: "Chopard Boutique",
-      address: "King Fahd Road, Saudi Arabia",
-      phone: "+966 11 000 0000",
-      map: "https://www.google.com/maps/search/?api=1&query=Chopard Boutique Riyadh" },
+      address: "Panorama Mall,Panorama Mall, Tahlia Street, Riyadh,Working time Saturday to Thursday – 10:00 AM to 10:30 PM; Friday – 04:30 PM to 10:30 PM  ",
+      phone: "(011) 2815300",
+      map: "https://maps.app.goo.gl/Fs2c2t9BXeRukr3V8" 
+    ,story:
+          " This boutique reflects timeless elegance and refined craftsmanship.", },
       
       { city: "Riyadh",
         name: "Chopard Boutique",
-        address: "King Fahd Road, Saudi Arabia",
-        phone: "+966 11 000 0000",
-        map: "https://www.google.com/maps/search/?api=1&query=Chopard Boutique Riyadh" },
+        address: "Solitaire Mall, As Sahafah district, King Abdulaziz Road, Working time Saturday to Thursday – 10:00 AM to 11:00 PM; Friday – 04:30 PM to 10:30 PM",
+
+        phone: "(011) 51 27 299",
+
+        map: "https://maps.app.goo.gl/u46HRRGNmcgnfv7z6" 
+      ,story:
+          " This boutique reflects timeless elegance and refined craftsmanship.", },
         
         { city: "Riyadh",
           name: "Hublot Boutique",
-          address: "King Fahd Road, Saudi Arabia",
-          phone: "+966 11 000 0000",
-          map: "https://www.google.com/maps/search/?api=1&query=Hublot Boutique Riyadh" },
+          address: "Solitaire Mall, As Sahafah district, King Abdulaziz Road, Working time Saturday to Thursday – 10:00 AM to 11:00 PM; Friday – 04:30 PM to 10:30 PM  ",
+          phone: "(011) 51 27 266",
+
+          map: "https://maps.app.goo.gl/hXKSK3PJuvnWNwBZ8"
+        ,story:
+          "A modern boutique showcasing Hublot's innovative designs.", },
 
         { city: "Riyadh",
           name: "Hublot Boutique",
-          address: "King Fahd Road, Saudi Arabia",
-          phone: "+966 11 000 0000",
-          map: "https://www.google.com/maps/search/?api=1&query=Hublot Boutique Riyadh" },
+          address: "Panorama Mall, Panorama Mall, Tahlia Street, Riyadh, Working time Saturday to Thursday – 10:00 AM to 11:00 PM; Friday – 04:30 PM to 10:30 PM  ",
+
+          phone: "(011) 4821360",
+
+          map: "https://maps.app.goo.gl/apSWumZwFqYaPvJk8"
+            ,story: "A modern boutique showcasing Hublot's innovative designs.", },
           
         { city: "Riyadh",
           name: "Hublot Boutique",
-          address: "King Fahd Road, Saudi Arabia",
-          phone: "+966 11 000 0000",
-          map: "https://www.google.com/maps/search/?api=1&query=Hublot Boutique Riyadh" },
+          address: "Kingdom Centre Tower,Kingdom Centre, Olaya Street, Riyadh, Working time Saturday to Thursday – 10:00 AM to 11:00 PM; Friday – 04:30 PM to 10:30 PM  ",
+          phone: "(011) 2111391",
+          map: "https://maps.app.goo.gl/nE98BHbBvHqMi7hJ9" 
+        ,story: "A modern boutique showcasing Hublot's innovative designs.",  },
                 
         { city: "Riyadh",
           name: "Azza Fahmy Boutique",
-          address: "King Fahd Road, Saudi Arabia",
-          phone: "+966 11 000 0000",
-          map: "https://www.google.com/maps/search/?api=1&query=Azza Fahmy Boutique Riyadh" },
+          address: "Kingdom Centre Tower,King Fahd Rd, Al Olaya, Riyadh,Working time Saturday to Thursday – 10:00 AM to 11:00 PM; Friday – 04:30 PM to 10:30 PM ",
+          phone: "(012) 6039762",
+          map: "https://maps.app.goo.gl/3Nw9Hw1zPwj6BDEg7" 
+        ,story: "A boutique celebrating Egyptian craftsmanship and contemporary design.", },
 
     ],
     Khobar: [
       {
         name: "Chopard Boutique",
-        address: "King Fahd Road, Saudi Arabia",
-        phone: "+966 13 000 0000",
-        map: "https://www.google.com/maps/search/?api=1&query=Chopard+Boutique+Khobar",
+        address: "Al-Shaikh Avenue,Al-Shaikh Avenue, King Salman Road, Al-Khobar,Working time Saturday to Thursday – 10:00 AM to 10:30 PM; Friday – 04:30 PM to 10:30 PM  ",
+
+
+
+        phone: "(013) 8022882",
+
+        map: "https://maps.app.goo.gl/pdLF3vAKdLUF88fX7",
         story:
           "A coastal luxury experience blending sophistication with modern elegance.",
       },
       {
         name: "Hublot Boutique",
-        address: "King Fahd Road, Saudi Arabia",
-        phone: "+966 13 000 0000",
+        address: "Al-Shaikh Avenue,Al-Shaikh Avenue, King Salman Road, Al Khobar, Working time Saturday to Thursday – 10:00 AM to 10:30 PM; Friday – 04:30 PM to 10:30 PM ",
+
+
+
+        phone: "(013) 8021377",
+
         map: "https://www.google.com/maps/search/?api=1&query=Hublot+Boutique+Khobar",
         story: "A modern boutique showcasing Hublot's innovative designs.",
       },

@@ -91,7 +91,7 @@ export default function StoryTimeline() {
     top-1/2 -translate-y-1/2
     w-10 h-10
     rounded-full
-    border border-[#c6ac69]/60
+    border border-[#c6ac69]/6
     text-[#c6ac69] text-xl
     flex items-center justify-center
     hover:scale-110
@@ -111,7 +111,7 @@ export default function StoryTimeline() {
     top-1/2 -translate-y-1/2
     w-10 h-10
     rounded-full
-    border border-[#c6ac69]/60
+    border border-[#c6ac69]/6
     text-[#c6ac69] text-xl
     flex items-center justify-center
     hover:scale-110
@@ -128,7 +128,7 @@ export default function StoryTimeline() {
 
           
           {/* Glow */}
-          <div className="absolute inset-0 rounded-full shadow-[0_0_80px_rgba(255,215,120,0.25)]" />
+          <div className="absolute inset-5 rounded-full shadow-[0_0_80px_rgba(255,215,120,0.25)]" />
 
           {/* Center Year */}
           <AnimatePresence mode="wait">
@@ -140,7 +140,7 @@ export default function StoryTimeline() {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <div className="font-baskerville text-4xl md:text-5xl tracking-widest text-yellow-400">
+              <div className="font-baskerville text-4xl md:text-5xl tracking-widest text-[#664c28]">
                 {timeline[activeIndex].year}
               </div>
               <div className="mt-2 text-xs tracking-[0.3em] text-gray-400">
@@ -169,7 +169,8 @@ export default function StoryTimeline() {
               {timeline[activeIndex].text}
             </p>
 
-            <div className="mx-auto mt-8 h-px w-32 bg-linear-to-r from-yellow-400 to-transparent" />
+            <div className="mx-auto mt-8 h-px w-32 bg-gradient-to-r from-[#c6ac69] to-transparent
+" />
           </motion.div>
         </AnimatePresence>
       </div>

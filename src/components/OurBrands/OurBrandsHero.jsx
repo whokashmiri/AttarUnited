@@ -10,7 +10,7 @@ import { useRef } from "react";
 
 import a1 from "../OurBrands/assets/C3.webp";
 import a2 from "../OurBrands/assets/H3.jpg";
-import a3 from "../OurBrands/assets/A3.webp";
+import a3 from "../OurBrands/assets/G3.webp";
 import a4 from "../OurBrands/assets/ST (3).jpg";
 import a5 from "../OurBrands/assets/A2.webp";
 import a6 from "../OurBrands/assets/GC2.webp";
