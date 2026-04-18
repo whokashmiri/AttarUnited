@@ -19,9 +19,7 @@ export default function BoutiquesExperience() {
 
         map: "https://maps.app.goo.gl/b8dqJvYXGRpoXELS9",
         story:
-          "A bold contemporary space representing innovation in luxury watchmaking.",
-          story:
-          " This boutique reflects timeless elegance and refined craftsmanship.",
+          "A bold contemporary space representing innovation in luxury watchmaking. This boutique reflects timeless elegance and refined craftsmanship.",
       },
       {
         name: "Azza Fahmy",
