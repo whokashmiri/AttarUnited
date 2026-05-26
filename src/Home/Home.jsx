@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../Layout/Navbar'
 import Hero from '../components/Hero/Hero'
+import Hero2 from '../components/Hero/Hero2.jsx'
 import AboutUs from '../components/OurStory/AboutUs'
 import OurBrands from '../components/OurBrands/OurBrands'
 import BoutiqueLocator from '../components/Boutiques/BoutiqueLocator.jsx'
@@ -11,11 +12,16 @@ import StoryTimeline from '../components/Story/StoryTimeline.jsx'
 import D from '../components/D/D.jsx'
 import LocationsTest from '../components/D/Loctionstest.jsx'
 import Hoplot from './assets/hublot1.jpg'
-import chopard from './assets/Chopard.jpg'
+// import chopard from './assets/Chopard.jpg'
 import Azza from './assets/Azza.webp'
 import Saint from './assets/Saint.jpg'
 import GC3 from './assets/gr.jpg'
 import Graff from './assets/Graff.jpg'
+
+import Azz from './assets/Azzafahmy.mp4'
+import Sain from './assets/chopard.mp4'
+import GC from './assets/graff.mp4'
+
 
 import AfterSell from '../components/After-sell/after-sell.jsx'
 import Footer from '../components/Footer/Footer.jsx'
@@ -23,21 +29,24 @@ const Home = () => {
   return (
     <> 
     <Navbar/>
-    <Hero
-  images={[
-   Hoplot,
-   chopard,
-   Azza,
-   Saint,
-   GC3,
-   Graff,
-  ]}
-/>
+    <Hero2
+      videos={[
+        Azz,
+        Sain,
+        GC,
+      ]}
+      images={[
+        Graff,
+        Azza,
+        Saint,
+      ]}
+    />
+
 
     <AboutUs/>
     
     <OurBrandsHero/> 
-    {/* <BoutiqueLocator/> */}
+   
     <LocationsTest/>
     <Crazy/>
     <OurBrands/>
@@ -45,7 +54,7 @@ const Home = () => {
     <D/>  
     <AfterSell/>
     <Footer/>
-    {/* <ParticleCanvas/> */}
+   
    
     </>
   )
