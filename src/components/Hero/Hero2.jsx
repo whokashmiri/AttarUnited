@@ -10,27 +10,6 @@ import {
   useSpring,
 } from "framer-motion";
 
-/**
- * 3 DIV CINEMATIC HERO
- *
- * Layout:
- *
- * ┌──────────────────────┬──────────────────────┐
- * │                      │       DIV 2          │
- * │       DIV 1          ├──────────────────────┤
- * │      BIG MEDIA       │       DIV 3          │
- * │                      │                      │
- * └──────────────────────┴──────────────────────┘
- *
- * Features:
- * - ONLY 3 DIVS
- * - Images & videos interchange automatically
- * - Smooth cinematic transitions
- * - Slow zoom
- * - Floating movement
- * - Luxury overlays
- */
-
 export default function Hero({
   videos = [],
   images = [],
@@ -39,9 +18,9 @@ export default function Hero({
 }) {
   const ref = useRef(null);
 
-  /* ----------------------------------------------------s
-     MERGE ALL MEDIA
-  ---------------------------------------------------- */
+  /* =========================================================
+     MERGE MEDIA
+  ========================================================= */
   const media = useMemo(() => {
     const vids = videos.map((src) => ({
       type: "video",
@@ -56,60 +35,62 @@ export default function Hero({
     return [...vids, ...imgs];
   }, [videos, images]);
 
-  /* ----------------------------------------------------
-     ACTIVE MEDIA INDEXES
-  ---------------------------------------------------- */
+  /* =========================================================
+     RANDOM ACTIVE INDEXES
+  ========================================================= */
   const [indexes, setIndexes] = useState([0, 1, 2]);
 
-  /* ----------------------------------------------------
-     AUTO INTERCHANGE
-  ---------------------------------------------------- */
   useEffect(() => {
-    if (media.length <= 3) return;
+    if (media.length < 3) return;
 
-    const interval = setInterval(() => {
-      const shuffled = [...media]
+    const generateIndexes = () => {
+      const arr = [...Array(media.length).keys()]
         .sort(() => Math.random() - 0.5)
-        .slice(0, 3)
-        .map((_, i) => i);
+        .slice(0, 3);
 
-      setIndexes(shuffled);
-    }, 5000);
+      setIndexes(arr);
+    };
+
+    generateIndexes();
+
+    const interval = setInterval(generateIndexes, 4000);
 
     return () => clearInterval(interval);
   }, [media]);
 
-  /* ----------------------------------------------------
-     SCROLL ANIMATION
-  ---------------------------------------------------- */
+  /* =========================================================
+     SCROLL
+  ========================================================= */
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"],
   });
 
   const smooth = (value) =>
     useSpring(value, {
-      stiffness: 45,
-      damping: 22,
+      stiffness: 50,
+      damping: 20,
       mass: 1,
     });
 
   const leftScale = smooth(
-    useTransform(scrollYProgress, [0, 1], [1, 1.12])
+    useTransform(scrollYProgress, [0, 1], [1, 1.1])
   );
 
   const rightScale = smooth(
-    useTransform(scrollYProgress, [0, 1], [1, 1.08])
+    useTransform(scrollYProgress, [0, 1], [1, 1.05])
   );
 
   const textOpacity = smooth(
     useTransform(scrollYProgress, [0, 0.5], [1, 0])
   );
 
-  /* ----------------------------------------------------
+  /* =========================================================
      MEDIA CARD
-  ---------------------------------------------------- */
+  ========================================================= */
   const MediaCard = ({ item, scale }) => {
+    if (!item) return null;
+
     return (
       <motion.div
         style={{ scale }}
@@ -120,7 +101,7 @@ export default function Hero({
             key={item.src}
             initial={{
               opacity: 0,
-              scale: 1.08,
+              scale: 1.05,
             }}
             animate={{
               opacity: 1,
@@ -128,11 +109,11 @@ export default function Hero({
             }}
             exit={{
               opacity: 0,
-              scale: 1.05,
+              scale: 1.03,
             }}
             transition={{
-              duration: 1.8,
-              ease: [0.22, 1, 0.36, 1],
+              duration: 1.5,
+              ease: "easeInOut",
             }}
             className="absolute inset-0"
           >
@@ -142,22 +123,24 @@ export default function Hero({
                 muted
                 loop
                 playsInline
+                preload="auto"
                 className="h-full w-full object-cover"
                 src={item.src}
               />
             ) : (
               <img
                 src={item.src}
-                className="h-full w-full object-cover"
                 alt=""
+                loading="lazy"
+                className="h-full w-full object-cover"
               />
             )}
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/25" />
+            <div className="absolute inset-0 bg-black/30" />
 
-            {/* Luxury Gradient */}
-            <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/10" />
+            {/* Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
           </motion.div>
         </AnimatePresence>
       </motion.div>
@@ -167,66 +150,54 @@ export default function Hero({
   return (
     <section
       ref={ref}
-      className="relative h-[500vh] w-full bg-black"
+      className="relative h-[250vh] w-full bg-black"
     >
+      {/* =========================================================
+          STICKY CONTAINER
+      ========================================================== */}
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* =========================================================
-            3 DIV LAYOUT
+            GRID
         ========================================================== */}
         <div className="grid h-full grid-cols-1 md:grid-cols-2">
-          {/* =========================================================
-              DIV 1 (BIG)
-          ========================================================== */}
-          <div className="h-full">
-            {media[indexes[0]] && (
-              <MediaCard
-                item={media[indexes[0]]}
-                scale={leftScale}
-              />
-            )}
+          {/* LEFT BIG */}
+          <div className="relative h-full">
+            <MediaCard
+              item={media[indexes[0]]}
+              scale={leftScale}
+            />
           </div>
 
-          {/* =========================================================
-              RIGHT SIDE
-          ========================================================== */}
+          {/* RIGHT */}
           <div className="grid h-full grid-rows-2">
-            {/* DIV 2 */}
-            <div className="h-full">
-              {media[indexes[1]] && (
-                <MediaCard
-                  item={media[indexes[1]]}
-                  scale={rightScale}
-                />
-              )}
+            <div className="relative h-full">
+              <MediaCard
+                item={media[indexes[1]]}
+                scale={rightScale}
+              />
             </div>
 
-            {/* DIV 3 */}
-            <div className="h-full">
-              {media[indexes[2]] && (
-                <MediaCard
-                  item={media[indexes[2]]}
-                  scale={rightScale}
-                />
-              )}
+            <div className="relative h-full">
+              <MediaCard
+                item={media[indexes[2]]}
+                scale={rightScale}
+              />
             </div>
           </div>
         </div>
 
         {/* =========================================================
-            GLOBAL OVERLAYS
+            OVERLAYS
         ========================================================== */}
 
-        {/* Luxury Glow */}
+        {/* Vignette */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/70" />
+
+        {/* Glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_65%)]" />
 
-        {/* Vignette */}
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-black/70" />
-
-        {/* Grain */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-soft-light bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-
         {/* =========================================================
-            TEXT CONTENT
+            TEXT
         ========================================================== */}
         <motion.div
           style={{
@@ -236,11 +207,11 @@ export default function Hero({
         >
           <div className="mx-auto max-w-7xl px-6 pb-20">
             <div className="max-w-3xl">
-              <h1 className="uppercase font-baskerville text-[#986a4c] text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide">
+              <h1 className="font-baskerville uppercase text-[#986a4c] text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide">
                 {title}
               </h1>
 
-              <p className="mt-6 max-w-2xl text-white/75 font-baskerville text-sm sm:text-base md:text-xl leading-relaxed">
+              <p className="mt-6 max-w-2xl text-sm sm:text-base md:text-xl leading-relaxed text-white/75 font-baskerville">
                 {subtitle}
               </p>
             </div>
