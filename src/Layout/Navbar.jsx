@@ -70,7 +70,7 @@ function MenuLink({ to, label, onClick }) {
       <Link
         to={to}
         onClick={onClick}
-        className="group relative block w-fit text-[28px] sm:text-[34px] md:text-[44px] font-baskerville tracking-tight text-white/90 hover:text-white transition"
+       className="group relative block w-fit text-[18px] sm:text-[22px] md:text-[28px] font-baskerville tracking-[0.02em] text-white/90 hover:text-white transition duration-300"
       >
         <span className="relative">
           {label}

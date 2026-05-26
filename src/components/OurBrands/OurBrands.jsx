@@ -1,9 +1,9 @@
-/* eslint-disable react-hooks/set-state-in-effect */
-/* eslint-disable no-unused-vars */
+
 import React, { useMemo, useRef } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion, useInView } from "framer-motion";
 
-// ✅ VIDEO IMPORTS
+
 import chopard from "./assets/chopard.mp4";
 import hublot from "./assets/hublot.mp4";
 import graff from "./assets/graff.mp4";
@@ -11,7 +11,7 @@ import graff from "./assets/graff.mp4";
 import azzafahmy from "./assets/Azzafahmy.mp4";
 import saintlouis from "./assets/saintlouis.mp4";
 
-// ✅ CLEAN DATA (REMOVED BROKEN OBJECT)
+
 const DEFAULT_BRANDS = [
   {
     name: "Chopard",
@@ -75,7 +75,7 @@ function BrandMediaCard({ brand }) {
       />
 
       {/* OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 
       {/* TITLE */}
       <div className="absolute bottom-6 left-6">
@@ -91,7 +91,7 @@ export default function OurBrands({
   subtitle = "Official Retailer of the world's most distinguished luxury houses.",
 }) {
   const ref = useRef(null);
-  const inView = useInView(ref);
+  // const inView = useInView(ref);
 
   const safeBrands = useMemo(() => brands.filter(Boolean), [brands]);
 
@@ -111,7 +111,7 @@ export default function OurBrands({
       {/* GRID */}
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {safeBrands.map((brand, i) => (
-          <div key={i} className="h-[500px]">
+          <div key={i} className="h-125">
             <BrandMediaCard brand={brand} />
           </div>
         ))}

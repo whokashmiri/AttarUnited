@@ -140,7 +140,7 @@ export default function Hero({
             <div className="absolute inset-0 bg-black/30" />
 
             {/* Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/10" />
           </motion.div>
         </AnimatePresence>
       </motion.div>
@@ -150,7 +150,7 @@ export default function Hero({
   return (
     <section
       ref={ref}
-      className="relative h-[250vh] w-full bg-black"
+      className="relative h-screen w-full bg-black"
     >
       {/* =========================================================
           STICKY CONTAINER
@@ -191,7 +191,7 @@ export default function Hero({
         ========================================================== */}
 
         {/* Vignette */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/70" />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/10 via-transparent to-black/70" />
 
         {/* Glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_65%)]" />
