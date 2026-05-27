@@ -49,7 +49,7 @@ export default function BoutiquesExperience() {
           " This boutique reflects timeless elegance and refined craftsmanship.", },
                       
     { city: "Riyadh",
-      name: "saint louis Boutique",
+      name: "Saint Louis Boutique",
       address: "Olaya Towers,Olaya Street, Riyadh, Working time Saturday to Thursday – 10:00 AM to 10:30 PM; Friday – 04:30 PM to 10:30 PM  ",
       phone: "(012) 603 9760",
 
