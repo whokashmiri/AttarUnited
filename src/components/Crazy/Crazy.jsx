@@ -62,7 +62,7 @@ export default function CrazyBrands() {
         transition={{ duration: 0.9 }}
         className="text-center font-baskerville text-4xl md:text-6xl tracking-[0.3em] mb-32"
       >
-        OUR SELECTION
+        OUR BRANDS
       </motion.h2>
 
       {/* Brands – SCROLL ONE BY ONE */}
