@@ -97,14 +97,14 @@ export default function CrazyBrands() {
         style={{ scale }}
         className="
           relative
-          w-[420px] h-[620px]
-          xl:w-[520px] xl:h-[760px]
+          w-105 h-155
+          xl:w-130 xl:h-190
           rounded-[2.5rem]
           overflow-hidden
         "
       >
         {/* gold glow */}
-        <div className="absolute -inset-10 bg-gradient-to-tr from-yellow-500/40 via-yellow-300/10 to-transparent blur-[120px]" />
+        <div className="absolute -inset-10 bg-linear-to-tr from-yellow-500/40 via-yellow-300/10 to-transparent blur-[120px]" />
 
         <motion.img
           src={brand.image}
@@ -112,7 +112,7 @@ export default function CrazyBrands() {
           className="relative z-10 w-full h-full object-cover rounded-[2.5rem]"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-20" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent z-20" />
       </motion.div>
 
       {/* TEXT */}
@@ -128,7 +128,7 @@ export default function CrazyBrands() {
           {brand.desc}
         </p>
 
-        <div className="mt-10 h-px w-32 bg-gradient-to-r from-yellow-400 to-transparent" />
+        <div className="mt-10 h-px w-32 bg-linear-to-r from-yellow-400 to-transparent" />
       </motion.div>
     </motion.div>
   );
