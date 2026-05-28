@@ -21,7 +21,7 @@ export default function ThreeDVisuals() {
             className="
               h-full w-full object-cover
               transform-gpu
-              rotate-x-[0deg] rotate-y-[-4deg]
+              rotate-x-0 rotate-y-[-4deg]
               scale-105
               shadow-[0_40px_120px_rgba(0,0,0,0.85)]
               transition-transform duration-700
@@ -37,7 +37,7 @@ export default function ThreeDVisuals() {
             className="
               h-full w-full object-cover
               transform-gpu
-              rotate-x-[0deg] rotate-y-[3deg]
+              rotate-x-0 rotate-y-3
               scale-105
               shadow-[0_40px_120px_rgba(0,0,0,0.85)]
               transition-transform duration-700
@@ -53,7 +53,7 @@ export default function ThreeDVisuals() {
             className="
               h-full w-full object-cover
               transform-gpu
-              rotate-x-[0deg] rotate-y-[-2deg]
+              rotate-x-0 -rotate-y-2
               scale-105
               shadow-[0_40px_120px_rgba(0,0,0,0.85)]
               transition-transform duration-700
