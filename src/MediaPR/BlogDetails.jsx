@@ -3,6 +3,8 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import blogs from "./blogs";
+import Navbar from "../Layout/Navbar";
+import Footer from "../components/Footer/Footer";
 
 export default function BlogDetails() {
   const { id } = useParams();
@@ -20,6 +22,7 @@ export default function BlogDetails() {
 
   return (
     <section className="bg-[#f5f5f3] min-h-screen">
+        <Navbar/>
       {/* HERO IMAGE */}
       <div className="w-full h-87.5 md:h-150 overflow-hidden">
         <img
@@ -56,6 +59,7 @@ export default function BlogDetails() {
             ))}
         </div>
       </div>
+      <Footer/>
     </section>
   );
 }

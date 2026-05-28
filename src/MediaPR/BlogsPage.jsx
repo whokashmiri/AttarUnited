@@ -3,12 +3,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import blogs from "./blogs";
+import Navbar from "../Layout/Navbar";
+import Footer from "../components/Footer/Footer";
 
 export default function BlogsPage() {
   const navigate = useNavigate();
 
   return (
     <section className="bg-[#f5f5f3] min-h-screen px-6 md:px-16 py-20">
+        <Navbar/>
       <h1 className="text-5xl font-serif text-[#9b6b4d] mb-20">
         Media & PR
       </h1>
@@ -53,6 +56,7 @@ export default function BlogsPage() {
           </div>
         ))}
       </div>
+      <Footer/>
     </section>
   );
 }
