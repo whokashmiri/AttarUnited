@@ -2,6 +2,8 @@ import React from "react";
 import Home from "./Home/Home.jsx";
 import { Routes, Route } from "react-router-dom";
 import Location from "./components/D/Location.jsx";
+import BlogsPage from "./MediaPR/BlogsPage.jsx";
+import BlogDetails from "./MediaPR/BlogDetails.jsx";
 
 const App = () => {
   return (
@@ -24,8 +26,15 @@ const App = () => {
         {/* INDIVIDUAL BOUTIQUE PAGE */}
         <Route
           path="/boutique/:city/:slug"
-          element={<Location />}
-        />
+          element={<Location />}/>
+
+          
+    
+        <Route path="/media-pr" element={<BlogsPage />} />
+
+        {/* SINGLE BLOG PAGE */}
+        <Route path="/media-pr/:id" element={<BlogDetails />} />
+        
 
         {/* FALLBACK */}
         <Route path="*" element={<Home />} />

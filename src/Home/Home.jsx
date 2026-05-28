@@ -25,6 +25,7 @@ import GC from './assets/graff.mp4'
 
 import AfterSell from '../components/After-sell/after-sell.jsx'
 import Footer from '../components/Footer/Footer.jsx'
+import MediaPR from '../MediaPR/MediaPR.jsx'
 const Home = () => {
   return (
     <> 
@@ -53,6 +54,7 @@ const Home = () => {
     <StoryTimeline/>
     <D/>  
     <AfterSell/>
+    <MediaPR/>
     <Footer/>
    
    
