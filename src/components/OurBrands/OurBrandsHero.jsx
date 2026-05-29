@@ -105,7 +105,7 @@ const moveRight = () => {
       <LuxuryArrow direction="right" onClick={moveRight} />
 
       {/* CAROUSEL */}
-      <div className="relative max-w-[1400px] mx-auto overflow-hidden">
+      <div className="relative max-w-350 mx-auto overflow-hidden">
         <motion.div
           style={{ x, scale }}
           className="flex gap-14 font-baskerville"
@@ -115,9 +115,9 @@ const moveRight = () => {
               key={index}
               whileHover={{ y: -12 }}
               className="
-                relative w-[300px] h-[460px]
+                relative w-75 h-115
                 rounded-3xl overflow-hidden
-                bg-neutral-900 flex-shrink-0
+                bg-neutral-900 shrink-0
                 shadow-[0_30px_70px_rgba(0,0,0,0.65)]
               "
             >
@@ -129,7 +129,7 @@ const moveRight = () => {
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/30 to-transparent" />
 
               <div className="absolute bottom-8 left-8 right-8">
                 <h3 className="text-xl xl:text-2xl tracking-[0.12em] text-white/90">
