@@ -101,7 +101,7 @@ export default function OurBrands({
       className="relative min-h-[200vh] w-full bg-black py-20"
     >
       {/* HEADER */}
-      <div className="max-w-7xl mx-auto px-6 mb-16">
+      <div className="max-w-7xl mx-auto px-6 mb-12">
         <h2 className="text-white text-4xl md:text-5xl font-baskerville">
           {title}
         </h2>

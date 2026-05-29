@@ -169,7 +169,7 @@ export default function StoryTimeline() {
               {timeline[activeIndex].text}
             </p>
 
-            <div className="mx-auto mt-8 h-px w-32 bg-gradient-to-r from-[#c6ac69] to-transparent
+            <div className="mx-auto mt-8 h-px w-32 bg-linear-to-r from-[#c6ac69] to-transparent
 " />
           </motion.div>
         </AnimatePresence>
