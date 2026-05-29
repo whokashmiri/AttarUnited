@@ -76,7 +76,7 @@ const moveRight = () => {
   return (
     <section
       ref={ref}
-      className="relative bg-black text-white py-40 overflow-hidden"
+      className="relative bg-black text-white py-20 overflow-hidden"
     >
       {/* TITLE */}
       <motion.h2
@@ -93,7 +93,7 @@ const moveRight = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15, duration: 0.7 }}
-        className="max-w-3xl mx-auto text-center text-gray-400 text-lg mb-24"
+        className="max-w-3xl mx-auto text-center text-gray-400 text-lg mb-12"
       >
         A refined selection of the world’s most prestigious watch and jewelry maisons.
       </motion.p>
