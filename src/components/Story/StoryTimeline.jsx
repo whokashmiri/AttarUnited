@@ -75,105 +75,109 @@ export default function StoryTimeline() {
   return (
     <section className="bg-black text-white py-40 overflow-hidden">
       {/* TITLE */}
-      <h2 className="text-center font-baskerville text-4xl md:text-6xl tracking-[0.3em] mb-32">
+      <h2 className="text-center font-baskerville text-4xl md:text-6xl tracking-[0.3em] mb-12">
         OUR STORY
       </h2>
 
       {/* ================= WATCH + BUTTONS (FIXED AREA) ================= */}
-      <div className="relative flex items-center justify-center h-90 md:h-105 w-full">
-        
-        {/* LEFT BUTTON */}
-       <button
-  onClick={prev}
-  aria-label="Previous"
-  className="
-    absolute left-8 md:left-32
-    top-1/2 -translate-y-1/2
-    w-10 h-10
-    rounded-full
-    border border-[#c6ac69]/6
-    text-[#c6ac69] text-xl
-    flex items-center justify-center
-    hover:scale-110
-    hover:shadow-[0_0_18px_rgba(198,172,105,0.6)]
-    transition
-  "
->
-  ‹
-</button>
+  {/* ================= MAIN CONTENT ================= */}
+<div className="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16 md:gap-28">
 
-        {/* RIGHT BUTTON */}
-        <button
-  onClick={next}
-  aria-label="Next"
-  className="
-    absolute right-8 md:right-32
-    top-1/2 -translate-y-1/2
-    w-10 h-10
-    rounded-full
-    border border-[#c6ac69]/6
-    text-[#c6ac69] text-xl
-    flex items-center justify-center
-    hover:scale-110
-    hover:shadow-[0_0_18px_rgba(198,172,105,0.6)]
-    transition
-  "
->
-  ›
-</button>
+  {/* LEFT BUTTON */}
+  <button
+    onClick={prev}
+    aria-label="Previous"
+    className="
+      absolute left-2 md:left-0
+      top-1/2 -translate-y-1/2
+      w-10 h-10
+      rounded-full
+      border border-[#c6ac69]/6
+      text-[#c6ac69] text-xl
+      flex items-center justify-center
+      hover:scale-110
+      hover:shadow-[0_0_18px_rgba(198,172,105,0.6)]
+      transition
+      z-20
+    "
+  >
+    ‹
+  </button>
 
+  {/* RIGHT BUTTON */}
+  <button
+    onClick={next}
+    aria-label="Next"
+    className="
+      absolute right-2 md:right-0
+      top-1/2 -translate-y-1/2
+      w-10 h-10
+      rounded-full
+      border border-[#c6ac69]/6
+      text-[#c6ac69] text-xl
+      flex items-center justify-center
+      hover:scale-110
+      hover:shadow-[0_0_18px_rgba(198,172,105,0.6)]
+      transition
+      z-20
+    "
+  >
+    ›
+  </button>
 
-        {/* WATCH CIRCLE */}
-        <div className="relative w-65 h-65 md:w-[320px] md:h-80 rounded-full border border-[#c6ac69]/40 flex items-center justify-center">
+  {/* ================= LEFT : WATCH ================= */}
+  <div className="relative shrink-0">
+    <div className="relative m-6 w-65 h-65 md:w-[320px] md:h-80 rounded-full border border-[#c6ac69]/40 flex items-center justify-center">
 
-          
-          {/* Glow */}
-          <div className="absolute inset-5 rounded-full shadow-[0_0_80px_rgba(255,215,120,0.25)]" />
+      {/* Glow */}
+      <div className="absolute inset-5 rounded-full shadow-[0_0_80px_rgba(255,215,120,0.25)]" />
 
-          {/* Center Year */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.1 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <div className="font-baskerville text-4xl md:text-5xl tracking-widest text-[#664c28]">
-                {timeline[activeIndex].year}
-              </div>
-              <div className="mt-2 text-xs tracking-[0.3em] text-gray-400">
-                Timeline
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
+      {/* Year */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeIndex}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.1 }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <div className="font-baskerville text-4xl md:text-5xl tracking-widest text-[#664c28]">
+            {timeline[activeIndex].year}
+          </div>
 
-      {/* ================= STORY (MOVING AREA) ================= */}
-      <div className="mt-24 max-w-xl mx-auto text-center px-6">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -40 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 className="font-baskerville text-3xl mb-6">
-              {timeline[activeIndex].title}
-            </h3>
+          <div className="mt-2 text-xs tracking-[0.3em] text-gray-400">
+            Timeline
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  </div>
 
-            <p className="text-gray-400 text-lg leading-relaxed">
-              {timeline[activeIndex].text}
-            </p>
+  {/* ================= RIGHT : STORY ================= */}
+  <div className="max-w-2xl">
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={activeIndex}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -40 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h3 className="font-baskerville text-3xl md:text-5xl mb-8 leading-tight">
+          {timeline[activeIndex].title}
+        </h3>
 
-            <div className="mx-auto mt-8 h-px w-32 bg-linear-to-r from-[#c6ac69] to-transparent
-" />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+        <p className="text-gray-400 text-lg leading-relaxed">
+          {timeline[activeIndex].text}
+        </p>
+
+        <div className="mt-8 h-px w-32 bg-linear-to-r from-[#c6ac69] to-transparent" />
+      </motion.div>
+    </AnimatePresence>
+  </div>
+</div>
+
     </section>
   );
 }
