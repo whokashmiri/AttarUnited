@@ -20,7 +20,7 @@ import Graff from './assets/Graff.jpg'
 
 import Azz from './assets/Azzafahmy.mp4'
 import Sain from './assets/chopard.mp4'
-import GC from './assets/graff.mp4'
+import GC from '../components/OurBrands/assets/hublot.mp4'
 
 
 import AfterSell from '../components/After-sell/after-sell.jsx'
@@ -32,15 +32,13 @@ const Home = () => {
     <Navbar/>
     <Hero2
       videos={[
-        Azz,
+         Azz,
         Sain,
-        GC,
+         GC,
+        
+        
       ]}
-      images={[
-        Graff,
-        Azza,
-        Saint,
-      ]}
+     
     />
 
 

@@ -21,43 +21,18 @@ export default function Hero({
   /* =========================================================
      MERGE MEDIA
   ========================================================= */
-  const media = useMemo(() => {
-    const vids = videos.map((src) => ({
-      type: "video",
-      src,
-    }));
+const leftVideo = videos[0];
+const topVideo = videos[1];
+const bottomVideo = videos[2];
 
-    const imgs = images.map((src) => ({
-      type: "image",
-      src,
-    }));
-
-    return [...vids, ...imgs];
-  }, [videos, images]);
+const [indexes, setIndexes] = useState([0, 1, 2]);
 
   /* =========================================================
      RANDOM ACTIVE INDEXES
   ========================================================= */
-  const [indexes, setIndexes] = useState([0, 1, 2]);
 
-  useEffect(() => {
-    if (media.length < 3) return;
 
-    const generateIndexes = () => {
-      const arr = [...Array(media.length).keys()]
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 3);
-
-      setIndexes(arr);
-    };
-
-    generateIndexes();
-
-    const interval = setInterval(generateIndexes, 4000);
-
-    return () => clearInterval(interval);
-  }, [media]);
-
+ 
   /* =========================================================
      SCROLL
   ========================================================= */
@@ -88,65 +63,30 @@ export default function Hero({
   /* =========================================================
      MEDIA CARD
   ========================================================= */
-  const MediaCard = ({ item, scale }) => {
-    if (!item) return null;
+ const MediaCard = ({ src, scale }) => {
+  if (!src) return null;
 
-    return (
-      <motion.div
-        style={{ scale }}
-        className="relative h-full w-full overflow-hidden"
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={item.src}
-            initial={{
-              opacity: 0,
-              scale: 1.05,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            exit={{
-              opacity: 0,
-              scale: 1.03,
-            }}
-            transition={{
-              duration: 1.5,
-              ease: "easeInOut",
-            }}
-            className="absolute inset-0"
-          >
-            {item.type === "video" ? (
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                className="h-full w-full object-cover"
-                src={item.src}
-              />
-            ) : (
-              <img
-                src={item.src}
-                alt=""
-                loading="lazy"
-                className="h-full w-full object-cover"
-              />
-            )}
+  return (
+    <motion.div
+      style={{ scale }}
+      className="relative h-full w-full overflow-hidden"
+    >
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="h-full w-full object-cover"
+        src={src}
+      />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-black/30" />
 
-            {/* Gradient */}
-            <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/10" />
-          </motion.div>
-        </AnimatePresence>
-      </motion.div>
-    );
-  };
-
+      <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/10" />
+    </motion.div>
+  );
+};
   return (
     <section
       ref={ref}
@@ -160,31 +100,31 @@ export default function Hero({
             GRID
         ========================================================== */}
         <div className="grid h-full grid-cols-1 md:grid-cols-2">
-          {/* LEFT BIG */}
-          <div className="relative h-full">
-            <MediaCard
-              item={media[indexes[0]]}
-              scale={leftScale}
-            />
-          </div>
+  {/* LEFT */}
+  <div className="relative h-full">
+    <MediaCard
+      src={leftVideo}
+      scale={leftScale}
+    />
+  </div>
 
-          {/* RIGHT */}
-          <div className="grid h-full grid-rows-2">
-            <div className="relative h-full">
-              <MediaCard
-                item={media[indexes[1]]}
-                scale={rightScale}
-              />
-            </div>
+  {/* RIGHT */}
+  <div className="grid h-full grid-rows-2">
+    <div className="relative h-full">
+      <MediaCard
+        src={topVideo}
+        scale={rightScale}
+      />
+    </div>
 
-            <div className="relative h-full">
-              <MediaCard
-                item={media[indexes[2]]}
-                scale={rightScale}
-              />
-            </div>
-          </div>
-        </div>
+    <div className="relative h-96">
+      <MediaCard
+        src={bottomVideo}
+        scale={rightScale}
+      />
+    </div>
+  </div>
+</div>
 
         {/* =========================================================
             OVERLAYS
