@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 export default function AfterSell() {
@@ -12,7 +13,7 @@ export default function AfterSell() {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-baskerville text-4xl md:text-6xl tracking-[0.25em] text-yellow-400 mb-10">
+          <h2 className="font-baskerville text-4xl md:text-6xl tracking-[0.25em] text-white mb-6">
             AFTER SALES SERVICE
           </h2>
 

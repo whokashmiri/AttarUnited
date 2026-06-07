@@ -207,7 +207,7 @@ const selectedBoutique =
   return (
     <section className="bg-black text-white py-24 px-6 min-h-screen">
 
-      <h2 className="text-3xl tracking-[0.6em] text-center mb-16 uppercase">
+      <h2 className="font-baskerville text-4xl text-center md:text-6xl tracking-[0.25em] text-white mb-16 uppercase">
         Boutique Experience
       </h2>
 

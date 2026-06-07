@@ -87,7 +87,7 @@ function BrandMediaCard({ brand }) {
 
 export default function OurBrands({
   brands = DEFAULT_BRANDS,
-  title = "Key Moments",
+  title = "KEY MOMENTS",
   subtitle = "Official Retailer of the world's most distinguished luxury houses.",
 }) {
   const ref = useRef(null);
@@ -102,7 +102,7 @@ export default function OurBrands({
     >
       {/* HEADER */}
       <div className="max-w-7xl mx-auto px-6 mb-12">
-        <h2 className="text-white text-4xl md:text-5xl font-baskerville">
+        <h2 className="font-baskerville text-white text-center text-4xl md:text-6xl tracking-[0.25em] mb-6">
           {title}
         </h2>
         <p className="text-white/60 mt-4 max-w-xl">{subtitle}</p>
