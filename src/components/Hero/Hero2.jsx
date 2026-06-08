@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   motion,
-  AnimatePresence,
   useScroll,
   useTransform,
   useSpring,
@@ -12,33 +11,11 @@ import {
 
 export default function Hero({
   videos = [],
-  images = [],
   title = "Attar United",
   subtitle = "The distinguished home of Chopard, Hublot, Graff, Azza Fahmy, Gerald Charles, and Saint-Louis in the Kingdom of Saudi Arabia.",
 }) {
   const ref = useRef(null);
 
-  /* =========================================================
-     MERGE MEDIA
-  ========================================================= */
-const sideTopVideo = videos[0];
-const sideBottomVideo = videos[1];
-
-const leftVideo = videos[2];
-const topVideo = videos[3];
-const bottomVideo = videos[4];
-
-const [indexes, setIndexes] = useState([0, 1, 2]);
-
-  /* =========================================================
-     RANDOM ACTIVE INDEXES
-  ========================================================= */
-
-
- 
-  /* =========================================================
-     SCROLL
-  ========================================================= */
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
@@ -51,128 +28,127 @@ const [indexes, setIndexes] = useState([0, 1, 2]);
       mass: 1,
     });
 
-  const leftScale = smooth(
-    useTransform(scrollYProgress, [0, 1], [1, 1.1])
-  );
-
-  const rightScale = smooth(
-    useTransform(scrollYProgress, [0, 1], [1, 1.05])
+  const tileScale = smooth(
+    useTransform(scrollYProgress, [0, 1], [1, 1.08])
   );
 
   const textOpacity = smooth(
-    useTransform(scrollYProgress, [0, 0.5], [1, 0])
+    useTransform(scrollYProgress, [0, 0.45], [1, 0])
   );
 
-  /* =========================================================
-     MEDIA CARD
-  ========================================================= */
- const MediaCard = ({ src, scale }) => {
-  if (!src) return null;
+  const heroVideos = videos.slice(0, 5);
 
-  return (
-    <motion.div
-      style={{ scale }}
-      className="relative h-full w-full overflow-hidden"
-    >
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="h-full w-full object-cover"
-        src={src}
-      />
-
-      <div className="absolute inset-0 bg-black/30" />
-
-      <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/10" />
-    </motion.div>
-  );
-};
   return (
     <section
       ref={ref}
-      className="relative h-screen w-full bg-black"
+      className="relative h-[200vh] w-full bg-black"
     >
-      {/* =========================================================
-          STICKY CONTAINER
-      ========================================================== */}
-      <div className="sticky top-0 h-screen overflow-hidden">
-        {/* =========================================================
-            GRID
-        ========================================================== */}
-<div className="grid h-full grid-cols-1 md:grid-cols-3">
-  {/* NEW LEFT COLUMN */}
-  <div className="grid h-full grid-rows-2">
-    <div className="relative h-full">
-      <MediaCard
-        src={sideTopVideo}
-        scale={rightScale}
-      />
-    </div>
+      <div className="sticky top-0 h-screen overflow-hidden bg-black">
+        {/* =====================================================
+            VIDEO GRID
+        ===================================================== */}
+        <div className="absolute inset-0">
+          <div className="grid h-full grid-cols-1 md:grid-cols-5 gap-2 md:gap-4 p-2 md:p-4">
+            {heroVideos.map((video, index) => (
+              <motion.div
+                key={index}
+                style={{ scale: tileScale }}
+                className="group relative overflow-hidden rounded-xl bg-black"
+              >
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  src={video}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
 
-    <div className="relative h-full">
-      <MediaCard
-        src={sideBottomVideo}
-        scale={rightScale}
-      />
-    </div>
-  </div>
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/25" />
 
-  {/* EXISTING LARGE VIDEO */}
-  <div className="relative h-full">
-    <MediaCard
-      src={leftVideo}
-      scale={leftScale}
-    />
-  </div>
+                {/* Luxury Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-  {/* EXISTING RIGHT COLUMN */}
-  <div className="grid h-full grid-rows-2">
-    <div className="relative h-full">
-      <MediaCard
-        src={topVideo}
-        scale={rightScale}
-      />
-    </div>
+                {/* Side Glow */}
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-900/10 via-transparent to-amber-900/10" />
 
-    <div className="relative h-full">
-      <MediaCard
-        src={bottomVideo}
-        scale={rightScale}
-      />
-    </div>
-  </div>
-</div>
-        {/* =========================================================
-            OVERLAYS
-        ========================================================== */}
+                {/* Luxury Vignette */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    boxShadow:
+                      "inset 0 0 120px rgba(0,0,0,.55), inset 0 0 30px rgba(217,119,6,.08)",
+                  }}
+                />
 
-        {/* Vignette */}
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/10 via-transparent to-black/70" />
+                {/* Border */}
+                <div className="absolute inset-0 border border-amber-700/30" />
 
-        {/* Glow */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_65%)]" />
+                {/* Corner Accents */}
+                <div className="absolute left-3 top-3 h-5 w-5 border-l-2 border-t-2 border-amber-500/50" />
+                <div className="absolute right-3 top-3 h-5 w-5 border-r-2 border-t-2 border-amber-500/50" />
+                <div className="absolute left-3 bottom-3 h-5 w-5 border-l-2 border-b-2 border-amber-500/50" />
+                <div className="absolute right-3 bottom-3 h-5 w-5 border-r-2 border-b-2 border-amber-500/50" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
-        {/* =========================================================
-            TEXT
-        ========================================================== */}
+        {/* =====================================================
+            GLOBAL OVERLAYS
+        ===================================================== */}
+
+        <div className="pointer-events-none absolute inset-0 bg-black/15 z-10" />
+
+        <div className="pointer-events-none absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black via-black/60 to-transparent z-20" />
+
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black via-black/80 to-transparent z-20" />
+
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,119,6,0.08),transparent_70%)] z-10" />
+
+        {/* =====================================================
+            CONTENT
+        ===================================================== */}
+
         <motion.div
           style={{
             opacity: textOpacity,
           }}
-          className="absolute bottom-0 left-0 z-20 w-full"
+          className="absolute inset-0 z-30 flex items-end"
         >
-          <div className="mx-auto max-w-7xl px-6 pb-20">
+          <div className="mx-auto w-full max-w-7xl px-6 md:px-10 pb-16 md:pb-24">
             <div className="max-w-3xl">
-              <h1 className="font-baskerville uppercase text-[#986a4c] text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide">
+              <div className="mb-6 flex items-center gap-4">
+                <div className="h-px w-14 bg-gradient-to-r from-amber-600 to-transparent" />
+
+                <span className="text-xs uppercase tracking-[0.35em] text-amber-500/90">
+                  Luxury Essentials
+                </span>
+              </div>
+
+              <h1 className="font-baskerville text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.95] tracking-wide text-amber-500 drop-shadow-xl">
                 {title}
               </h1>
 
-              <p className="mt-6 max-w-2xl text-sm sm:text-base md:text-xl leading-relaxed text-white/75 font-baskerville">
+              <p className="mt-6 max-w-2xl text-sm md:text-lg leading-relaxed text-white/80">
                 {subtitle}
               </p>
+
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow:
+                    "0 0 25px rgba(217,119,6,.35)",
+                }}
+                whileTap={{
+                  scale: 0.96,
+                }}
+                className="mt-10 border border-amber-500/60 px-8 py-3 text-xs uppercase tracking-[0.25em] text-amber-500 transition-all duration-300 hover:bg-amber-500/10"
+              >
+                Explore Collection
+              </motion.button>
             </div>
           </div>
         </motion.div>

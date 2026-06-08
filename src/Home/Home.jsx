@@ -19,8 +19,10 @@ import GC3 from './assets/gr.jpg'
 import Graff from './assets/Graff.jpg'
 
 import Azz from './assets/Azzafahmy.mp4'
-import Sain from './assets/chopard.mp4'
-import GC from '../components/OurBrands/assets/hublot.mp4'
+import Ch from './assets/chopard.mp4'
+import hublot from '../components/OurBrands/assets/hublot.mp4'
+import Sain from '../components/OurBrands/assets/saintlouis.mp4'
+import GC from '../components/OurBrands/assets/graff.mp4'
 
 
 import AfterSell from '../components/After-sell/after-sell.jsx'
@@ -35,6 +37,8 @@ const Home = () => {
          Azz,
         Sain,
          GC,
+          hublot,
+          Ch,
         
         
       ]}
