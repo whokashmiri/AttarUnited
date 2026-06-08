@@ -69,10 +69,10 @@ export default function Hero({
                 <div className="absolute inset-0 bg-black/25" />
 
                 {/* Luxury Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
 
                 {/* Side Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-900/10 via-transparent to-amber-900/10" />
+                <div className="absolute inset-0 bg-linear-to-t from-amber-900/10 via-transparent to-amber-900/10" />
 
                 {/* Luxury Vignette */}
                 <div
@@ -102,9 +102,9 @@ export default function Hero({
 
         <div className="pointer-events-none absolute inset-0 bg-black/15 z-10" />
 
-        <div className="pointer-events-none absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black via-black/60 to-transparent z-20" />
+        <div className="pointer-events-none absolute top-0 left-0 right-0 h-40 bg-linear-to-b from-black via-black/60 to-transparent z-20" />
 
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black via-black/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-64 bg-linear-to-b from-black via-black/80 to-transparent z-20" />
 
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,119,6,0.08),transparent_70%)] z-10" />
 
@@ -121,7 +121,7 @@ export default function Hero({
           <div className="mx-auto w-full max-w-7xl px-6 md:px-10 pb-16 md:pb-24">
             <div className="max-w-3xl">
               <div className="mb-6 flex items-center gap-4">
-                <div className="h-px w-14 bg-gradient-to-r from-amber-600 to-transparent" />
+                <div className="h-px w-14 bg-linear-to-r from-amber-600 to-transparent" />
 
                 <span className="text-xs uppercase tracking-[0.35em] text-amber-500/90">
                   Luxury Essentials
