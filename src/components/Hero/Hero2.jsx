@@ -21,9 +21,12 @@ export default function Hero({
   /* =========================================================
      MERGE MEDIA
   ========================================================= */
-const leftVideo = videos[0];
-const topVideo = videos[1];
-const bottomVideo = videos[2];
+const sideTopVideo = videos[0];
+const sideBottomVideo = videos[1];
+
+const leftVideo = videos[2];
+const topVideo = videos[3];
+const bottomVideo = videos[4];
 
 const [indexes, setIndexes] = useState([0, 1, 2]);
 
@@ -99,8 +102,25 @@ const [indexes, setIndexes] = useState([0, 1, 2]);
         {/* =========================================================
             GRID
         ========================================================== */}
-        <div className="grid h-full grid-cols-1 md:grid-cols-2">
-  {/* LEFT */}
+<div className="grid h-full grid-cols-1 md:grid-cols-3">
+  {/* NEW LEFT COLUMN */}
+  <div className="grid h-full grid-rows-2">
+    <div className="relative h-full">
+      <MediaCard
+        src={sideTopVideo}
+        scale={rightScale}
+      />
+    </div>
+
+    <div className="relative h-full">
+      <MediaCard
+        src={sideBottomVideo}
+        scale={rightScale}
+      />
+    </div>
+  </div>
+
+  {/* EXISTING LARGE VIDEO */}
   <div className="relative h-full">
     <MediaCard
       src={leftVideo}
@@ -108,7 +128,7 @@ const [indexes, setIndexes] = useState([0, 1, 2]);
     />
   </div>
 
-  {/* RIGHT */}
+  {/* EXISTING RIGHT COLUMN */}
   <div className="grid h-full grid-rows-2">
     <div className="relative h-full">
       <MediaCard
@@ -117,7 +137,7 @@ const [indexes, setIndexes] = useState([0, 1, 2]);
       />
     </div>
 
-    <div className="relative h-96">
+    <div className="relative h-full">
       <MediaCard
         src={bottomVideo}
         scale={rightScale}
@@ -125,7 +145,6 @@ const [indexes, setIndexes] = useState([0, 1, 2]);
     </div>
   </div>
 </div>
-
         {/* =========================================================
             OVERLAYS
         ========================================================== */}
