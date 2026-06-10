@@ -1,4 +1,3 @@
-
 import React from "react";
 
 export default function AfterSalesService() {
@@ -15,11 +14,11 @@ export default function AfterSalesService() {
           </h2>
 
           <p className="max-w-3xl mx-auto mt-6 text-gray-400 text-lg leading-relaxed">
-            Attar United has experienced and highly trained after-sales
-            experts certified by leading Swiss luxury watch brands.
-            Our specialists provide comprehensive post-purchase care,
-            ensuring your timepiece continues to perform beautifully
-            for generations.
+            Attar United's certified after-sales specialists provide exceptional
+            care for luxury watches and fine jewellery. Using approved
+            procedures, genuine components, and meticulous craftsmanship, our
+            experts ensure every piece maintains its beauty, performance, and
+            value for years to come.
           </p>
         </div>
 
@@ -29,7 +28,7 @@ export default function AfterSalesService() {
           {/* Image */}
           <div className="overflow-hidden rounded-3xl border border-[#c6a45f]/30">
             <img
-              src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1600&auto=format&fit=crop"
+              src="https://i.ytimg.com/vi/ecm-CVnhAW4/maxresdefault.jpg"
               alt="Luxury Watch Service"
               className="w-full h-full object-cover hover:scale-105 transition duration-700"
             />
@@ -37,38 +36,72 @@ export default function AfterSalesService() {
 
           {/* Content */}
           <div>
-
             <span className="text-[#c6a45f] uppercase tracking-[0.3em] text-sm">
-              Maintenance Service
+              Maintenance Services
             </span>
 
-            <h3 className="text-3xl md:text-4xl font-baskerville mt-4 mb-8">
-              Luxury Watch Care
+            <h3 className="text-3xl md:text-4xl font-baskerville mt-4 mb-10">
+              Expert Care & Restoration
             </h3>
 
-            <div className="space-y-5">
+            <div className="space-y-10">
 
-              {[
-                "Checking the movement and watch functions",
-                "Replacing the battery for quartz watches",
-                "Cleaning and lubricating the escapement and balance wheel for mechanical watches",
-                "Adjusting the daily rate of the movement",
-                "Cleaning the case and metal bracelet",
-                "Cleaning moving diamonds and decorative elements",
-                "Checking water resistance for eligible watches",
-                "Comprehensive final quality inspection",
-              ].map((service, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-4 border-b border-white/10 pb-4"
-                >
-                  <div className="mt-2 h-2 w-2 rounded-full bg-[#c6a45f]" />
+              {/* Watches */}
+              <div>
+                <h4 className="text-[#c6a45f] text-xl uppercase tracking-[0.2em] mb-5">
+                  Watches
+                </h4>
 
-                  <p className="text-gray-300 leading-relaxed">
-                    {service}
-                  </p>
+                <div className="space-y-4">
+                  {[
+                    "Checking the movement and watch functions",
+                    "Replacing the battery (Quartz) or cleaning and lubricating the escapement and balance wheel (Mechanical)",
+                    "Adjusting the daily rate of the movement",
+                    "Cleaning the case and metal bracelet",
+                    "Cleaning moving diamonds",
+                    "Checking water resistance (for water-resistant watches only)",
+                    "Final quality inspection",
+                  ].map((service, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-4 border-b border-white/10 pb-4"
+                    >
+                      <div className="mt-2 h-2 w-2 rounded-full bg-[#c6a45f]" />
+
+                      <p className="text-gray-300 leading-relaxed">
+                        {service}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Jewellery */}
+              <div>
+                <h4 className="text-[#c6a45f] text-xl uppercase tracking-[0.2em] mb-5">
+                  Jewellery
+                </h4>
+
+                <div className="space-y-4">
+                  {[
+                    "Re-sizing",
+                    "Professional polishing (including rhodium plating for 18k white gold pieces)",
+                    "Cleaning, including moving diamonds and crystals",
+                    "Personalized engraving (letters and numbers)",
+                  ].map((service, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-4 border-b border-white/10 pb-4"
+                    >
+                      <div className="mt-2 h-2 w-2 rounded-full bg-[#c6a45f]" />
+
+                      <p className="text-gray-300 leading-relaxed">
+                        {service}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
             </div>
           </div>
@@ -88,8 +121,8 @@ export default function AfterSalesService() {
             </h4>
 
             <p className="text-gray-400 text-sm">
-              Factory-trained specialists certified by
-              leading Swiss luxury brands.
+              Factory-trained specialists certified by leading Swiss luxury
+              brands and jewellery maisons.
             </p>
           </div>
 
@@ -103,8 +136,8 @@ export default function AfterSalesService() {
             </h4>
 
             <p className="text-gray-400 text-sm">
-              Original manufacturer components
-              and approved servicing procedures.
+              Original manufacturer components and approved servicing
+              procedures for exceptional reliability.
             </p>
           </div>
 
@@ -118,14 +151,14 @@ export default function AfterSalesService() {
             </h4>
 
             <p className="text-gray-400 text-sm">
-              Every serviced timepiece undergoes
-              comprehensive testing and inspection.
+              Every watch and jewellery piece undergoes comprehensive
+              inspection before being returned to its owner.
             </p>
           </div>
 
         </div>
+
       </div>
     </section>
   );
 }
-

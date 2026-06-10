@@ -44,7 +44,7 @@ export default function BlogsPage() {
       </h2>
 
       <p className="mt-8 text-lg leading-9 text-white">
-        {blog.full}
+        {blog.short}
       </p>
 
       <button
@@ -68,7 +68,7 @@ export default function BlogsPage() {
       </h2>
 
       <p className="mt-8 text-lg leading-9 text-white">
-        {blog.full}
+        {blog.short}
       </p>
 
       <button
