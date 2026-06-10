@@ -128,7 +128,7 @@ export default function Hero({
                 </span>
               </div>
 
-              <h1 className="font-baskerville text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.95] tracking-wide text-amber-500 drop-shadow-xl">
+              <h1 className="font-baskerville text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.95] tracking-wide text-[#986a4c] drop-shadow-xl">
                 {title}
               </h1>
 
@@ -136,19 +136,7 @@ export default function Hero({
                 {subtitle}
               </p>
 
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow:
-                    "0 0 25px rgba(217,119,6,.35)",
-                }}
-                whileTap={{
-                  scale: 0.96,
-                }}
-                className="mt-10 border border-amber-500/60 px-8 py-3 text-xs uppercase tracking-[0.25em] text-amber-500 transition-all duration-300 hover:bg-amber-500/10"
-              >
-                Explore Collection
-              </motion.button>
+              
             </div>
           </div>
         </motion.div>
