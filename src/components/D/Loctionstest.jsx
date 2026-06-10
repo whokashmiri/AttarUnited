@@ -8,7 +8,7 @@ export default function BoutiquesExperience() {
 
   const navigate = useNavigate();
 
-  const { city, slug } = useParams();
+  const { city, slug, brand } = useParams();
 
   const data = {
     Jeddah: [
@@ -197,6 +197,27 @@ export default function BoutiquesExperience() {
   ? city.charAt(0).toUpperCase() + city.slice(1)
   : null;
 
+  const groupedBrands = selectedCity
+  ? data[selectedCity].reduce((acc, boutique) => {
+      const brandName = boutique.name
+        .replace(" Boutique", "")
+        .trim();
+
+      if (!acc[brandName]) {
+        acc[brandName] = [];
+      }
+
+      acc[brandName].push(boutique);
+
+      return acc;
+    }, {})
+  : {};
+
+const selectedBrandStores =
+  selectedCity && brand
+    ? groupedBrands[decodeURIComponent(brand)]
+    : null;
+
 const selectedBoutique =
   selectedCity && slug
     ? data[selectedCity]?.find(
@@ -229,35 +250,80 @@ const selectedBoutique =
       )}
 
       {/* ---------------- BOUTIQUE SELECTION ---------------- */}
-      {selectedCity && !selectedBoutique && (
-        <div className="max-w-5xl mx-auto">
+      {selectedCity &&
+  !brand &&
+  !selectedBoutique && (
+    <div className="max-w-5xl mx-auto">
 
-          <BackButton
-            onClick={() => navigate("/boutiques")}
-          />
+      <BackButton
+        onClick={() => navigate("/boutiques")}
+      />
 
-          <h3 className="text-xl tracking-[0.5em] text-[#c6a45f] text-center mb-12 uppercase">
-            {selectedCity}
-          </h3>
+      <h3 className="text-xl tracking-[0.5em] text-[#c6a45f] text-center mb-12 uppercase">
+        {selectedCity}
+      </h3>
 
-          <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8">
 
-            {data[selectedCity]?.map((boutique, index) => (
-              <BoutiqueBox
-                key={index}
-                boutique={boutique}
-                onClick={() =>
-                  navigate(
-                    `/boutique/${selectedCity.toLowerCase()}/${boutique.id}`
-                  )
-                }
-              />
-            ))}
+        {Object.entries(groupedBrands).map(
+          ([brandName, stores]) => (
+            <BrandBox
+              key={brandName}
+              brand={brandName}
+              count={stores.length}
+              onClick={() =>
+                navigate(
+                  `/brand/${selectedCity.toLowerCase()}/${encodeURIComponent(
+                    brandName
+                  )}`
+                )
+              }
+            />
+          )
+        )}
 
-          </div>
+      </div>
 
-        </div>
-      )}
+    </div>
+)}
+
+
+{selectedBrandStores &&
+  !selectedBoutique && (
+    <div className="max-w-5xl mx-auto">
+
+      <BackButton
+        onClick={() =>
+          navigate(
+            `/city/${selectedCity.toLowerCase()}`
+          )
+        }
+      />
+
+      <h3 className="text-xl tracking-[0.5em] text-[#c6a45f] text-center mb-12 uppercase">
+        {decodeURIComponent(brand)}
+      </h3>
+
+      <div className="grid md:grid-cols-2 gap-8">
+
+        {selectedBrandStores.map(
+          (boutique) => (
+            <BoutiqueBox
+              key={boutique.id}
+              boutique={boutique}
+              onClick={() =>
+                navigate(
+                  `/boutique/${selectedCity.toLowerCase()}/${boutique.id}`
+                )
+              }
+            />
+          )
+        )}
+
+      </div>
+
+    </div>
+)}
 
       {/* ---------------- BOUTIQUE DETAILS ---------------- */}
       {selectedBoutique && (
@@ -360,5 +426,27 @@ function BackButton({ onClick }) {
     >
       ← BACK
     </button>
+  );
+}
+
+function BrandBox({
+  brand,
+  count,
+  onClick,
+}) {
+  return (
+    <div
+      onClick={onClick}
+      className="cursor-pointer border border-[#c6a45f]/30 rounded-xl p-8 bg-[#111] hover:border-[#c6a45f] hover:shadow-[0_0_25px_rgba(198,164,95,0.3)] transition duration-500"
+    >
+      <h4 className="text-base font-[cormorant] mb-2">
+        {brand}
+      </h4>
+
+      <p className="text-gray-500 text-xs">
+        {count} boutique
+        {count > 1 ? "s" : ""}
+      </p>
+    </div>
   );
 }

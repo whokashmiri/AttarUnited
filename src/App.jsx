@@ -7,40 +7,53 @@ import BlogDetails from "./MediaPR/BlogDetails.jsx";
 
 const App = () => {
   return (
-    <>
-      <Routes>
+    <Routes>
+      {/* HOME */}
+      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
 
-        {/* HOME */}
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+      {/* BOUTIQUES LANDING PAGE */}
+      <Route
+        path="/location"
+        element={<Location />}
+      />
 
-        {/* BOUTIQUES */}
-        <Route path="/location" element={<Location />} />
+      {/* CITY PAGE */}
+      <Route
+        path="/city/:city"
+        element={<Location />}
+      />
 
-        {/* CITY PAGE */}
-        <Route
-          path="/city/:city"
-          element={<Location />}
-        />
+      {/* BRAND PAGE */}
+      <Route
+        path="/brand/:city/:brand"
+        element={<Location />}
+      />
 
-        {/* INDIVIDUAL BOUTIQUE PAGE */}
-        <Route
-          path="/boutique/:city/:slug"
-          element={<Location />}/>
+      {/* BOUTIQUE DETAILS PAGE */}
+      <Route
+        path="/boutique/:city/:slug"
+        element={<Location />}
+      />
 
-          
-    
-        <Route path="/media-pr" element={<BlogsPage />} />
+      {/* MEDIA */}
+      <Route
+        path="/media-pr"
+        element={<BlogsPage />}
+      />
 
-        {/* SINGLE BLOG PAGE */}
-        <Route path="/media-pr/:id" element={<BlogDetails />} />
-        
+      {/* BLOG DETAILS */}
+      <Route
+        path="/media-pr/:id"
+        element={<BlogDetails />}
+      />
 
-        {/* FALLBACK */}
-        <Route path="*" element={<Home />} />
-
-      </Routes>
-    </>
+      {/* FALLBACK */}
+      <Route
+        path="*"
+        element={<Home />}
+      />
+    </Routes>
   );
 };
 
