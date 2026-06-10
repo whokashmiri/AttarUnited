@@ -189,10 +189,10 @@ export default function StoryTimeline() {
           {/* =========================================
               WATCH
           ========================================= */}
-          <div className="relative flex items-center justify-center flex-shrink-0">
+          <div className="relative flex items-center justify-center shrink-0">
 
             {/* TOP STRAP */}
-            <div
+            {/* <div
               className="
                 absolute
                 -top-44
@@ -211,10 +211,10 @@ export default function StoryTimeline() {
 
                 shadow-[0_30px_60px_rgba(0,0,0,0.9)]
               "
-            />
+            /> */}
 
             {/* BOTTOM STRAP */}
-            <div
+            {/* <div
               className="
                 absolute
                 -bottom-44
@@ -233,13 +233,13 @@ export default function StoryTimeline() {
 
                 shadow-[0_-30px_60px_rgba(0,0,0,0.9)]
               "
-            />
+            /> */}
 
             {/* CROWN */}
             <div
               className="
                 absolute
-                right-[-20px]
+                -right-5
                 top-1/2
                 -translate-y-1/2
 
@@ -248,7 +248,7 @@ export default function StoryTimeline() {
 
                 rounded-r-3xl
 
-                bg-gradient-to-b
+                bg-linear-to-b
                 from-[#f0d7a0]
                 via-[#c69c63]
                 to-[#6f4b27]
@@ -264,20 +264,20 @@ export default function StoryTimeline() {
               className="
                 relative
 
-                w-[340px]
-                h-[340px]
+                w-85
+                h-85
 
-                md:w-[460px]
-                md:h-[460px]
+                md:w-115
+                md:h-115
 
                 rounded-full
 
-                bg-gradient-to-br
+                bg-linear-to-br
                 from-[#2a2a2a]
                 via-[#0a0a0a]
-                to-[#000]
+                to-black
 
-                border-[16px]
+                border-16
                 border-[#c6ac69]
 
                 shadow-[0_0_100px_rgba(198,172,105,0.25)]
@@ -339,8 +339,8 @@ export default function StoryTimeline() {
 
                         ${
                           i % 3 === 0
-                            ? "w-[4px] h-10 bg-[#f1d28c]"
-                            : "w-[2px] h-7 bg-[#c6ac69]"
+                            ? "w-1 h-10 bg-[#f1d28c]"
+                            : "w-0.5 h-7 bg-[#c6ac69]"
                         }
                       `}
                       style={{
@@ -362,7 +362,7 @@ export default function StoryTimeline() {
                 }}
                 className="
                   absolute
-                  top-[90px]
+                  top-22.5
                   left-1/2
                   -translate-x-1/2
 
@@ -394,7 +394,7 @@ export default function StoryTimeline() {
                     h-px
                     mx-auto
 
-                    bg-gradient-to-r
+                    bg-linear-to-r
                     from-transparent
                     via-[#f4d38e]
                     to-transparent
@@ -417,12 +417,12 @@ export default function StoryTimeline() {
                   className="
                     absolute
 
-                    w-[6px]
+                    w-1.5
                     h-28
 
                     rounded-full
 
-                    bg-gradient-to-t
+                    bg-linear-to-t
                     from-[#8b6a3f]
                     via-[#c6ac69]
                     to-[#f5d38c]
@@ -450,12 +450,12 @@ export default function StoryTimeline() {
                   className="
                     absolute
 
-                    w-[2px]
+                    w-0.5
                     h-40
 
                     rounded-full
 
-                    bg-gradient-to-t
+                    bg-linear-to-t
                     from-white/40
                     to-white
 
@@ -478,7 +478,7 @@ export default function StoryTimeline() {
 
                     rounded-full
 
-                    bg-gradient-to-br
+                    bg-linear-to-br
                     from-[#f5d38c]
                     via-[#c6ac69]
                     to-[#7b5731]
@@ -595,7 +595,7 @@ export default function StoryTimeline() {
                     h-px
                     w-44
 
-                    bg-gradient-to-r
+                    bg-linear-to-r
                     from-[#c6ac69]
                     to-transparent
                   "
