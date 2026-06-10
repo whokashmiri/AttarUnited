@@ -124,10 +124,10 @@ function AttarMenuOverlay({ open, onClose, lang, toggleLang }) {
       boutiques: "Boutiques",
       afterSales: "After Sales Service",
       media: "Media & PR",
-      careers: "Careers",
+      // careers: "Careers",
       contact: "Contact Us",
       close: "Close",
-      skip: "Skip to content",
+      // skip: "Skip to content",
     },
     ar: {
       home: "الرئيسية",
@@ -136,10 +136,10 @@ function AttarMenuOverlay({ open, onClose, lang, toggleLang }) {
       boutiques: "المتاجر",
       afterSales: "خدمة ما بعد البيع",
       media: "الإعلام والعلاقات العامة",
-      careers: "الوظائف",
+      // careers: "الوظائف",
       contact: "تواصل معنا",
       close: "إغلاق",
-      skip: "تخطي إلى المحتوى",
+      // skip: "تخطي إلى المحتوى",
     },
   };
 
@@ -221,11 +221,11 @@ function AttarMenuOverlay({ open, onClose, lang, toggleLang }) {
                 <MenuLink to="/after-sales" label={t.afterSales} onClick={onClose} />
               </motion.div>
               <motion.div variants={item} className="mb-6">
-                <MenuLink to="/media" label={t.media} onClick={onClose} />
+                <MenuLink to="/media-pr" label={t.media} onClick={onClose} />
               </motion.div>
-              <motion.div variants={item} className="mb-6">
+              {/* <motion.div variants={item} className="mb-6">
                 <MenuLink to="/careers" label={t.careers} onClick={onClose} />
-              </motion.div>
+              </motion.div> */}
               <motion.div variants={item} className="mb-6">
                 <MenuLink to="/contact" label={t.contact} onClick={onClose} />
               </motion.div>

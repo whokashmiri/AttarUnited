@@ -28,6 +28,7 @@ import GC from '../components/OurBrands/assets/graff.mp4'
 import AfterSell from '../components/After-sell/after-sell.jsx'
 import Footer from '../components/Footer/Footer.jsx'
 import MediaPR from '../MediaPR/MediaPR.jsx'
+import ContactForm from '../components/ContactForm/ContactForm.jsx'
 const Home = () => {
   return (
     <> 
@@ -57,6 +58,7 @@ const Home = () => {
     <D/>  
     <AfterSell/>
     <MediaPR/>
+    {/* <ContactForm/> */}
     <Footer/>
    
    

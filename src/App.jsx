@@ -4,6 +4,11 @@ import { Routes, Route } from "react-router-dom";
 import Location from "./components/D/Location.jsx";
 import BlogsPage from "./MediaPR/BlogsPage.jsx";
 import BlogDetails from "./MediaPR/BlogDetails.jsx";
+import ContactForm from "./components/ContactForm/ContactForm.jsx";
+import About from "./components/OurStory/About.jsx";
+import Brands from "./components/Crazy/Brands.jsx";
+import Boutiques from "./components/D/Boutiques.jsx";
+import AfterSales from "./components/After-sell/AfterSales.jsx";
 
 const App = () => {
   return (
@@ -11,6 +16,14 @@ const App = () => {
       {/* HOME */}
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/contact" element={<ContactForm />} />
+      <Route path="/about" element={<About />} />
+       <Route path="/boutiques" element={<Boutiques />} />
+      <Route path="/brands" element={<Brands />} />
+        <Route path="/after-sales" element={<AfterSales />} />
+         <Route path="/media-pr" element={<BlogsPage />} />
+
+      
 
       {/* BOUTIQUES LANDING PAGE */}
       <Route

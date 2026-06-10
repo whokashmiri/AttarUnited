@@ -7,7 +7,7 @@ export default function ThreeDVisuals() {
     <section className="bg-black text-white min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
 
       {/* TITLE */}
-      <h2 className="font-baskerville text-4xl md:text-6xl tracking-[0.25em] text-white mb-16 uppercase">
+      <h2 className="font-baskerville text-4xl mt-10 md:text-6xl tracking-[0.25em] text-white mb-16 uppercase">
         Our Boutiques 
       </h2>
 
