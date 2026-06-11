@@ -87,7 +87,7 @@ const nextBlog =
           <img
             src={nextBlog.image}
             alt={nextBlog.title}
-            className="w-full h-[300px] object-cover transition duration-700 group-hover:scale-105"
+            className="w-full h-75 object-cover transition duration-700 group-hover:scale-105"
           />
         </div>
 
