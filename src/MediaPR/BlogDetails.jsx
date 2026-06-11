@@ -58,15 +58,58 @@ const nextBlog =
           {blog.title}
         </h1>
 
-        <div className="mt-10 space-y-8 text-[1.2rem] leading-[2.3rem] text-[#222]">
-          {blog.full
-            .trim()
-            .split("\n")
-            .filter(Boolean)
-            .map((para, index) => (
-              <p key={index}>{para}</p>
-            ))}
-        </div>
+  
+<div className="mt-10 space-y-8 text-[#222]">
+  {blog.content ? (
+    blog.content.map((item, index) => {
+      switch (item.type) {
+        case "heading":
+          return (
+            <h2
+              key={index}
+              className="text-3xl md:text-4xl font-serif text-[#9b6b4d]"
+            >
+              {item.text}
+            </h2>
+          );
+
+        case "image":
+          return (
+            <img
+              key={index}
+              src={item.src}
+              alt=""
+              className="w-full my-10 object-cover"
+            />
+          );
+
+        default:
+          return (
+            <p
+              key={index}
+              className="text-[1.2rem] leading-[2.3rem]"
+            >
+              {item.text}
+            </p>
+          );
+      }
+    })
+  ) : (
+    blog.full
+      ?.trim()
+      ?.split("\n")
+      ?.filter(Boolean)
+      ?.map((para, index) => (
+        <p
+          key={index}
+          className="text-[1.2rem] leading-[2.3rem]"
+        >
+          {para}
+        </p>
+      ))
+  )}
+</div>
+
       </div>
 
  {nextBlog && (

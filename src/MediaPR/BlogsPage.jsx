@@ -27,10 +27,10 @@ export default function BlogsPage() {
     {/* IMAGE */}
     <div className="overflow-hidden">
       <img
-        src={blog.image}
-        alt={blog.title}
-        className="w-full h-[500px] object-cover transition duration-700 hover:scale-105"
-      />
+  src={blog.image || blog.images?.[0]}
+  alt={blog.title}
+  className="w-full h-125 object-cover transition duration-700 hover:scale-105"
+/>
     </div>
 
     {/* TEXT */}
@@ -44,8 +44,13 @@ export default function BlogsPage() {
       </h2>
 
       <p className="mt-8 text-lg leading-9 text-white">
-        {blog.short}
-      </p>
+  {blog.short ||
+    blog.content
+      ?.filter((item) => item.type === "paragraph")
+      ?.map((item) => item.text)
+      ?.join(" ")
+      ?.slice(0, 220) + "..."}
+</p>
 
       <button
         onClick={() => navigate(`/media-pr/${blog.id}`)}
@@ -81,11 +86,11 @@ export default function BlogsPage() {
 
     {/* IMAGE */}
     <div className="order-1 md:order-2 overflow-hidden">
-      <img
-        src={blog.image}
-        alt={blog.title}
-        className="w-full h-[500px] object-cover transition duration-700 hover:scale-105"
-      />
+     <img
+  src={blog.image || blog.images?.[0]}
+  alt={blog.title}
+  className="w-full h-125 object-cover transition duration-700 hover:scale-105"
+/>
     </div>
   </>
 )}
