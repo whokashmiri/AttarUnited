@@ -82,6 +82,24 @@ const nextBlog =
               className="w-full my-10 object-cover"
             />
           );
+           case "image2":
+          return (
+            <img
+              key={index}
+              src={item.src}
+              alt=""
+              className="w-[50%] h-96 my-10 object-cover"
+            />
+          );
+            case "image3":
+          return (
+            <img
+              key={index}
+              src={item.src}
+              alt=""
+              className="w-fit center ml-50 left-[10%] h-96  object-fit"
+            />
+          );
 
         default:
           return (
