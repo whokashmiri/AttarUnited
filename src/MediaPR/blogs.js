@@ -176,10 +176,7 @@ const blogs = [
     ],
   },
 
-
-
-
-    {
+  {
     id: 3,
     date: "APRIL 3, 2026",
     title: "Alex De Minaur Partners With Gerald Charles",
@@ -265,6 +262,255 @@ leading male tennis player of the past 20 years.`,
       },
 
      ],
+  },
+
+   {
+    id: 4,
+    date: "MAY 03, 2023",
+    title: "Chopard loves cinema: Maison renews Cannes festival partnership",
+
+    // Cover image for blog cards/listing pages
+    image:
+      "https://www.attarunited.com/wp-content/uploads/2026/05/chopard_-79th_cannes_festival_main-1024x683.jpg",
+
+    short:
+      "Official partner to the Cannes Film Festival since 1998, Chopard will once again be right there alongside numerous film actors, directors and professionals for the 76th edition of one of the world’s greatest cinema events. The film festival runs from May 16-27.",
+
+    content: [
+        {
+        type: "image",
+        src: "https://www.attarunited.com/wp-content/uploads/2022/05/nw08-1536x880.jpg",
+      },
+
+      {
+        type: "paragraph",
+        text: `Official partner to the Cannes Film Festival since 1998, Chopard will once again be right there alongside numerous film actors, directors and professionals for the 76th edition of one of the world’s greatest cinema events. The film festival runs from May 16-27.`,
+      },
+
+      // {
+      //   type: "image",
+      //   src: "https://www.attarunited.com/wp-content/uploads/2026/05/chopard_-79th_cannes_festival_main-1024x683.jpg",
+      // },
+
+      {
+        type: "paragraph",
+        text: "Artisan of the Palme d’Or and the trophies awarded during the closing ceremony, the Maison will also honor the promising careers of a young actor and actress thanks to the Trophée Chopard. This year, Caroline Scheufele, co-president and artistic director of Chopard, has chosen “Art” as the theme of the Red Carpet Collection and of Chopard’s traditional glamorous grande soirée. Architecture, sculpture, painting, music, literature, dance and cinema: All the noblest forms of human genius will be highlighted in the Maison’s activities. Crafted in the same workshops as the Palme d’Or, the 76 haute joaillerie masterpieces in the Red Carpet Collection will light up the traditional staircase ritual by adorning many of the actresses and actors present to promote their films with the watches and jewelry. Meanwhile, the Chopard Rooftop at the Martinez Hotel will be the unmissable scene of all the buzz during this Cannes fortnight.",
+      },
+
+      {
+        type: "paragraph",
+        text: `Chopard loves cinema, as is vividly illustrated by its latest campaign starring its global ambassador Julia Roberts, inspired by a backstage look at a film shoot. The maison’s commitment to the seventh art (cinema) is also reflected in its historic partnership with the Cannes Festival, which began in 1998.`
+      },
+
+      {
+        type: "paragraph",
+        text: "As part of this collaboration, Chopard has crafted all the trophies awarded by the festival jury at the end of the competition, within its workshops. Thanks to its dedication to sustainable luxury and the unique expertise of its artisans, the Palme d’Or is crafted in Fairmined-certified ethical gold, in compliance with best-practice artisanal gold mining.",
+      },
+
+      {
+        type: "paragraph",
+        text: `The workshop’s virtuoso jewelry skills are also put to good use in the Red Carpet Collection, which annually comprises the exact number of creations corresponding to each given edition of the festival. This year, 76 works of art reflecting haute joaillerie crafts will thus be unveiled in the splendid setting of the Palais des Festivals, duly chosen by the actresses and actors invited to promote their films in competition by making an appearance on the red carpet.`,
+      },
+
+      {
+        type: "paragraph",
+        
+        text:"On the occasion of the Trophée Chopard on May 19, two promising and talented artists will be awarded their distinctions by a “godmother” appointed by Scheufele. Inaugurated in 2001 at the initiative of the maison’s co-president and artistic director, the Trophée Chopard is part of the official Cannes Festival calendar. In 2022, Sheila Atim and Jack Lowden were the winners of this distinction presented by that year’s godmother, Roberts."
+      },
+
+     
+  
+    ],
+  },
+  
+   {
+    id: 5,
+    date: "MAY 08, 2020",
+    title: "Largest Hublot Boutique Opens in AL-Khobar in Partnership With Attar United",
+
+    // Cover image for blog cards/listing pages
+    image:
+      "https://www.attarunited.com/wp-content/uploads/2026/05/chopard_-79th_cannes_festival_main-1024x683.jpg",
+
+    short:
+      "Hublot and Attar United officially launched the latest Hublot boutique in the Middle East, in Al- Khobar, Saudi Arabia. The 300 square meters boutique, the largest one for Hublot worldwide, is located on Al-Sheikh Avenue, one of the newest landmarks in the city, home to the most luxurious brands including Hublot and its most recent watch collections...",
+
+    content: [
+        {
+        type: "image",
+        src: "https://www.attarunited.com/wp-content/uploads/2020/04/gt.jpg",
+      },
+
+      {
+        type: "paragraph",
+        text: `Hublot and Attar United officially launched the latest Hublot boutique in the Middle East, in Al- Khobar, Saudi Arabia. The 300 square meters boutique, the largest one for Hublot worldwide, is located on Al-Sheikh Avenue, one of the newest landmarks in the city, home to the most luxurious brands including Hublot and its most recent watch collections. The official ribbon-cutting ceremony was hosted by Ricardo Guadalupe Hublot’s CEO, Marco Tedeschi, Hublot Regional Director Middle East and Africa, Mohammed Saddik Attar, CEO Attar United Company, and with special guest Eng. Fahad bin Mohammed bin Othman Al-Jubeir, Mayor of the Eastern Region.`,
+      },
+
+      // {
+      //   type: "image",
+      //   src: "https://www.attarunited.com/wp-content/uploads/2026/05/chopard_-79th_cannes_festival_main-1024x683.jpg",
+      // },
+
+      {
+        type: "paragraph",
+        text: "On November 23, members of the local press visited the boutique on King Salman Bin Abdul-Aziz Road and discovered the latest Hublot watches, from the lovely Big Bang Broderie for ladies to the impressive Big Bang Unico Sapphire All Black for gents. Interesting discussions with Mr. Guadalupe and Mr. Tedeschi allowed journalists to learn more about Hublot’s identity and its Art of Fusion concept.",
+      },
+
+      {
+        type: "paragraph",
+        text: `CEO of Hublot Ricardo Guadalupe said: “The boutique in Al-Khobar is our biggest worldwide and we expect it to do very well. Our customers in Saudi Arabia have shown increasing interest in our watches and this is our way of making sure we meet the local market demand.”`
+      },
+
+      {
+        type: "paragraph",
+        text: "“We are happy to work with Attar United Company as our new partners in The Kingdom,” shared Marco Tedeschi, Regional Director Hublot Middle East and Africa. “Relying on the group’s support, we will be launching more Hublot boutiques within the Saudi market.” Hublot collectors, VIPs and local personalities gathered at the boutique for the second part of the opening event. Guests tried their favorite Hublot timepieces and exchanged ideas with both Hublot management and members of Attar United about their preferences when it comes to watch designs and functionality.",
+      },
+
+      {
+        type: "paragraph",
+        text: `“We are proud to launch this new Hublot boutique which promises to be ‘first, different and unique’ in our area. Our collaboration with Hublot is very important as we share the brand’s values of delivering top quality and unique products to our customers,” announced Mohammed Saddik Attar, CEO Attar United Company.`,
+      },
+
+      {
+        type: "paragraph",
+        
+        text:"The new Hublot boutique in Saudi Arabia reflects the brand’s characteristics: graceful design, elegant colors and perfect finishing. In line with Hublot’s ‘Art of Fusion, the fantastic interiors combine several materials such as natural bauxite and ebony wood, creating a lavish yet warm environment. The boutique’s opulent black marble façade stands as a gateway into a world of absolute luxury and refinement."
+      },
+
+     
+  
+    ],
+  },
+
+   {
+    id: 6,
+    date: "April 08, 2019",
+    title: "Attar United opens first Saudi Chopard boutique in Riyadh",
+
+    // Cover image for blog cards/listing pages
+    image:
+      "https://www.attarunited.com/wp-content/uploads/2026/05/chopard_-79th_cannes_festival_main-1024x683.jpg",
+
+    short:
+      "Chopard is a “world-famous and well-established” watchmaker brand for discerning men and women. Chopard is also well known for its uniquely crafted jewelry and refined and innovative accessories...",
+
+    content: [
+      
+        {
+        type: "image",
+        src: "https://www.attarunited.com/wp-content/uploads/2020/04/gt.jpg",
+      },
+      {
+        type: "heading",
+      paragraph :"Attar United has opened the first Chopard boutique in Saudi Arabia at the Panorama Mall in Riyadh."     
+     },
+
+      {
+        type: "paragraph",
+        text: `Chopard is a “world-famous and well-established” watchmaker brand for discerning men and women. Chopard is also well known for its uniquely crafted jewelry and refined and innovative accessories`,
+      },
+
+     
+
+      {
+        type: "paragraph",
+        text: "Mohammad Saddik Attar, Attar United Company’s CEO, said: “The Chopard watches and jewelry combine ultimate precision, creative craftsmanship and dazzling beauty in their outstanding collection for women featuring Happy Diamonds, La Strada, Imperiale, etc. The boutique also has for its male clientele inimitable works of art: LUC, Classic Racing, etc.”",
+      },
+
+      {
+        type: "paragraph",
+        text: `Attar added: “The inauguration of Chopard’s first boutique in Riyadh will be followed by new boutiques in Jeddah and the Eastern Province, and one more in Riyadh in the coming months.”`
+      },
+
+      {
+        type: "paragraph",
+        text: "Attar United is well poised to offer the best in customer care and after-sales service to Chopard’s product lovers, in line with the famous house’s tradition that consists of enhancing communication and interaction with Chopard’s distinctive clientele.”",
+      },
+
+      {
+        type: "paragraph",
+        text: `Attar has urged Chopard’s lovers to visit the newly opened boutique in Riyadh to discover personally the unique and priceless” artworks, especially designed for pleasure and satisfaction.
+
+The inauguration followed persistent efforts made by Attar United, which aims to become the exclusive Chopard franchise owner in the Kingdom.`,
+      },
+
+      {
+        type: "paragraph",
+        
+        text:"The new Hublot boutique in Saudi Arabia reflects the brand’s characteristics: graceful design, elegant colors and perfect finishing. In line with Hublot’s ‘Art of Fusion, the fantastic interiors combine several materials such as natural bauxite and ebony wood, creating a lavish yet warm environment. The boutique’s opulent black marble façade stands as a gateway into a world of absolute luxury and refinement."
+      },
+       {
+        type: "image2",
+        src: "https://www.attarunited.com/wp-content/uploads/2019/10/c2.jpg",
+      },
+        {
+        type: "image3",
+        src: "https://www.attarunited.com/wp-content/uploads/2020/06/c7.jpg",
+      },
+
+     
+  
+    ],
+  },
+   {
+    id: 7,
+    date: "October 08, 2018",
+    title: "Attar United opens the second Chopard Boutique in Saudi Arabia located at the renowned Kingdom Centre in Riyadh.",
+
+    // Cover image for blog cards/listing pages
+    image:
+      "https://www.attarunited.com/wp-content/uploads/2026/05/chopard_-79th_cannes_festival_main-1024x683.jpg",
+
+    short:
+      "Riyadh: October 20 th , 2015. Subsequent to the opening of the first Chopard boutique in Panorama Mall Riyadh, Chopard and his partner Attar United Company, sole boutique franchisee holder for the brand in the Kingdom of Saudi Arabia, have launched their second boutique at the luxurious Kingdom Centre....",
+
+    content: [
+      
+        {
+        type: "image",
+        src: "https://www.attarunited.com/wp-content/uploads/2019/10/e.jpg",
+      },
+
+      {
+        type: "paragraph",
+        text: `Riyadh: October 20 th , 2015. Subsequent to the opening of the first Chopard boutique in Panorama Mall Riyadh, Chopard and his partner Attar United Company, sole boutique franchisee holder for the brand in the Kingdom of Saudi Arabia, have launched their second boutique at the luxurious Kingdom Centre`,
+      },
+
+     
+      {
+        type:"heading",
+        text:"A new Boutique concept in an exceptional location"
+      },
+      {
+        type: "paragraph",
+        text: "Located in the capital Riyadh and considered to be one of the major landmarks in the city, the Kingdom Centre possesses the most luxurious brands in Saudi, with a countless selection of high-end boutiques and stores.",
+      },
+
+      {
+        type: "paragraph",
+        text: `
+Mohammad Saddik Attar, CEO of Attar United Company stated that the opening of this boutique falls under the long-term commitment of both Chopard and Attar Families towards the brand’s development and expansion in Saudi Arabia; this new boutique is the second inauguration following the opening of Panorama Mall boutique in Riyadh last April 2014.
+`
+      },
+
+      {
+        type: "paragraph",
+        text: "With two boutiques now launched in Riyadh, Attar United is already planning the opening of its next boutique in Jeddah",
+      },
+
+     {type:"heading",
+        text:"A constant expansion"
+      },
+
+      {
+        type: "paragraph",
+        
+        text:"The first Chopard boutique was opened in Hong Kong in 1983. By 1998, there were just 15 points of sale worldwide. Since then, brand development has steadily accelerated. Chopard is currently represented in 130 countries through 1,600 points of sale and more than 162 dedicated boutiques, located in the world’s major capitals and in the finest shopping centres."
+      },
+
+     
+  
+    ],
   },
 ];
 
