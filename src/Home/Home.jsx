@@ -52,7 +52,7 @@ const Home = () => {
     <OurBrandsHero/> 
    
     <LocationsTest/>
-    <Crazy/>
+    {/* <Crazy/> */}
     <OurBrands/>
     <StoryTimeline/>
     <D/>  

@@ -43,7 +43,7 @@ export default function Hero({
       ref={ref}
       className="relative h-[200vh] w-full bg-black"
     >
-      <div className="sticky top-0 h-screen overflow-hidden bg-black">
+      <div className="sticky top-0 h-screen overflow-hidden ">
         {/* =====================================================
             VIDEO GRID
         ===================================================== */}
@@ -66,20 +66,20 @@ export default function Hero({
                 />
 
                 {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/25" />
+                <div className="absolute inset-0 " />
 
                 {/* Luxury Gradient */}
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0" />
 
                 {/* Side Glow */}
-                <div className="absolute inset-0 bg-linear-to-t from-amber-900/10 via-transparent to-amber-900/10" />
+                <div className="absolute inset-0" />
 
                 {/* Luxury Vignette */}
                 <div
                   className="absolute inset-0"
                   style={{
                     boxShadow:
-                      "inset 0 0 120px rgba(0,0,0,.55), inset 0 0 30px rgba(217,119,6,.08)",
+                      "inset 0 0 120px",
                   }}
                 />
 
@@ -102,7 +102,7 @@ export default function Hero({
 
         <div className="pointer-events-none absolute inset-0 bg-black/15 z-10" />
 
-        <div className="pointer-events-none absolute top-0 left-0 right-0 h-40 bg-linear-to-b from-black via-black/60 to-transparent z-20" />
+        <div className="pointer-events-none absolute top-0 left-0 right-0 h-40 " />
 
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-64 bg-linear-to-b from-black via-black/80 to-transparent z-20" />
 
