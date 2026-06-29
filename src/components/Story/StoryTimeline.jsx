@@ -115,11 +115,14 @@ export default function StoryTimeline() {
           onClick={prev}
           aria-label="Previous"
           className="
-            absolute
-            -left-3 md:-left-20
-            top-1/2
-            -translate-y-1/2
-            z-50
+             absolute
+    left-2
+    sm:left-4
+    lg:-left-2
+    xl:-left-16
+    top-1/2
+    -translate-y-1/2
+    z-50
 
             w-14 h-14
             rounded-full
@@ -148,10 +151,13 @@ export default function StoryTimeline() {
           aria-label="Next"
           className="
             absolute
-            -right-3 md:-right-20
-            top-1/2
-            -translate-y-1/2
-            z-50
+    right-2
+    sm:right-4
+    lg:-right-2
+    xl:-right-16
+    top-1/2
+    -translate-y-1/2
+    z-50
 
             w-14 h-14
             rounded-full
