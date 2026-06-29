@@ -54,7 +54,7 @@ export default function BlogsPage() {
 
       <button
         onClick={() => navigate(`/media-pr/${blog.id}`)}
-        className="mt-8 inline-flex items-center border-b border-black pb-1 text-sm text-gray-300 transition"
+        className="mt-8 cursor-pointer inline-flex items-center border-b border-black pb-1 text-sm text-gray-300 transition"
       >
         Read More
       </button>

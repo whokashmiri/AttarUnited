@@ -44,7 +44,7 @@ export default function MediaPR() {
             {/* GO TO ALL BLOGS PAGE */}
             <button
               onClick={() => navigate("/media-pr")}
-              className="mt-7 border-b border-black text-lg text-gray-400"
+              className="mt-7 cursor-pointer border-b border-black text-lg text-gray-400"
             >
               Read more
             </button>
