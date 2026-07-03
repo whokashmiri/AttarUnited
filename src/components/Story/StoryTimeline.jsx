@@ -159,7 +159,7 @@ export default function StoryTimeline() {
     -translate-y-1/2
     z-50
 
-            w-14 h-14
+            lg:w-10 lg:h-10 xl:w-14 xl:h-14
             rounded-full
 
             border border-[#c6ac69]/40

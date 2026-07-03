@@ -11,7 +11,7 @@ import {
 
 export default function Hero({
   videos = [],
-  title = "Attar United",
+  title = "Luxury Essentials",
   subtitle = "The distinguished home of Chopard, Hublot, Graff, Azza Fahmy, Gerald Charles, and Saint-Louis in the Kingdom of Saudi Arabia.",
 }) {
   const ref = useRef(null);
@@ -41,7 +41,7 @@ export default function Hero({
   return (
     <section
       ref={ref}
-      className="relative h-[200vh] w-full bg-black"
+      className="relative mt-15 h-[200vh] w-full bg-black"
     >
       <div className="sticky top-0 h-screen overflow-hidden ">
         {/* =====================================================
@@ -128,7 +128,7 @@ export default function Hero({
                 </span>
               </div>
 
-              <h1 className="font-baskerville text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.95] tracking-wide text-[#986a4c] drop-shadow-xl">
+              <h1 className="font-baskerville text-4xl sm:text-5xl md:text-6xl lg:text-7x5 uppercase leading-[0.95] tracking-wide text-[#986a4c] drop-shadow-xl">
                 {title}
               </h1>
 
