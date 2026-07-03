@@ -110,75 +110,87 @@ export default function StoryTimeline() {
       {/* MAIN */}
       <div className="relative max-w-7xl mx-auto px-6 z-10">
 
-        {/* LEFT BUTTON */}
-        <button
-          onClick={prev}
-          aria-label="Previous"
-          className="
-             absolute
+       {/* LEFT BUTTON */}
+<button
+  onClick={prev}
+  aria-label="Previous"
+  className="
+    absolute
     left-2
     sm:left-4
-    lg:-left-2
-    xl:-left-16
-    top-1/2
+    md:left-5
+    lg:left-6
+    xl:-left-9
+    2xl:left-10
+
+    top-[calc(50%-15px)]
+sm:top-1/2
     -translate-y-1/2
     z-50
 
-            w-14 h-14
-            rounded-full
+    w-12 h-12
+    sm:w-14 sm:h-14
 
-            border border-[#c6ac69]/40
-            bg-black/50
-            backdrop-blur-xl
+    rounded-full
+    border border-[#c6ac69]/40
+    bg-black/50
+    backdrop-blur-xl
 
-            text-[#c6ac69]
-            text-3xl
+    text-[#c6ac69]
+    text-2xl
+    sm:text-3xl
 
-            flex items-center justify-center
+    flex items-center justify-center
 
-            hover:scale-110
-            hover:shadow-[0_0_30px_rgba(198,172,105,0.5)]
+    hover:scale-110
+    hover:shadow-[0_0_30px_rgba(198,172,105,0.5)]
 
-            transition-all duration-300
-          "
-        >
-          ‹
-        </button>
+    transition-all duration-300
+  "
+>
+  ‹
+</button>
 
-        {/* RIGHT BUTTON */}
-        <button
-          onClick={next}
-          aria-label="Next"
-          className="
-            absolute
+{/* RIGHT BUTTON */}
+<button
+  onClick={next}
+  aria-label="Next"
+  className="
+    absolute
     right-2
     sm:right-4
-    lg:-right-2
-    xl:-right-16
-    top-1/2
+    md:right-5
+    lg:right-6
+    xl:-right-9
+    2xl:right-10
+
+    top-[calc(50%-15px)]
+sm:top-1/2
     -translate-y-1/2
     z-50
 
-            lg:w-10 lg:h-10 xl:w-14 xl:h-14
-            rounded-full
+    w-12 h-12 
+    sm:w-14 sm:h-14
 
-            border border-[#c6ac69]/40
-            bg-black/50
-            backdrop-blur-xl
+    rounded-full
+    border border-[#c6ac69]/40
+    bg-black/50
+    backdrop-blur-xl
 
-            text-[#c6ac69]
-            text-3xl
+    text-[#c6ac69]
+    text-2xl
+    sm:text-3xl
 
-            flex items-center justify-center
+    flex items-center justify-center
 
-            hover:scale-110
-            hover:shadow-[0_0_30px_rgba(198,172,105,0.5)]
+    hover:scale-110
+    hover:shadow-[0_0_30px_rgba(198,172,105,0.5)]
 
-            transition-all duration-300
-          "
-        >
-          ›
-        </button>
+    transition-all duration-300
+  "
+>
+  ›
+</button>
 
         {/* CONTENT */}
         <div
@@ -574,7 +586,7 @@ export default function StoryTimeline() {
                 <h3
                   className="
                     font-baskerville
-                    text-4xl md:text-5xl
+                    text-3xl md:text-4xl 
                     mb-8
                     text-white
                     leading-tight
