@@ -229,7 +229,7 @@ const selectedBoutique =
     <section className="bg-black text-white py-24 px-6 min-h-screen">
 
       <h2 className="font-baskerville text-4xl text-center md:text-6xl tracking-[0.25em] text-white mb-16 uppercase">
-        Boutique Experience
+        Boutique Locator
       </h2>
 
       {/* ---------------- CITY SELECTION ---------------- */}

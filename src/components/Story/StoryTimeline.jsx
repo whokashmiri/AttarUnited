@@ -68,6 +68,7 @@ const timeline = [
     text:
       "Attar United enters a new chapter with the opening of flagship Chopard and Hublot boutiques at Solitaire Mall. These spaces embody the future of luxury retail in Saudi Arabia—where innovation meets tradition, and every moment is curated with intention, elegance, and enduring vision."
   }
+  
 ];
 
 /* =========================================
@@ -75,6 +76,10 @@ const timeline = [
 ========================================= */
 export default function StoryTimeline() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+// Watch animation
+const minuteRotation = activeIndex * 360;
+const hourRotation = activeIndex * 30;
 
   const next = () => {
     setActiveIndex((prev) => (prev + 1) % timeline.length);
@@ -110,87 +115,75 @@ export default function StoryTimeline() {
       {/* MAIN */}
       <div className="relative max-w-7xl mx-auto px-6 z-10">
 
-       {/* LEFT BUTTON */}
-<button
-  onClick={prev}
-  aria-label="Previous"
-  className="
-    absolute
+        {/* LEFT BUTTON */}
+        <button
+          onClick={prev}
+          aria-label="Previous"
+          className="
+             absolute
     left-2
     sm:left-4
-    md:left-5
-    lg:left-6
-    xl:-left-9
-    2xl:left-10
-
-    top-[calc(50%-15px)]
-sm:top-1/2
+    lg:-left-2
+    xl:-left-16
+    top-1/2
     -translate-y-1/2
     z-50
 
-    w-12 h-12
-    sm:w-14 sm:h-14
+            w-14 h-14
+            rounded-full
 
-    rounded-full
-    border border-[#c6ac69]/40
-    bg-black/50
-    backdrop-blur-xl
+            border border-[#c6ac69]/40
+            bg-black/50
+            backdrop-blur-xl
 
-    text-[#c6ac69]
-    text-2xl
-    sm:text-3xl
+            text-[#c6ac69]
+            text-3xl
 
-    flex items-center justify-center
+            flex items-center justify-center
 
-    hover:scale-110
-    hover:shadow-[0_0_30px_rgba(198,172,105,0.5)]
+            hover:scale-110
+            hover:shadow-[0_0_30px_rgba(198,172,105,0.5)]
 
-    transition-all duration-300
-  "
->
-  ‹
-</button>
+            transition-all duration-300
+          "
+        >
+          ‹
+        </button>
 
-{/* RIGHT BUTTON */}
-<button
-  onClick={next}
-  aria-label="Next"
-  className="
-    absolute
+        {/* RIGHT BUTTON */}
+        <button
+          onClick={next}
+          aria-label="Next"
+          className="
+            absolute
     right-2
     sm:right-4
-    md:right-5
-    lg:right-6
-    xl:-right-9
-    2xl:right-10
-
-    top-[calc(50%-15px)]
-sm:top-1/2
+    lg:-right-2
+    xl:-right-16
+    top-1/2
     -translate-y-1/2
     z-50
 
-    w-12 h-12 
-    sm:w-14 sm:h-14
+            lg:w-10 lg:h-10 xl:w-14 xl:h-14
+            rounded-full
 
-    rounded-full
-    border border-[#c6ac69]/40
-    bg-black/50
-    backdrop-blur-xl
+            border border-[#c6ac69]/40
+            bg-black/50
+            backdrop-blur-xl
 
-    text-[#c6ac69]
-    text-2xl
-    sm:text-3xl
+            text-[#c6ac69]
+            text-3xl
 
-    flex items-center justify-center
+            flex items-center justify-center
 
-    hover:scale-110
-    hover:shadow-[0_0_30px_rgba(198,172,105,0.5)]
+            hover:scale-110
+            hover:shadow-[0_0_30px_rgba(198,172,105,0.5)]
 
-    transition-all duration-300
-  "
->
-  ›
-</button>
+            transition-all duration-300
+          "
+        >
+          ›
+        </button>
 
         {/* CONTENT */}
         <div
@@ -426,12 +419,13 @@ sm:top-1/2
                 {/* HOUR HAND */}
                 <motion.div
                   animate={{
-                    rotate: activeIndex * 38
-                  }}
-                  transition={{
-                    duration: 1,
-                    ease: "easeInOut"
-                  }}
+  rotate: hourRotation
+}}
+
+transition={{
+  duration: 1.2,
+  ease: [0.22, 1, 0.36, 1]
+}}
                   className="
                     absolute
 
@@ -459,12 +453,13 @@ sm:top-1/2
                 {/* MINUTE HAND */}
                 <motion.div
                   animate={{
-                    rotate: activeIndex * 38 + 120
-                  }}
-                  transition={{
-                    duration: 1.2,
-                    ease: "easeInOut"
-                  }}
+                   rotate: minuteRotation
+                    }}
+
+                    transition={{
+                    duration: 1.3,
+                    ease: [0.22, 1, 0.36, 1]
+                    }}
                   className="
                     absolute
 
@@ -586,7 +581,7 @@ sm:top-1/2
                 <h3
                   className="
                     font-baskerville
-                    text-3xl md:text-4xl 
+                    text-4xl md:text-5xl
                     mb-8
                     text-white
                     leading-tight
@@ -597,6 +592,7 @@ sm:top-1/2
 
                 {/* TEXT */}
                 <p
+                
                   className="
                     text-gray-400
                     text-lg md:text-xl
@@ -618,6 +614,183 @@ sm:top-1/2
                     to-transparent
                   "
                 />
+                {/* =========================================
+    PREMIUM LUXURY TIMELINE
+========================================= */}
+<div className="mt-16">
+
+  {/* Progress Rail */}
+  <div className="relative px-4">
+
+    {/* Background Rail */}
+    <div className="absolute left-4 right-4 top-4 h-[2px] rounded-full bg-[#262626]" />
+
+    {/* Active Progress */}
+    <motion.div
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      className="
+        absolute
+        left-4
+        top-4
+        h-[2px]
+        rounded-full
+        bg-gradient-to-r
+        from-[#8c6a34]
+        via-[#f5d38c]
+        to-[#c6ac69]
+        shadow-[0_0_12px_rgba(198,172,105,.5)]
+      "
+      style={{
+        width: `calc(${(activeIndex / (timeline.length - 1)) * 100}% - 8px)`,
+      }}
+    />
+
+    {/* Timeline Items */}
+    <div className="relative flex justify-between items-start gap-6 overflow-x-auto luxury-scrollbar pb-6">
+
+      {timeline.map((item, index) => {
+
+        const active = activeIndex === index;
+
+        return (
+
+          <button
+            key={item.year}
+            onClick={() => setActiveIndex(index)}
+            className="
+              group
+              flex
+              flex-col
+              items-center
+              shrink-0
+              cursor-pointer
+              min-w-[70px]
+            "
+          >
+
+            {/* Gold Marker */}
+            <motion.div
+              whileHover={{ scale: 1.08 }}
+              animate={{
+                scale: active ? 1.12 : 1,
+              }}
+              transition={{ duration: 0.35 }}
+              className={`
+                relative
+                w-8
+                h-8
+                rounded-full
+                flex
+                items-center
+                justify-center
+                transition-all
+                duration-300
+
+                ${
+                  active
+                    ? `
+                      border border-[#f5d38c]
+                      bg-gradient-to-br
+                      from-[#fff6dc]
+                      via-[#ddb86d]
+                      to-[#8c6630]
+                      shadow-[0_0_25px_rgba(198,172,105,.7)]
+                    `
+                    : `
+                      border border-[#4f3c20]
+                      bg-[#111]
+                      group-hover:border-[#c6ac69]
+                    `
+                }
+              `}
+            >
+
+              {/* Glow */}
+              {active && (
+                <motion.div
+                  layoutId="timelineGlow"
+                  className="
+                    absolute
+                    inset-0
+                    rounded-full
+                    bg-[#c6ac69]/20
+                    blur-lg
+                  "
+                />
+              )}
+
+              {/* Center Dot */}
+              <div
+                className={`
+                  w-2.5
+                  h-2.5
+                  rounded-full
+                  z-10
+
+                  ${
+                    active
+                      ? "bg-white"
+                      : "bg-[#7b6235]"
+                  }
+                `}
+              />
+
+            </motion.div>
+
+            {/* Year */}
+            <motion.span
+              animate={{
+                color: active ? "#f5d38c" : "#777777",
+                scale: active ? 1.05 : 1,
+              }}
+              transition={{ duration: 0.35 }}
+              className="
+                mt-5
+                whitespace-nowrap
+                font-baskerville
+                text-base
+                md:text-lg
+                tracking-[0.18em]
+                transition-colors
+              "
+            >
+              {item.year}
+            </motion.span>
+
+            {/* Luxury Underline */}
+            <div className="h-4 flex items-center justify-center">
+
+              <motion.div
+  animate={{
+    scaleX: active ? 1 : 0,
+    opacity: active ? 1 : 0,
+  }}
+  transition={{ duration: 0.35 }}
+  className="
+    mt-4
+    h-[2px]
+    w-12
+    origin-center
+    rounded-full
+    bg-gradient-to-r
+    from-transparent
+    via-[#e4c47d]
+    to-transparent
+  "
+/>
+
+            </div>
+
+          </button>
+
+        );
+
+      })}
+
+    </div>
+  </div>
+
+</div>
 
               </motion.div>
             </AnimatePresence>

@@ -51,13 +51,16 @@ const Home = () => {
     
     <OurBrandsHero/> 
    
-    <LocationsTest/>
+    
     {/* <Crazy/> */}
-    <OurBrands/>
     <StoryTimeline/>
+    <OurBrands/>
+    
     <D/>  
+     <LocationsTest/>
     <AfterSell/>
     <MediaPR/>
+   
     {/* <ContactForm/> */}
     <Footer/>
    

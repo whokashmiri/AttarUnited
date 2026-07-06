@@ -1,9 +1,60 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap"); */
+/* ==============================
+   Luxury Gold Scrollbar
+============================== */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+
 @import "tailwindcss";
+.luxury-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #c6ac69 #121212;
+}
+
+/* Chrome / Edge / Safari */
+.luxury-scrollbar::-webkit-scrollbar {
+  height: 3px;
+}
+
+.luxury-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+}
+
+.luxury-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #8c6630 0%,
+    #d6b16b 40%,
+    #f5d38c 50%,
+    #d6b16b 60%,
+    #8c6630 100%
+  );
+}
+
+.luxury-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    90deg,
+    #a57b3c 0%,
+    #f5d38c 50%,
+    #a57b3c 100%
+  );
+}
+
+
 h3,h1 {
   font-family: "Libre Baskerville", serif;
+  
+}
+h5 {
+  font-family: "Acme", sans-serif;
 }
 /* ::-webkit-scrollbar {
   display: none;
 } */
 body{background-color: #000;}
+

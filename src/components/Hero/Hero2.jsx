@@ -128,9 +128,9 @@ export default function Hero({
                 </span>
               </div>
 
-              <h1 className="font-baskerville text-4xl sm:text-5xl md:text-6xl lg:text-7x5 uppercase leading-[0.95] tracking-wide text-[#986a4c] drop-shadow-xl">
+              <h5 className="font-Inter text-4xl sm:text-5xl md:text-6xl lg:text-4xl uppercase leading-[0.95] tracking-wide text-[#986a4c] drop-shadow-xl">
                 {title}
-              </h1>
+              </h5>
 
               <p className="mt-6 max-w-2xl text-sm md:text-lg leading-relaxed text-white/80">
                 {subtitle}
