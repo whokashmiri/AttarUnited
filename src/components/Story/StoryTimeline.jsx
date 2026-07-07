@@ -116,24 +116,6 @@ export default function StoryTimeline() {
 
       {/* MAIN */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 z-10">
-        {/* MOBILE / TABLET ARROWS (below lg) */}
-        <div className="flex lg:hidden items-center justify-center gap-6 mb-10 sm:mb-14">
-          <button
-            onClick={prev}
-            aria-label="Previous"
-            className={`${arrowBase} w-11 h-11 sm:w-12 sm:h-12 text-2xl sm:text-3xl`}
-          >
-            ‹
-          </button>
-          <button
-            onClick={next}
-            aria-label="Next"
-            className={`${arrowBase} w-11 h-11 sm:w-12 sm:h-12 text-2xl sm:text-3xl`}
-          >
-            ›
-          </button>
-        </div>
-
         {/* DESKTOP SIDE ARROWS (lg and up) */}
         <button
           onClick={prev}
@@ -480,6 +462,24 @@ export default function StoryTimeline() {
                 </AnimatePresence>
               </div>
             </div>
+          </div>
+
+          {/* MOBILE / TABLET ARROWS (below lg) — between watch and text, pinned to edges */}
+          <div className="flex lg:hidden items-center justify-between w-full">
+            <button
+              onClick={prev}
+              aria-label="Previous"
+              className={`${arrowBase} w-11 h-11 sm:w-12 sm:h-12 text-2xl sm:text-3xl`}
+            >
+              ‹
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next"
+              className={`${arrowBase} w-11 h-11 sm:w-12 sm:h-12 text-2xl sm:text-3xl`}
+            >
+              ›
+            </button>
           </div>
 
           {/* =========================================
