@@ -664,7 +664,7 @@ export default function StoryTimeline() {
                                 whitespace-nowrap
                                 font-baskerville
                                 text-sm sm:text-base md:text-lg
-                                tracking-[0.1em] sm:tracking-[0.18em]
+                                tracking-widest sm:tracking-[0.18em]
                                 transition-colors
                               "
                             >
