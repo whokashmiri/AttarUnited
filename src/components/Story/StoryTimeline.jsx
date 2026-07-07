@@ -116,43 +116,6 @@ export default function StoryTimeline() {
 
       {/* MAIN */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 z-10">
-        {/* DESKTOP SIDE ARROWS (lg and up) */}
-        <button
-          onClick={prev}
-          aria-label="Previous"
-          className={`
-            ${arrowBase}
-            hidden lg:flex
-            absolute
-            lg:-left-2 xl:-left-16
-            top-1/2
-            -translate-y-1/2
-            z-50
-            w-12 h-12 xl:w-14 xl:h-14
-            text-3xl
-          `}
-        >
-          ‹
-        </button>
-
-        <button
-          onClick={next}
-          aria-label="Next"
-          className={`
-            ${arrowBase}
-            hidden lg:flex
-            absolute
-            lg:-right-2 xl:-right-16
-            top-1/2
-            -translate-y-1/2
-            z-50
-            w-12 h-12 xl:w-14 xl:h-14
-            text-3xl
-          `}
-        >
-          ›
-        </button>
-
         {/* CONTENT */}
         <div
           className="
@@ -168,7 +131,9 @@ export default function StoryTimeline() {
           {/* =========================================
               WATCH
           ========================================= */}
-          <div className="relative flex items-center justify-center shrink-0">
+          <div className="relative flex flex-col items-center justify-center shrink-0">
+            {/* CROWN + WATCH BODY WRAPPER */}
+            <div className="relative flex items-center justify-center">
             {/* CROWN */}
             <div
               className="
@@ -462,6 +427,25 @@ export default function StoryTimeline() {
                 </AnimatePresence>
               </div>
             </div>
+            </div>
+
+            {/* DESKTOP ARROWS (lg and up) — below the watch */}
+            <div className="hidden lg:flex items-center justify-center gap-6 mt-10">
+              <button
+                onClick={prev}
+                aria-label="Previous"
+                className={`${arrowBase} w-12 h-12 xl:w-14 xl:h-14 text-3xl`}
+              >
+                ‹
+              </button>
+              <button
+                onClick={next}
+                aria-label="Next"
+                className={`${arrowBase} w-12 h-12 xl:w-14 xl:h-14 text-3xl`}
+              >
+                ›
+              </button>
+            </div>
           </div>
 
           {/* MOBILE / TABLET ARROWS (below lg) — between watch and text, pinned to edges */}
@@ -664,7 +648,7 @@ export default function StoryTimeline() {
                                 whitespace-nowrap
                                 font-baskerville
                                 text-sm sm:text-base md:text-lg
-                                tracking-widest sm:tracking-[0.18em]
+                                tracking-[0.1em] sm:tracking-[0.18em]
                                 transition-colors
                               "
                             >
