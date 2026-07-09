@@ -121,14 +121,14 @@ export default function Hero({
           <div className="mx-auto w-full max-w-7xl px-6 md:px-10 pb-16 md:pb-24">
             <div className="max-w-3xl">
               <div className="mb-6 flex items-center gap-4">
-                <div className="h-px w-14 bg-linear-to-r from-amber-600 to-transparent" />
+                {/* <div className="h-px w-14 bg-linear-to-r from-amber-600 to-transparent" />
 
                 <span className="text-xs uppercase tracking-[0.35em] text-amber-500/90">
                   Luxury Essentials
-                </span>
+                </span> */}
               </div>
 
-              <h5 className="font-Inter text-4xl sm:text-5xl md:text-6xl lg:text-4xl uppercase leading-[0.95] tracking-wide text-[#986a4c] drop-shadow-xl">
+              <h5 className="font-gotham text-4xl sm:text-5xl md:text-6xl lg:text-4xl uppercase leading-[0.95] tracking-wide text-[#986a4c] drop-shadow-xl">
                 {title}
               </h5>
 

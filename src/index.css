@@ -8,6 +8,31 @@
 
 
 
+@font-face {
+  font-family: "Gotham";
+  src: url("./assets/fonts/fonnts.com-MinervaModern_Black.otf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("./assets/fonts/fonnts.com-MinervaModern_Black.otf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("./assets/fonts/fonnts.com-MinervaModern_Black.otf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@theme {
+  --font-gotham: "Gotham", sans-serif;
+}
+
 @import "tailwindcss";
 .luxury-scrollbar {
   scrollbar-width: thin;
@@ -50,9 +75,9 @@ h3,h1 {
   font-family: "Libre Baskerville", serif;
   
 }
-h5 {
+/* h5 {
   font-family: "Acme", sans-serif;
-}
+} */
 /* ::-webkit-scrollbar {
   display: none;
 } */
