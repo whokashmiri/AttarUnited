@@ -532,23 +532,23 @@ export default function StoryTimeline() {
                   {/* Progress Rail */}
                   <div className="relative px-2 sm:px-4">
                     {/* Background Rail */}
-                    <div className="absolute left-2 right-2 sm:left-4 sm:right-4 top-4 h-0.5 rounded-full bg-[#262626]" />
+                   <div className="absolute left-2 right-2 sm:left-4 sm:right-4 top-6 h-0.5 rounded-full bg-[#262626]" />
 
                     {/* Active Progress */}
                     <motion.div
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                      className="
-                        absolute
-                        left-2 sm:left-4
-                        top-4
-                        h-0.5
-                        rounded-full
-                        bg-linear-to-r
-                        from-[#8c6a34]
-                        via-[#f5d38c]
-                        to-[#c6ac69]
-                        shadow-[0_0_12px_rgba(198,172,105,.5)]
-                      "
+                       transition={{ duration: 0.6, ease: "easeInOut" }}
+  className="
+    absolute
+    left-2 sm:left-4
+    top-6
+    h-0.5
+    rounded-full
+    bg-linear-to-r
+    from-[#8c6a34]
+    via-[#f5d38c]
+    to-[#c6ac69]
+    shadow-[0_0_12px_rgba(198,172,105,.5)]
+  "
                       style={{
                         width: `calc(${
                           (activeIndex / (timeline.length - 1)) * 100
@@ -557,7 +557,7 @@ export default function StoryTimeline() {
                     />
 
                     {/* Timeline Items */}
-                    <div className="relative flex justify-start lg:justify-between items-start gap-5 sm:gap-6 overflow-x-auto luxury-scrollbar pb-6">
+                   <div className="relative flex justify-start lg:justify-between items-start gap-5 sm:gap-6 overflow-x-auto luxury-scrollbar pt-2 pb-6">
                       {timeline.map((item, index) => {
                         const active = activeIndex === index;
 
@@ -577,8 +577,8 @@ export default function StoryTimeline() {
                           >
                             {/* Gold Marker */}
                             <motion.div
-                              whileHover={{ scale: 1.08 }}
-                              animate={{ scale: active ? 1.12 : 1 }}
+                              whileHover={{ scale: 1.0 }}
+                              animate={{ scale: active ? 1.0 : 1 }}
                               transition={{ duration: 0.35 }}
                               className={`
                                 relative
