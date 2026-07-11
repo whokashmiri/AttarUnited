@@ -11,7 +11,7 @@ import {
 
 export default function Hero({
   videos = [],
-  title = "Luxury Essentials",
+  title = "Attar United",
   subtitle = "The distinguished home of Chopard, Hublot, Graff, Azza Fahmy, Gerald Charles, and Saint-Louis in the Kingdom of Saudi Arabia.",
 }) {
   const ref = useRef(null);

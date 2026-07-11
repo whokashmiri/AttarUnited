@@ -226,9 +226,9 @@ const selectedBoutique =
     : null;
 
   return (
-    <section className="bg-black text-white pt-12 pb-10 md:pt-20 md:pb-16 px-4 sm:px-6 min-h-fit">
+    <section className="bg-black text-white pt-12 pb-10 md:pt- md:pb-16 px-4 sm:px-6 min-h-fit">
 
-     <h2 className="font-baskerville text-3xl sm:text-4xl md:text-6xl tracking-[0.15em] md:tracking-[0.25em] text-center text-white mb-8 md:mb-14 uppercase">
+     <h2 className="font-baskerville text-3xl sm:text-4xl md:text-6xl tracking-[0.15em] md:tracking-[0.25em] text-center text-white mb-8 md:mb-40 uppercase">
         Boutique Locator
       </h2>
 
