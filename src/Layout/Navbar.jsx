@@ -311,7 +311,7 @@ export default function Navbar({ initialLang = "en", onLangChange, sticky = true
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Top navbar line (GRID => logo always centered) */}
-        <div className="mx-auto grid max-w-300 grid-cols-3 items-center px-6 py-5">
+        <div className="mx-auto grid max-w-300 grid-cols-3 items-center px-6 py-0">
           {/* Left burger */}
           <div className="flex justify-start">
             <GlassIconButton
@@ -329,7 +329,7 @@ export default function Navbar({ initialLang = "en", onLangChange, sticky = true
               <img
                 src={Logo}
                 alt="Attar United"
-                className="h-9 sm:h-10 md:h-11 w-auto object-contain select-none opacity-95"
+                className="h-9 sm:h-10 md:h-20 w-auto object-contain select-none opacity-95"
                 draggable={false}
               />
             </Link>
