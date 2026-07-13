@@ -36,7 +36,7 @@
 @import "tailwindcss";
 .luxury-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #c6ac69 #121212;
+  scrollbar-color: rgba(198, 172, 105, 0.15) transparent;
 }
 
 /* Chrome / Edge / Safari */

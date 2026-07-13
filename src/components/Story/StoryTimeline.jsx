@@ -512,7 +512,7 @@ export default function StoryTimeline() {
                 </p>
 
                 {/* LINE */}
-                <div
+                {/* <div
                   className="
                     mt-8 sm:mt-10 md:mt-12
                     h-px
@@ -523,12 +523,12 @@ export default function StoryTimeline() {
                     from-[#c6ac69]
                     to-transparent
                   "
-                />
+                /> */}
 
                 {/* =========================================
                     PREMIUM LUXURY TIMELINE
                 ========================================= */}
-                <div className="mt-10 sm:mt-12 md:mt-16">
+                <div className="mt-10 sm:mt-11 md:mt-16 ">
                   {/* Progress Rail */}
                   <div className="relative px-2 sm:px-4">
                     {/* Background Rail */}
@@ -557,7 +557,7 @@ export default function StoryTimeline() {
                     />
 
                     {/* Timeline Items */}
-                   <div className="relative flex justify-start lg:justify-between items-start gap-5 sm:gap-6 overflow-x-auto luxury-scrollbar pt-2 pb-6">
+                  <div className="relative flex justify-start lg:justify-between items-start gap-2 sm:gap-3 md:gap-4 overflow-x-auto luxury-scrollbar pt-2 pb-5">
                       {timeline.map((item, index) => {
                         const active = activeIndex === index;
 
@@ -572,7 +572,7 @@ export default function StoryTimeline() {
                               items-center
                               shrink-0
                               cursor-pointer
-                              min-w-14 sm:min-w-16 md:min-w-17.5
+                              min-w-fit px-2
                             "
                           >
                             {/* Gold Marker */}
@@ -581,17 +581,18 @@ export default function StoryTimeline() {
                               animate={{ scale: active ? 1.0 : 1 }}
                               transition={{ duration: 0.35 }}
                               className={`
+                               
                                 relative
-                                w-6 h-6
-                                sm:w-7 sm:h-7
-                                md:w-8 md:h-8
+                                w-4 h-4
+sm:w-5 sm:h-5
+md:w-6 md:h-6
                                 rounded-full
                                 flex
                                 items-center
                                 justify-center
                                 transition-all
                                 duration-300
-
+                                  mt-1
                                 ${
                                   active
                                     ? `
@@ -601,6 +602,7 @@ export default function StoryTimeline() {
                                       via-[#ddb86d]
                                       to-[#8c6630]
                                       shadow-[0_0_25px_rgba(198,172,105,.7)]
+                                      
                                     `
                                     : `
                                       border border-[#4f3c20]
