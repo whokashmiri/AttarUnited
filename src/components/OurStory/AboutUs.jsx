@@ -44,7 +44,7 @@ function StrokeFillTitle({ text = "ATTAR UNITED", progress }) {
           stroke="rgba(255,255,255,0.92)"
           strokeWidth="2"
           strokeLinejoin="round"
-          fontFamily='ui-serif, Georgia, Cambria, "Times New Roman", Times, serif'
+          fontFamily='ui-serif, Gotham, Cambria, "Times New Roman", Times, serif'
           fontSize="120"
           letterSpacing="0.06em"
         >
@@ -61,7 +61,7 @@ function StrokeFillTitle({ text = "ATTAR UNITED", progress }) {
           y="135"
           className="select-none "
           fill="rgb(152, 106, 76)"
-          fontFamily='ui-serif, Georgia, Cambria, "Times New Roman", Times, serif'
+          fontFamily='ui-serif, Gotham, Cambria, "Times New Roman", Times, serif'
           fontSize="120"
           letterSpacing="0.06em"
           mask="url(#reveal)"
