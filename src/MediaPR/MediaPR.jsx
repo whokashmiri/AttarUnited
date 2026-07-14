@@ -11,7 +11,7 @@ export default function MediaPR() {
 
   return (
     <section className="w-full bg-black px-6 md:px-14 py-20">
-      <h2 className="font-baskerville text-4xl text-center md:text-6xl tracking-[0.25em] text-white mb-16 uppercase">
+      <h2 className=" text-4xl text-center md:text-6xl tracking-[0.25em] text-white mb-16 uppercase">
         Media & PR
       </h2>
 
