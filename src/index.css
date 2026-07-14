@@ -5,7 +5,7 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
+@import "tailwindcss";
 
 
 @font-face {
@@ -33,7 +33,7 @@
   --font-gotham: "Gotham", sans-serif;
 }
 
-@import "tailwindcss";
+
 .luxury-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(198, 172, 105, 0.15) transparent;
@@ -71,8 +71,8 @@
 }
 
 
-h3,h1 {
-  font-family: "Libre Baskerville", serif;
+h3,h1,h2,h4,h5,h6 {
+  font-family: "Gotham", serif;
   
 }
 /* h5 {
@@ -81,5 +81,5 @@ h3,h1 {
 /* ::-webkit-scrollbar {
   display: none;
 } */
-body{background-color: #000;}
+body{background-color: #000; font-family: "Gotham", sans-serif}
 
