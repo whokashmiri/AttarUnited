@@ -557,7 +557,7 @@ export default function StoryTimeline() {
                     />
 
                     {/* Timeline Items */}
-                  <div className="relative flex justify-start lg:justify-between items-start gap-2 sm:gap-3 md:gap-4 overflow-x-auto luxury-scrollbar pt-2 pb-5">
+                  <div className="relative flex justify-start lg:justify-between items-start gap-0 lg:gap-3 md:gap-5 overflow-x-auto luxury-scrollbar pt-2 pb-5">
                       {timeline.map((item, index) => {
                         const active = activeIndex === index;
 
@@ -584,15 +584,15 @@ export default function StoryTimeline() {
                                
                                 relative
                                 w-4 h-4
-sm:w-5 sm:h-5
-md:w-6 md:h-6
+                                sm:w-4 sm:h-4
+                                md:w-5 md:h-5
                                 rounded-full
                                 flex
                                 items-center
                                 justify-center
                                 transition-all
                                 duration-300
-                                  mt-1
+                                  mt-2
                                 ${
                                   active
                                     ? `
@@ -601,7 +601,7 @@ md:w-6 md:h-6
                                       from-[#fff6dc]
                                       via-[#ddb86d]
                                       to-[#8c6630]
-                                      shadow-[0_0_25px_rgba(198,172,105,.7)]
+                                      // shadow-[0_0_25px_rgba(198,172,105,.7)]
                                       
                                     `
                                     : `
