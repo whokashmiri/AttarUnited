@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+
+import { useState, useRef, useLayoutEffect, useCallback, useEffect } from "react";
 
 /* =========================================
    TIMELINE DATA
@@ -67,18 +68,97 @@ const timeline = [
 ========================================= */
 export default function StoryTimeline() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef(null);
+  const itemRefs = useRef([]);
+
+  // Real pixel x-centers of every marker, relative to the scrollable rail container
+  const [markerX, setMarkerX] = useState([]);
 
   // Watch animation
   const minuteRotation = activeIndex * 360;
   const hourRotation = activeIndex * 30;
 
   const next = () => {
-    setActiveIndex((prev) => (prev + 1) % timeline.length);
+    const newIndex = (activeIndex + 1) % timeline.length;
+    selectTimeline(newIndex);
   };
 
   const prev = () => {
-    setActiveIndex((prev) => (prev === 0 ? timeline.length - 1 : prev - 1));
+    const newIndex =
+      activeIndex === 0
+        ? timeline.length - 1
+        : activeIndex - 1;
+
+    selectTimeline(newIndex);
   };
+
+  const selectTimeline = (index) => {
+    setActiveIndex(index);
+
+    const container = scrollRef.current;
+    const item = itemRefs.current[index];
+
+    if (!container || !item) return;
+
+    container.scrollTo({
+      left:
+        item.offsetLeft -
+        container.clientWidth / 2 +
+        item.clientWidth / 2,
+      behavior: "smooth",
+    });
+  };
+
+  /* =========================================
+     MARKER POSITION MEASUREMENT
+
+     Reads each dot's real offsetLeft (+ half its width) so the gold
+     rail can line up exactly with it — no guessed percentages.
+
+     This used to only run once on mount + on window resize, which is
+     fragile: if a custom webfont (font-baskerville) hadn't finished
+     loading yet, the very first measurement used fallback-font metrics
+     that are narrower than the real font. Early items (short labels
+     like "2012") barely differ, but the error compounds across the
+     row, so later markers ("2023", "2024", "2025"...) end up measured
+     short — the rail would visibly stop just before the real dot.
+
+     Fix: recompute whenever the row's actual size changes (ResizeObserver
+     catches font swaps, container growth, wrapping, etc.) AND once more
+     when the browser confirms all fonts are fully loaded.
+  ========================================= */
+  const computePositions = useCallback(() => {
+    const positions = itemRefs.current.map((el) =>
+      el ? el.offsetLeft + el.offsetWidth / 2 : 0
+    );
+    setMarkerX(positions);
+  }, []);
+
+  useLayoutEffect(() => {
+    computePositions();
+
+    // Re-measure on any size change of the row (font swaps, container
+    // resizing, responsive breakpoint changes, item content changes...)
+    let resizeObserver;
+    if (scrollRef.current && "ResizeObserver" in window) {
+      resizeObserver = new ResizeObserver(() => computePositions());
+      resizeObserver.observe(scrollRef.current);
+    }
+
+    window.addEventListener("resize", computePositions);
+
+    return () => {
+      window.removeEventListener("resize", computePositions);
+      if (resizeObserver) resizeObserver.disconnect();
+    };
+  }, [computePositions]);
+
+  // Re-measure again once webfonts have actually finished loading,
+  // since that's the main source of drift described above.
+  useEffect(() => {
+    if (typeof document === "undefined" || !document.fonts) return;
+    document.fonts.ready.then(() => computePositions());
+  }, [computePositions]);
 
   const arrowBase = `
     rounded-full
@@ -92,6 +172,11 @@ export default function StoryTimeline() {
     transition-all duration-300
     shrink-0
   `;
+
+  const hasMarkers = markerX.length === timeline.length;
+  const railStart = hasMarkers ? markerX[0] : 0;
+  const railEnd = hasMarkers ? markerX[markerX.length - 1] : 0;
+  const progressEnd = hasMarkers ? markerX[activeIndex] : 0;
 
   return (
     <section className="relative bg-black text-white py-20 sm:py-28 md:py-32 lg:py-40 overflow-hidden">
@@ -430,18 +515,18 @@ export default function StoryTimeline() {
             </div>
 
             {/* DESKTOP ARROWS (lg and up) — below the watch */}
-            <div className="hidden lg:flex items-center justify-center gap-6 mt-10">
+            <div className=" hidden lg:flex items-end justify-end gap-50 mt-10">
               <button
                 onClick={prev}
                 aria-label="Previous"
-                className={`${arrowBase} w-12 h-12 xl:w-14 xl:h-14 text-3xl`}
+                className={`${arrowBase} w-12 h-12 xl:w-14 xl:h-14 flex items-center justify-center text-3xl leading-none pb-1`}
               >
                 ‹
               </button>
               <button
                 onClick={next}
                 aria-label="Next"
-                className={`${arrowBase} w-12 h-12 xl:w-14 xl:h-14 text-3xl`}
+                className={`${arrowBase} w-12 h-12 xl:w-14 xl:h-14 flex items-center justify-center text-3xl leading-none pb-1`}
               >
                 ›
               </button>
@@ -524,168 +609,209 @@ export default function StoryTimeline() {
                     to-transparent
                   "
                 /> */}
-
-                {/* =========================================
-                    PREMIUM LUXURY TIMELINE
-                ========================================= */}
-                <div className="mt-10 sm:mt-11 md:mt-16 ">
-                  {/* Progress Rail */}
-                  <div className="relative px-2 sm:px-4">
-                    {/* Background Rail */}
-                   <div className="absolute left-2 right-2 sm:left-4 sm:right-4 top-6 h-0.5 rounded-full bg-[#262626]" />
-
-                    {/* Active Progress */}
-                    <motion.div
-                       transition={{ duration: 0.6, ease: "easeInOut" }}
-  className="
-    absolute
-    left-2 sm:left-4
-    top-6
-    h-0.5
-    rounded-full
-    bg-linear-to-r
-    from-[#8c6a34]
-    via-[#f5d38c]
-    to-[#c6ac69]
-    shadow-[0_0_12px_rgba(198,172,105,.5)]
-  "
-                      style={{
-                        width: `calc(${
-                          (activeIndex / (timeline.length - 1)) * 100
-                        }% - 8px)`
-                      }}
-                    />
-
-                    {/* Timeline Items */}
-                  <div className="relative flex justify-start lg:justify-between items-start gap-0 lg:gap-3 md:gap-5 overflow-x-auto luxury-scrollbar pt-2 pb-5">
-                      {timeline.map((item, index) => {
-                        const active = activeIndex === index;
-
-                        return (
-                          <button
-                            key={item.year}
-                            onClick={() => setActiveIndex(index)}
-                            className="
-                              group
-                              flex
-                              flex-col
-                              items-center
-                              shrink-0
-                              cursor-pointer
-                              min-w-fit px-2
-                            "
-                          >
-                            {/* Gold Marker */}
-                            <motion.div
-                              whileHover={{ scale: 1.0 }}
-                              animate={{ scale: active ? 1.0 : 1 }}
-                              transition={{ duration: 0.35 }}
-                              className={`
-                               
-                                relative
-                                w-4 h-4
-                                sm:w-4 sm:h-4
-                                md:w-5 md:h-5
-                                rounded-full
-                                flex
-                                items-center
-                                justify-center
-                                transition-all
-                                duration-300
-                                  mt-2
-                                ${
-                                  active
-                                    ? `
-                                      border border-[#f5d38c]
-                                      bg-linear-to-br
-                                      from-[#fff6dc]
-                                      via-[#ddb86d]
-                                      to-[#8c6630]
-                                      // shadow-[0_0_25px_rgba(198,172,105,.7)]
-                                      
-                                    `
-                                    : `
-                                      border border-[#4f3c20]
-                                      bg-[#111]
-                                      group-hover:border-[#c6ac69]
-                                    `
-                                }
-                              `}
-                            >
-                              {/* Glow */}
-                              {active && (
-                                <motion.div
-                                  layoutId="timelineGlow"
-                                  className="
-                                    absolute
-                                    inset-0
-                                    rounded-full
-                                    bg-[#c6ac69]/20
-                                    blur-lg
-                                  "
-                                />
-                              )}
-
-                              {/* Center Dot */}
-                              <div
-                                className={`
-                                  w-2 h-2 sm:w-2.5 sm:h-2.5
-                                  rounded-full
-                                  z-10
-
-                                  ${active ? "bg-white" : "bg-[#7b6235]"}
-                                `}
-                              />
-                            </motion.div>
-
-                            {/* Year */}
-                            <motion.span
-                              animate={{
-                                color: active ? "#f5d38c" : "#777777",
-                                scale: active ? 1.05 : 1
-                              }}
-                              transition={{ duration: 0.35 }}
-                              className="
-                                mt-3 sm:mt-4 md:mt-5
-                                whitespace-nowrap
-                                font-baskerville
-                                text-sm sm:text-base md:text-lg
-                                tracking-widest sm:tracking-[0.18em]
-                                transition-colors
-                              "
-                            >
-                              {item.year}
-                            </motion.span>
-
-                            {/* Luxury Underline */}
-                            <div className="h-4 flex items-center justify-center">
-                              <motion.div
-                                animate={{
-                                  scaleX: active ? 1 : 0,
-                                  opacity: active ? 1 : 0
-                                }}
-                                transition={{ duration: 0.35 }}
-                                className="
-                                  mt-3 sm:mt-4
-                                  h-0.5
-                                  w-10 sm:w-12
-                                  origin-center
-                                  rounded-full
-                                  bg-linear-to-r
-                                  from-transparent
-                                  via-[#e4c47d]
-                                  to-transparent
-                                "
-                              />
-                            </div>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
               </motion.div>
             </AnimatePresence>
+
+            {/* =========================================
+                PREMIUM LUXURY TIMELINE
+                Deliberately OUTSIDE the AnimatePresence/key={activeIndex}
+                block above. That block unmounts + remounts on every click
+                (that's what "key" does), which would destroy scrollRef's
+                DOM node and reset scrollLeft back to 0 right after the
+                click's scrollTo() ran. Keeping this block mounted
+                permanently keeps the scroll position (and gold rail)
+                stable across clicks.
+            ========================================= */}
+            <div className="mt-10 sm:mt-11 md:mt-16 ">
+              {/* Progress Rail — lives INSIDE the scrollable row itself
+                  (same visual position/spacing as before: top-6, pt-2),
+                  so it scrolls together with the dots and its width is
+                  measured from each dot's real, fully-settled pixel
+                  position, meaning it always ends exactly under the
+                  clicked year. */}
+              <div className="relative px-2 sm:px-4">
+                <div
+                  ref={scrollRef}
+                  className="
+                    relative
+                    flex
+                    justify-start
+                    lg:justify-between
+                    items-start
+                    gap-0
+                    lg:gap-3
+                    md:gap-5
+                    overflow-x-auto
+                    luxury-scrollbar
+                    pt-2
+                    pb-5
+                    scroll-smooth
+                  "
+                >
+                  {/* Background Rail (spans exactly from first dot to last dot) */}
+                  {hasMarkers && (
+                    <div
+                      className="absolute top-6 h-0.5 rounded-full bg-[#262626]"
+                      style={{
+                        left: railStart,
+                        width: Math.max(railEnd - railStart, 0),
+                      }}
+                    />
+                  )}
+
+                  {/* Active Progress — animates to the exact pixel position of the clicked dot */}
+                  {hasMarkers && (
+                    <motion.div
+                      className="
+                        absolute
+                        top-6
+                        h-0.5
+                        rounded-full
+                        bg-linear-to-r
+                        from-[#8c6a34]
+                        via-[#f5d38c]
+                        to-[#c6ac69]
+                        shadow-[0_0_12px_rgba(198,172,105,.5)]
+                      "
+                      initial={false}
+                      animate={{
+                        left: railStart,
+                        width: Math.max(progressEnd - railStart, 0),
+                      }}
+                      transition={{
+                        duration: 0.7,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                    />
+                  )}
+
+                  {/* Timeline Items */}
+                  {timeline.map((item, index) => {
+                    const active = activeIndex === index;
+
+                    return (
+                      <button
+                        key={item.year}
+                        ref={(el) => (itemRefs.current[index] = el)}
+                        onClick={() => selectTimeline(index)}
+                        className="
+                          group
+                          flex
+                          flex-col
+                          items-center
+                          shrink-0
+                          cursor-pointer
+                          min-w-fit px-2
+                          relative
+                          z-10
+                        "
+                      >
+                        {/* Gold Marker */}
+                        <motion.div
+                          whileHover={{ scale: 1.0 }}
+                          animate={{ scale: active ? 1.0 : 1 }}
+                          transition={{ duration: 0.35 }}
+                          className={`
+                            relative
+                            w-4 h-4
+                            sm:w-4 sm:h-4
+                            md:w-5 md:h-5
+                            rounded-full
+                            flex
+                            items-center
+                            justify-center
+                            transition-all
+                            duration-300
+                              mt-2
+                            ${
+                              active
+                                ? `
+                                  border border-[#f5d38c]
+                                  bg-linear-to-br
+                                  from-[#fff6dc]
+                                  via-[#ddb86d]
+                                  to-[#8c6630]
+                                `
+                                : `
+                                  border border-[#4f3c20]
+                                  bg-[#111]
+                                  group-hover:border-[#c6ac69]
+                                `
+                            }
+                          `}
+                        >
+                          {/* Glow */}
+                          {active && (
+                            <motion.div
+                              layoutId="timelineGlow"
+                              className="
+                                absolute
+                                inset-0
+                                rounded-full
+                                bg-[#c6ac69]/20
+                                blur-lg
+                              "
+                            />
+                          )}
+
+                          {/* Center Dot */}
+                          <div
+                            className={`
+                              w-2 h-2 sm:w-2.5 sm:h-2.5
+                              rounded-full
+                              z-10
+
+                              ${active ? "bg-white" : "bg-[#7b6235]"}
+                            `}
+                          />
+                        </motion.div>
+
+                        {/* Year */}
+                        <motion.span
+                          animate={{
+                            color: active ? "#f5d38c" : "#777777",
+                            scale: active ? 1.05 : 1
+                          }}
+                          transition={{ duration: 0.35 }}
+                          className="
+                            mt-3 sm:mt-4 md:mt-5
+                            whitespace-nowrap
+                            font-baskerville
+                            text-sm sm:text-base md:text-lg
+                            tracking-widest sm:tracking-[0.18em]
+                            transition-colors
+                          "
+                        >
+                          {item.year}
+                        </motion.span>
+
+                        {/* Luxury Underline */}
+                        <div className="h-4 flex items-center justify-center">
+                          <motion.div
+                            animate={{
+                              scaleX: active ? 1 : 0,
+                              opacity: active ? 1 : 0
+                            }}
+                            transition={{ duration: 0.35 }}
+                            className="
+                              mt-3 sm:mt-4
+                              h-0.5
+                              w-10 sm:w-12
+                              origin-center
+                              rounded-full
+                              bg-linear-to-r
+                              from-transparent
+                              via-[#e4c47d]
+                              to-transparent
+                            "
+                          />
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
