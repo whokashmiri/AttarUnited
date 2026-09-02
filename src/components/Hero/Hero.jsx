@@ -41,7 +41,7 @@ export default function Hero({
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_35%,rgba(255,255,255,0.04),transparent_60%)]" />
 
       {/* Bottom Fade */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-black/70" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/20 via-black/5 to-black/70" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl items-end px-6 pb-20 md:pb-24">

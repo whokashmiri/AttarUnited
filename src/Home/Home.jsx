@@ -24,16 +24,15 @@ const Home = () => {
   return (
     <> 
     <Navbar/>
-    <Hero2
-      videos={[
-         {Azza},
-        {Graff},
-        {Chopard},
-        {Hublot},
-        {Saint}
-      ]}
-     
-    />
+   <Hero2
+  videos={[
+    Azza,
+    Graff,
+    Chopard,
+    Hublot,
+    Saint,
+  ]}
+/>
 
 
     <AboutUs/>

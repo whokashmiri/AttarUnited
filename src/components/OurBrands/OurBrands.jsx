@@ -8,8 +8,8 @@ import chopard from "./assets/chopard.mp4";
 import hublot from "./assets/hublot.mp4";
 import graff from "./assets/graff.mp4";
 
-import azzafahmy from "./assets/Azzafahmy.mp4";
-import saintlouis from "./assets/saintlouis.mp4";
+import azzafahmy from "../../Home/videos/AzzaMoment.mp4";
+import saintlouis from "../../Home/videos/Saint LouisMoment.mp4";
 
 
 const DEFAULT_BRANDS = [
