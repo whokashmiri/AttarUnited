@@ -8,12 +8,12 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
-import a1 from "../OurBrands/assets/C3.webp";
-import a2 from "../OurBrands/assets/H3.jpg";
-import a3 from "../OurBrands/assets/G3.webp";
-import a4 from "../OurBrands/assets/ST (3).jpg";
-import a5 from "../OurBrands/assets/A2.webp";
-import a6 from "../OurBrands/assets/GC2.webp";
+import a1 from "../OurBrands/assets/new/C1.webp";
+import a2 from "../OurBrands/assets/new/H.png";
+import a3 from "../OurBrands/assets/new/GF.jpg";
+import a4 from "../OurBrands/assets/new/S.jpg";
+import a5 from "../OurBrands/assets/new/A.jpg";
+import a6 from "../OurBrands/assets/new/gr.jpg";
 
 const brands = [
   { name: "Chopard", image: a1 },
@@ -47,31 +47,31 @@ export default function OurBrandsHero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   // HARD LOOP — NEVER ENDS
- const wrapX = (value) => {
-  return ((value % TOTAL_WIDTH) + TOTAL_WIDTH) % TOTAL_WIDTH - TOTAL_WIDTH;
-};
+  const wrapX = (value) => {
+    return (((value % TOTAL_WIDTH) + TOTAL_WIDTH) % TOTAL_WIDTH) - TOTAL_WIDTH;
+  };
 
-const moveLeft = () => {
-  animate(x, x.get() + STEP, {
-    type: "spring",
-    stiffness: 140,
-    damping: 22,
-    onComplete: () => {
-      x.set(wrapX(x.get()));
-    },
-  });
-};
+  const moveLeft = () => {
+    animate(x, x.get() + STEP, {
+      type: "spring",
+      stiffness: 140,
+      damping: 22,
+      onComplete: () => {
+        x.set(wrapX(x.get()));
+      },
+    });
+  };
 
-const moveRight = () => {
-  animate(x, x.get() - STEP, {
-    type: "spring",
-    stiffness: 140,
-    damping: 22,
-    onComplete: () => {
-      x.set(wrapX(x.get()));
-    },
-  });
-};
+  const moveRight = () => {
+    animate(x, x.get() - STEP, {
+      type: "spring",
+      stiffness: 140,
+      damping: 22,
+      onComplete: () => {
+        x.set(wrapX(x.get()));
+      },
+    });
+  };
 
   return (
     <section
@@ -95,7 +95,8 @@ const moveRight = () => {
         transition={{ delay: 0.15, duration: 0.7 }}
         className="max-w-3xl mx-auto text-center text-gray-400 text-lg mb-12"
       >
-        A refined selection of the world’s most prestigious watch and jewelry maisons.
+        A refined selection of the world’s most prestigious watch and jewelry
+        maisons.
       </motion.p>
 
       {/* LEFT BUTTON */}
